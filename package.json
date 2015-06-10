@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/nkbt/react-swap",
   "dependencies": {
+    "lodash": "^3.9.3",
     "react": "^0.13.3"
   },
   "devDependencies": {
@@ -39,7 +40,6 @@
     "eslint-loader": "^0.12.0",
     "eslint-plugin-react": "^2.5.0",
     "html-webpack-plugin": "^1.5.0",
-    "lodash": "^3.9.3",
     "node-libs-browser": "^0.5.2",
     "react-hot-loader": "^1.2.7",
     "webpack": "^1.9.10",
