@@ -1,5 +1,10 @@
 # react-swap
+
 React component-wrapper to swap one element with another and back
+
+
+[![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
+[![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
 ## Options
 
@@ -120,6 +125,10 @@ Then
 ```bash
 open http://localhost:8080
 ```
+
+## Demo
+
+http://nkbt.github.io/react-swap/example
 
 
 ## License
