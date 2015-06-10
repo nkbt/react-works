@@ -1,32 +1,3 @@
-# react-swap
-React component-wrapper to swap one element with another and back
-
-## Options
-
-
-#### `isHover`: PropTypes.bool
-
-Should swap happen on hover rather then on click (default)?
-
-
-#### `isSwapped`: PropTypes.bool
-
-Should be initially swapped?
-
-
-#### `delay`: PropTypes.number
-
-Delay in `ms` for swapping back to first element.
-
-
-#### `dataHandler`: PropTypes.string
-
-Custom data attribute name for click-swap handler.
-Defaults to `swapHandler` which is `data-swap-handler`
-
-
-## Usage
-```js
 import React from 'react';
 const {PropTypes} = React;
 import Swap from './ReactSwap';
@@ -105,23 +76,3 @@ const App = React.createClass({
 
 
 React.render(<App />, document.body);
-```
-
-
-## Development and testing
-
-```bash
-npm install
-npm start
-```
-
-Then 
-
-```bash
-open http://localhost:8080
-```
-
-
-## License
-
-MIT
