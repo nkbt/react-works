@@ -56,11 +56,13 @@ const ReactSwap = React.createClass({
   },
 
 
-  swap(e) {
+  swap(event) {
     // Should react on click only on [data-swap-handler="1"] elements
-    if (!e.target.dataset[this.props.dataHandler]) {
+    if (!event.target.dataset[this.props.dataHandler]) {
       return;
     }
+    event.preventDefault();
+    event.stopPropagation();
     if (this.state.isSwapped) {
       this.hide();
     } else {
