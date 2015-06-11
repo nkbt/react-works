@@ -48,7 +48,7 @@ const On = React.createClass({
 });
 
 
-const App = React.createClass({
+const Clickable = React.createClass({
   render() {
     return (
       <div>
@@ -57,19 +57,46 @@ const App = React.createClass({
           <Off data-swap-handler>OFF</Off>
           <On data-swap-handler>ON</On>
         </Swap>
+      </div>
+    );
+  }
+});
 
+
+const Hoverable = React.createClass({
+  render() {
+    return (
+      <div>
         <h2>Hoverable</h2>
         <Swap isHover={true}>
           <Off data-swap-handler>OFF</Off>
           <On>ON</On>
         </Swap>
+      </div>
+    );
+  }
+});
 
+
+const Delayed = React.createClass({
+  render() {
+    return (
+      <div>
         <h2>Hoverable with delay</h2>
         <Swap isHover={true} delay={200}>
           <Off>OFF</Off>
           <On>ON</On>
         </Swap>
+      </div>
+    );
+  }
+});
 
+
+const Deep = React.createClass({
+  render() {
+    return (
+      <div>
         <h2>Deep Swap</h2>
         <Swap>
           <div>
@@ -78,13 +105,24 @@ const App = React.createClass({
           <div>
             <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
             <div style={{marginLeft: 50}}>
-              <Swap>
-                <Off data-swap-handler>OFF</Off>
-                <On data-swap-handler>ON</On>
-              </Swap>
+              <Clickable />
             </div>
           </div>
         </Swap>
+      </div>
+    );
+  }
+});
+
+
+const App = React.createClass({
+  render() {
+    return (
+      <div>
+        <Clickable />
+        <Hoverable />
+        <Delayed />
+        <Deep />
       </div>
     );
   }

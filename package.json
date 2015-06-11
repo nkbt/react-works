@@ -4,7 +4,7 @@
   "description": "React component-wrapper to swap one element with another and back",
   "main": "index.js",
   "scripts": {
-    "build": "babel -sd lib/ src/",
+    "build": "babel -sd lib/ src/ && webpack",
     "prepublish": "npm run build",
     "start": "webpack-dev-server",
     "lint": "eslint ./src ./*.js",
