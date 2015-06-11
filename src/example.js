@@ -69,6 +69,22 @@ const App = React.createClass({
           <Off>OFF</Off>
           <On>ON</On>
         </Swap>
+
+        <h2>Deep Swap</h2>
+        <Swap>
+          <div>
+            <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+          </div>
+          <div>
+            <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+            <div style={{marginLeft: 50}}>
+              <Swap>
+                <Off data-swap-handler>OFF</Off>
+                <On data-swap-handler>ON</On>
+              </Swap>
+            </div>
+          </div>
+        </Swap>
       </div>
     );
   }
