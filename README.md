@@ -166,6 +166,13 @@ const App = React.createClass({
 React.render(<App />, document.body);
 ```
 
+## WARNING
+
+At the moment you can only use native DOM elements as swappable children. 
+Though you can put any custom components inside as shown in example above.
+
+The reason is that when custom component is used, it is not possible to capture `onClick` on it.
+
 
 ## Development and testing
 
