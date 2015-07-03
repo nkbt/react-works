@@ -4,6 +4,7 @@ import isFunction from 'lodash/lang/isFunction';
 
 const extendProps = (props, moarProps) => {
   const newProps = assign({}, props);
+
   Object.keys(moarProps).forEach(prop => {
     if (isFunction(props[prop])) {
       newProps[prop] = (...args) => {

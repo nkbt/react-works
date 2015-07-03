@@ -17,6 +17,7 @@ const Off = React.createClass({
       lineHeight: '100px',
       textAlign: 'center'
     };
+
     return (
       <div {...this.props} style={style}>{this.props.children}</div>
     );
@@ -40,6 +41,7 @@ const On = React.createClass({
       lineHeight: '100px',
       textAlign: 'center'
     };
+
     return (
       <div {...this.props} style={style}>{this.props.children}</div>
     );
@@ -53,8 +55,8 @@ const Clickable = React.createClass({
       <div>
         <h2>Clickable</h2>
         <Swap>
-          <Off data-swap-handler>OFF</Off>
-          <On data-swap-handler>ON</On>
+          <Off data-swap-handler={1}>OFF</Off>
+          <On data-swap-handler={1}>ON</On>
         </Swap>
       </div>
     );
@@ -68,7 +70,7 @@ const Hoverable = React.createClass({
       <div>
         <h2>Hoverable</h2>
         <Swap isHover={true}>
-          <Off data-swap-handler>OFF</Off>
+          <Off data-swap-handler={1}>OFF</Off>
           <On>ON</On>
         </Swap>
       </div>
@@ -99,10 +101,10 @@ const Deep = React.createClass({
         <h2>Deep Swap</h2>
         <Swap>
           <div>
-            <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+            <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
           </div>
           <div>
-            <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+            <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
             <div style={{marginLeft: 50}}>
               <Clickable />
             </div>
@@ -127,12 +129,12 @@ const Table = React.createClass({
           <Swap>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
               </td>
             </tr>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
               </td>
             </tr>
           </Swap>
@@ -158,14 +160,14 @@ const DeepTableSwap = React.createClass({
           <tbody>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
               </td>
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
                 <div style={{marginLeft: 20}}>
                   <Table />
                 </div>
