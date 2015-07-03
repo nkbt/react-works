@@ -4,7 +4,7 @@ import React from 'react';
 
 const ReactSwap = React.createClass({
   propTypes: {
-    children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
+    children: React.PropTypes.node.isRequired,
     isHover: React.PropTypes.bool,
     isSwapped: React.PropTypes.bool,
     delay: React.PropTypes.number,

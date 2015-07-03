@@ -1,11 +1,10 @@
 import React from 'react';
-const {PropTypes} = React;
 import Swap from '..';
 
 
 const Off = React.createClass({
   propTypes: {
-    children: PropTypes.arrayOf(PropTypes.element)
+    children: React.PropTypes.node
   },
 
 
@@ -27,7 +26,7 @@ const Off = React.createClass({
 
 const On = React.createClass({
   propTypes: {
-    children: PropTypes.arrayOf(PropTypes.element)
+    children: React.PropTypes.node
   },
 
 
@@ -118,7 +117,7 @@ const Deep = React.createClass({
 const Table = React.createClass({
   render() {
     return (
-      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05);'}}>
+      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
         <tbody>
           <tr>
             <td>
@@ -147,7 +146,7 @@ const Table = React.createClass({
 const DeepTableSwap = React.createClass({
   render() {
     return (
-      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05);'}}>
+      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
         <tbody>
           <tr>
             <td>
