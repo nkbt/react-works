@@ -3,6 +3,7 @@
 React component-wrapper to swap one element with another and back
 
 
+[![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=svg)](https://circleci.com/gh/nkbt/react-swap)
 [![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
 [![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 

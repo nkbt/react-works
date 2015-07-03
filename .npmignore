@@ -6,3 +6,4 @@ src
 .eslintrc
 .npmignore
 lib/example*
+circle.yml
