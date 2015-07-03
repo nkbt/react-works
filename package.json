@@ -11,9 +11,6 @@
     "prepublish": "npm run build",
     "start": "NODE_ENV=development webpack-dev-server --history-api-fallback",
     "lint": "eslint *.js src",
-    "prepublish": "npm run build",
-    "start": "webpack-dev-server",
-    "lint": "eslint ./src ./*.js",
     "test": "npm run lint"
   },
   "repository": {
