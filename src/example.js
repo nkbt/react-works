@@ -115,6 +115,71 @@ const Deep = React.createClass({
 });
 
 
+const Table = React.createClass({
+  render() {
+    return (
+      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05);'}}>
+        <tbody>
+          <tr>
+            <td>
+              <h2>Table Swap</h2>
+            </td>
+          </tr>
+          <Swap>
+            <tr>
+              <td>
+                <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+              </td>
+            </tr>
+          </Swap>
+        </tbody>
+      </table>
+    );
+  }
+});
+
+
+const DeepTableSwap = React.createClass({
+  render() {
+    return (
+      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05);'}}>
+        <tbody>
+          <tr>
+            <td>
+              <h2>Deep Table Swap</h2>
+            </td>
+          </tr>
+        </tbody>
+        <Swap>
+          <tbody>
+            <tr>
+              <td>
+                <h3 style={{marginLeft: 20}} data-swap-handler>Click me</h3>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>
+                <h3 style={{marginLeft: 20}} data-swap-handler>Unclick me</h3>
+                <div style={{marginLeft: 20}}>
+                  <Table />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </Swap>
+      </table>
+    );
+  }
+});
+
+
 const App = React.createClass({
   render() {
     return (
@@ -123,6 +188,8 @@ const App = React.createClass({
         <Hoverable />
         <Delayed />
         <Deep />
+        <Table />
+        <DeepTableSwap />
       </div>
     );
   }
