@@ -1,6 +1,6 @@
 import React from 'react';
 const {PropTypes} = React;
-import Swap from './ReactSwap';
+import Swap from '..';
 
 
 const Off = React.createClass({

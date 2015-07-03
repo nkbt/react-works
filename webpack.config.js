@@ -1,55 +1,63 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var env = process.env.NODE_ENV || 'production';
+var entry = process.env.ENTRY || 'Example';
 
 
-var eslintLoader = {
-  test: /\.js$/,
-  loaders: ['eslint'],
-  include: [new RegExp(path.join(__dirname, 'src'))]
+const production = {
+  devtool: 'source-map',
+  entry: ['./src/example/' + entry + '.js'],
+  output: {filename: 'index.js', path: path.resolve('./example')},
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"' + env + '"'
+      }
+    })
+  ],
+
+  module: {
+    loaders: [
+      {test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src')]}
+    ]
+  },
+  resolve: {extensions: ['', '.js']},
+  stats: {colors: true}
 };
 
 
-module.exports = {
+const development = {
   devtool: 'eval',
 
   entry: [
-    './src/example.js',
+    './src/example/' + entry + '.js',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server'
   ],
-
-  output: {
-    filename: 'index.js',
-    path: path.resolve('./example')
-  },
-
+  output: {filename: 'index.js', path: path.resolve('./example')},
   plugins: [
     new HtmlWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"' + env + '"'
+      }
+    }),
     new webpack.HotModuleReplacementPlugin()
   ],
-
   module: {
     loaders: [
       {test: /\.js$/, loaders: ['react-hot', 'babel'], include: [path.join(__dirname, 'src')]}
     ],
     preLoaders: [
-      eslintLoader
+      {test: /\.js$/, loaders: ['eslint'], include: [path.join(__dirname, 'src')]}
     ]
   },
-
-  resolve: {
-    extensions: ['', '.js']
-  },
-
-
-  stats: {
-    colors: true
-  },
-
-  eslint: {
-    configFile: 'src/.eslintrc',
-    // Treat all warnings as errors too
-    emitError: true
-  }
+  resolve: {extensions: ['', '.js']},
+  stats: {colors: true},
+  eslint: {configFile: 'src/.eslintrc'}
 };
+
+
+module.exports = env === 'production' ? production : development;

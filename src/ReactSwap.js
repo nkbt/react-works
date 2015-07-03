@@ -1,15 +1,14 @@
 import extendProps from './extendProps.js';
 import React from 'react';
-const {PropTypes} = React;
 
 
 const ReactSwap = React.createClass({
   propTypes: {
-    children: PropTypes.arrayOf(PropTypes.element).isRequired,
-    isHover: PropTypes.bool,
-    isSwapped: PropTypes.bool,
-    delay: PropTypes.number,
-    dataHandler: PropTypes.string
+    children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
+    isHover: React.PropTypes.bool,
+    isSwapped: React.PropTypes.bool,
+    delay: React.PropTypes.number,
+    dataHandler: React.PropTypes.string
   },
 
 
@@ -43,6 +42,7 @@ const ReactSwap = React.createClass({
       callback();
     }
   },
+
 
   clearTimer() {
     if (this.props.delay) {
