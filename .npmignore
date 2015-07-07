@@ -1,9 +1,11 @@
-example
-script
-webpack.config.js
-test
-src
+coverage/
+example/
+src/
+test/
+.coveralls.yml
 .eslintrc
+.gitignore
 .npmignore
-lib/example*
 circle.yml
+karma.conf.js
+webpack.config.js

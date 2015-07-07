@@ -1,4 +1,4 @@
-import extendProps from './extendProps.js';
+import extendProps from './extendProps';
 import React from 'react';
 
 

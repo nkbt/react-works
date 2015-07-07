@@ -8,7 +8,7 @@ var entry = process.env.ENTRY || 'Example';
 const production = {
   devtool: 'source-map',
   entry: ['./src/example/' + entry + '.js'],
-  output: {filename: 'index.js', path: path.resolve('./example')},
+  output: {filename: 'bundle.js', path: path.resolve('./example')},
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
@@ -36,7 +36,7 @@ const development = {
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server'
   ],
-  output: {filename: 'index.js', path: path.resolve('./example')},
+  output: {filename: 'bundle.js', path: path.resolve('./example')},
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
