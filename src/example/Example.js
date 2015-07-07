@@ -185,16 +185,12 @@ const App = React.createClass({
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <Clickable />
         <Hoverable />
         <Delayed />
         <Deep />
         <Table />
         <DeepTableSwap />
-=======
-        <Component />
->>>>>>> template/master
       </div>
     );
   }
