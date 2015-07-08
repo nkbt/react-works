@@ -1,4 +1,3 @@
-import extendProps from './extendProps';
 import React from 'react';
 
 
@@ -56,18 +55,24 @@ const ReactSwap = React.createClass({
   },
 
 
-  swap(event) {
+  swap() {
+    if (this.state.isSwapped) {
+      this.hide();
+    } else {
+      this.expand();
+    }
+  },
+
+
+  onClick(event) {
     // Should react on click only on [data-swap-handler="1"] elements
     if (!event.target.dataset[this.props.dataHandler]) {
       return;
     }
     event.preventDefault();
     event.stopPropagation();
-    if (this.state.isSwapped) {
-      this.hide();
-    } else {
-      this.expand();
-    }
+
+    this.swap();
   },
 
 
@@ -79,10 +84,10 @@ const ReactSwap = React.createClass({
   render() {
     const content = this.state.isSwapped ? this.props.children[1] : this.props.children[0];
     const props = this.props.isHover ?
-      extendProps(content.props, {onMouseOut: this.hide, onMouseOver: this.expand}) :
-      extendProps(content.props, {onClick: this.swap});
+      {onMouseLeave: this.hide, onMouseEnter: this.expand} :
+      {onClick: this.onClick};
 
-    return React.createElement(content.type, props);
+    return React.cloneElement(content, props);
   }
 });
 
