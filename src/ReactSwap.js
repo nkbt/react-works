@@ -1,4 +1,3 @@
-import extendProps from './extendProps';
 import React from 'react';
 
 
