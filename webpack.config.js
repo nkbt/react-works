@@ -2,13 +2,12 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var env = process.env.NODE_ENV || 'production';
-var entry = process.env.ENTRY || 'Example';
 
 
 const production = {
   devtool: 'source-map',
-  entry: ['./src/example/' + entry + '.js'],
-  output: {filename: 'bundle.js', path: path.resolve('./example')},
+  entry: './src/example/Example.js',
+  output: {filename: 'bundle.js', path: path.resolve('example')},
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
@@ -20,7 +19,7 @@ const production = {
 
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'babel', include: [path.join(__dirname, 'src')]}
+      {test: /\.js$/, loader: 'babel', include: [path.resolve('src')]}
     ]
   },
   resolve: {extensions: ['', '.js']},
@@ -32,11 +31,11 @@ const development = {
   devtool: 'eval',
 
   entry: [
-    './src/example/' + entry + '.js',
+    './src/example/Example.js',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server'
   ],
-  output: {filename: 'bundle.js', path: path.resolve('./example')},
+  output: {filename: 'bundle.js', path: path.resolve('example')},
   plugins: [
     new HtmlWebpackPlugin(),
     new webpack.DefinePlugin({
@@ -48,15 +47,24 @@ const development = {
   ],
   module: {
     loaders: [
-      {test: /\.js$/, loaders: ['react-hot', 'babel'], include: [path.join(__dirname, 'src')]}
+      {test: /\.js$/, loaders: ['react-hot', 'babel'], include: [path.resolve('src')]}
     ],
     preLoaders: [
-      {test: /\.js$/, loaders: ['eslint'], include: [path.join(__dirname, 'src')]}
+      {test: /\.js$/, loaders: ['eslint'], include: [path.resolve('src')]}
     ]
   },
   resolve: {extensions: ['', '.js']},
   stats: {colors: true},
-  eslint: {configFile: 'src/.eslintrc'}
+  eslint: {configFile: 'src/.eslintrc'},
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    stats: {
+      // Do not show list of hundreds of files included in a bundle
+      chunkModules: false,
+      colors: true
+    }
+  }
 };
 
 
