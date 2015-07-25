@@ -42,9 +42,6 @@
   "peerDependencies": {
     "react": "^0.13.3"
   },
-  "dependencies": {
-    "lodash": "^3.10.0"
-  },
   "devDependencies": {
     "babel": "^5.8.3",
     "babel-core": "^5.8.3",
