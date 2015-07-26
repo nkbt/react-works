@@ -1,6 +1,6 @@
 {
   "name": "react-swap",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React component-wrapper to swap one element with another and back",
   "main": "lib/index.js",
   "scripts": {
