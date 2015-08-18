@@ -181,6 +181,26 @@ const DeepTableSwap = React.createClass({
 });
 
 
+const WithCallback = React.createClass({
+  getInitialState() {
+    return {opened: false};
+  },
+
+
+  render() {
+    return (
+      <div>
+        <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
+        <Swap onSwap={opened => this.replaceState({opened})}>
+          <Off data-swap-handler={1}>OFF</Off>
+          <On data-swap-handler={1}>ON</On>
+        </Swap>
+      </div>
+    );
+  }
+});
+
+
 const App = React.createClass({
   render() {
     return (
@@ -191,6 +211,7 @@ const App = React.createClass({
         <Deep />
         <Table />
         <DeepTableSwap />
+        <WithCallback />
       </div>
     );
   }

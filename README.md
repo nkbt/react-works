@@ -7,28 +7,20 @@ React component-wrapper to swap one element with another and back
 [![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
 [![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
-## Options
 
 
-#### `isHover`: PropTypes.bool
+## Installation
 
-Should swap happen on hover rather then on click (default)?
+### npm
 
+```sh
+npm install --save react-copy-to-clipboard
+```
 
-#### `isSwapped`: PropTypes.bool
+### bower
 
-Should be initially swapped?
+Coming soon
 
-
-#### `delay`: PropTypes.number
-
-Delay in `ms` for swapping back to first element.
-
-
-#### `dataHandler`: PropTypes.string
-
-Custom data attribute name for click-swap handler.
-Defaults to `swapHandler` which is `data-swap-handler`
 
 
 ## Usage
@@ -150,6 +142,26 @@ const Deep = React.createClass({
 });
 
 
+const WithCallback = React.createClass({
+  getInitialState() {
+    return {opened: false};
+  },
+
+
+  render() {
+    return (
+      <div>
+        <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
+        <Swap onSwap={opened => this.replaceState({opened})}>
+          <Off data-swap-handler={1}>OFF</Off>
+          <On data-swap-handler={1}>ON</On>
+        </Swap>
+      </div>
+    );
+  }
+});
+
+
 const App = React.createClass({
   render() {
     return (
@@ -158,6 +170,7 @@ const App = React.createClass({
         <Hoverable />
         <Delayed />
         <Deep />
+        <WithCallback />
       </div>
     );
   }
@@ -166,6 +179,35 @@ const App = React.createClass({
 
 React.render(<App />, document.body);
 ```
+
+## Options
+
+
+#### `isHover`: PropTypes.bool
+
+Should swap happen on hover rather then on click (default)?
+
+
+#### `isSwapped`: PropTypes.bool
+
+Should be initially swapped?
+
+
+#### `delay`: PropTypes.number
+
+Delay in `ms` for swapping back to first element.
+
+
+#### `dataHandler`: PropTypes.string
+
+Custom data attribute name for click-swap handler.
+Defaults to `swapHandler` which is `data-swap-handler`
+
+
+#### `onSwap(value)`: PropTypes.func
+
+Callback which is called every time ReactSwap state is changed, `value` is `true` or `false`
+
 
 ## WARNING
 
@@ -177,14 +219,15 @@ The reason is that when custom component is used, it is not possible to capture 
 
 ## Development and testing
 
+To run example covering all `ReactSwap` features, use `npm start`, which will compile `src/example/Example.js`
+
 ```bash
+git clone git@github.com:nkbt/react-swap.git
+cd react-swap
 npm install
 npm start
-```
 
-Then 
-
-```bash
+# then
 open http://localhost:8080
 ```
 

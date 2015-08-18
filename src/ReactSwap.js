@@ -7,7 +7,8 @@ const ReactSwap = React.createClass({
     isHover: React.PropTypes.bool,
     isSwapped: React.PropTypes.bool,
     delay: React.PropTypes.number,
-    dataHandler: React.PropTypes.string
+    dataHandler: React.PropTypes.string,
+    onSwap: React.PropTypes.func
   },
 
 
@@ -28,8 +29,16 @@ const ReactSwap = React.createClass({
   },
 
 
+  change(value) {
+    this.replaceState({isSwapped: value});
+    if (this.props.onSwap) {
+      this.props.onSwap(value);
+    }
+  },
+
+
   expand() {
-    this.setState({isSwapped: true});
+    this.change(true);
     this.clearTimer();
   },
 
@@ -51,7 +60,7 @@ const ReactSwap = React.createClass({
 
 
   hide() {
-    this.setTimer(() => this.setState({isSwapped: false}), this.props.delay);
+    this.setTimer(() => this.change(false), this.props.delay);
   },
 
 
