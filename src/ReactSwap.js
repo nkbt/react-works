@@ -29,6 +29,13 @@ const ReactSwap = React.createClass({
   },
 
 
+  componentWillReceiveProps({isSwapped}) {
+    if (typeof isSwapped !== 'undefined' && this.state.isSwapped !== isSwapped) {
+      this.replaceState({isSwapped});
+    }
+  },
+
+
   change(value) {
     this.replaceState({isSwapped: value});
     if (this.props.onSwap) {
@@ -93,8 +100,8 @@ const ReactSwap = React.createClass({
   render() {
     const content = this.state.isSwapped ? this.props.children[1] : this.props.children[0];
     const props = this.props.isHover ?
-      {onMouseLeave: this.hide, onMouseEnter: this.expand} :
-      {onClick: this.onClick};
+    {onMouseLeave: this.hide, onMouseEnter: this.expand} :
+    {onClick: this.onClick};
 
     return React.cloneElement(content, props);
   }

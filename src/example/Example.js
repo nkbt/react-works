@@ -201,6 +201,30 @@ const WithCallback = React.createClass({
 });
 
 
+const ToggleFromOutside = React.createClass({
+  getInitialState() {
+    return {opened: false};
+  },
+
+
+  render() {
+    return (
+      <div>
+        <h2>
+          Toggle from outside
+          &nbsp;
+          <button onClick={() => this.replaceState({opened: !this.state.opened})}>toggle</button>
+        </h2>
+        <Swap isSwapped={this.state.opened}>
+          <Off>OFF</Off>
+          <On>ON</On>
+        </Swap>
+      </div>
+    );
+  }
+});
+
+
 const App = React.createClass({
   render() {
     return (
@@ -212,6 +236,7 @@ const App = React.createClass({
         <Table />
         <DeepTableSwap />
         <WithCallback />
+        <ToggleFromOutside />
       </div>
     );
   }
