@@ -1,6 +1,6 @@
 # react-swap
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/nkbt/help)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nkbt/help)
 
 [![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=svg)](https://circleci.com/gh/nkbt/react-swap)
 [![Coverage Status](https://coveralls.io/repos/github/nkbt/react-swap/badge.svg?branch=master)](https://coveralls.io/github/nkbt/react-swap?branch=master)
