@@ -1,13 +1,13 @@
 # react-swap
 
-React component-wrapper to swap one element with another and back
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/nkbt/help)
 
 [![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=svg)](https://circleci.com/gh/nkbt/react-swap)
 [![Coverage Status](https://coveralls.io/repos/github/nkbt/react-swap/badge.svg?branch=master)](https://coveralls.io/github/nkbt/react-swap?branch=master)
 [![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
 [![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
-
+React component-wrapper to swap one element with another and back
 
 ## Installation
 
