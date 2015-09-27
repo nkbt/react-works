@@ -7,21 +7,29 @@
 [![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
 [![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
-React component-wrapper to swap one element with another and back
+React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
 ## Installation
 
 ### npm
 
 ```sh
-npm install --save react-copy-to-clipboard
+npm install --save react-swap
 ```
 
 ### bower
 
-Coming soon
+```sh
+bower install --save react-swap
+```
 
+## Demo
 
+[http://nkbt.github.io/react-swap/example](http://nkbt.github.io/react-swap/example)
+
+## Codepen demo
+
+[http://codepen.io/nkbt/pen/zvodrN](http://codepen.io/nkbt/pen/zvodrN?editors=101)
 
 ## Usage
 ```js
@@ -230,11 +238,6 @@ npm start
 # then
 open http://localhost:8080
 ```
-
-## Demo
-
-[http://nkbt.github.io/react-swap/example](http://nkbt.github.io/react-swap/example)
-
 
 ## License
 
