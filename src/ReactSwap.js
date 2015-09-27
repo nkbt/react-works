@@ -54,7 +54,7 @@ const ReactSwap = React.createClass({
     if (timeout) {
       this.timer = setTimeout(callback, timeout);
     } else {
-      callback();
+      return callback();
     }
   },
 
