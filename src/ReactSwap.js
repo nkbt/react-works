@@ -36,6 +36,11 @@ const ReactSwap = React.createClass({
   },
 
 
+  componentWillUnmount() {
+    this.clearTimer();
+  },
+
+
   change(value) {
     this.replaceState({isSwapped: value});
     if (this.props.onSwap) {
@@ -89,11 +94,6 @@ const ReactSwap = React.createClass({
     event.stopPropagation();
 
     this.swap();
-  },
-
-
-  componentWillUnmount() {
-    this.clearTimer();
   },
 
 
