@@ -1,15 +1,17 @@
 machine:
   node:
-    version: v0.10.38
+    version: v0.10.40
 
 
 dependencies:
   pre:
-    - npm update -g npm
-    - npm install react@0.13
+    - npm update -g npm@3
 
 test:
   override:
-    - $(npm bin)/eslint --debug . --format tap | $(npm bin)/tap-xunit > $CIRCLE_TEST_REPORTS/lint.xml; test ${PIPESTATUS[0]} -eq 0
+    - $(npm bin)/eslint --debug . --format tap | $(npm bin)/tap-xunit > ${CIRCLE_TEST_REPORTS}/lint.xml; test ${PIPESTATUS[0]} -eq 0
     - COVERAGE=1 karma start ./karma.conf.js --single-run --reporters coverage,junit
+    - REPORT_DIR=${CIRCLE_TEST_REPORTS} LOG_DIR=${CIRCLE_ARTIFACTS} npm run test:e2e -s
+
+  post:
     - cat ${CIRCLE_ARTIFACTS}/coverage/lcov.info | $(npm bin)/coveralls || true
