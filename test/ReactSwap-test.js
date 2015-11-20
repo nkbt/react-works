@@ -1,19 +1,7 @@
-describe('ReactSwap', () => {
-  const ReactSwapInjector = require('inject!../src/ReactSwap');
-  let extendProps, ReactSwap;
+import test from 'tape';
+import ReactSwap from '../src/ReactSwap';
 
-
-  beforeEach(() => {
-    extendProps = jasmine.createSpyObj('extendProps', ['']);
-  });
-
-
-  beforeEach(() => ReactSwap = ReactSwapInjector({
-    './extendProps': extendProps
-  }));
-
-
-  it('should be ok', () => {
-    expect(ReactSwap).toBeTruthy();
-  });
+test('ReactSwap', t => {
+  t.ok(ReactSwap instanceof Function, 'should be function');
+  t.end();
 });
