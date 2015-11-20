@@ -142,11 +142,16 @@ const WithCallback = React.createClass({
   },
 
 
+  onSwap(opened) {
+    this.replaceState({opened});
+  },
+
+
   render() {
     return (
       <div>
         <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
-        <Swap onSwap={opened => this.replaceState({opened})}>
+        <Swap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
         </Swap>
@@ -162,13 +167,18 @@ const ToggleFromOutside = React.createClass({
   },
 
 
+  onClick() {
+    this.replaceState({opened: !this.state.opened});
+  },
+
+
   render() {
     return (
       <div>
         <h2>
           Toggle from outside
           &nbsp;
-          <button onClick={() => this.replaceState({opened: !this.state.opened})}>toggle</button>
+          <button onClick={this.onClick}>toggle</button>
         </h2>
         <Swap isSwapped={this.state.opened}>
           <Off>OFF</Off>
