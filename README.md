@@ -11,17 +11,40 @@ React component-wrapper to swap one element with another and back, useful to sho
 
 ## Installation
 
-### npm
+### NPM
 
 ```sh
 npm install --save react-swap
 ```
 
-### bower
 
+### Bower:
 ```sh
-bower install --save react-swap
+bower install --save https://npmcdn.com/react-swap/build.zip
 ```
+
+or in `bower.json`
+
+```json
+{
+  "dependencies": {
+    "react-motion": "https://npmcdn.com/react-swap/build.zip"
+  }
+}
+```
+
+then include as
+```html
+<script src="bower_components/react-swap/react-swap.js"></script>
+```
+
+
+### 1998 Script Tag:
+```html
+<script src="https://npmcdn.com/react-swap/build/react-swap.js"></script>
+(Module exposed as `ReactSwap`)
+```
+
 
 ## Demo
 
@@ -219,7 +242,7 @@ Callback which is called every time ReactSwap state is changed, `value` is `true
 
 ## WARNING
 
-At the moment you can only use native DOM elements as swappable children. 
+At the moment you can only use native DOM elements as swappable children.
 Though you can put any custom components inside as shown in example above.
 
 The reason is that when custom component is used, it is not possible to capture `onClick` on it.
