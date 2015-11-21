@@ -20,7 +20,7 @@ npm install --save react-swap
 
 ### Bower:
 ```sh
-bower install --save https://npmcdn.com/react-swap/build.zip
+bower install --save https://npmcdn.com/react-swap/build/react-swap.js
 ```
 
 or in `bower.json`
@@ -28,14 +28,14 @@ or in `bower.json`
 ```json
 {
   "dependencies": {
-    "react-motion": "https://npmcdn.com/react-swap/build.zip"
+    "react-motion": "https://npmcdn.com/react-swap/build/react-swap.js"
   }
 }
 ```
 
 then include as
 ```html
-<script src="bower_components/react-swap/react-swap.js"></script>
+<script src="bower_components/react-swap/index.js"></script>
 ```
 
 
