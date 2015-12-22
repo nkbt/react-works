@@ -262,6 +262,18 @@ npm start
 open http://localhost:8080
 ```
 
+## Tests
+
+```bash
+npm test
+
+# to run tests in watch mode for development
+npm run test:dev
+
+# to generate test coverage (./reports/coverage)
+npm run test:cov
+```
+
 ## License
 
 MIT
