@@ -1,5 +1,5 @@
 import React from 'react';
-import Swap from '..';
+import Swap from '../Swap';
 import On from './On';
 import Off from './Off';
 
