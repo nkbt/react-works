@@ -75,7 +75,7 @@ const dist = {
   output: {
     filename: `${require('./package.json').name}.js`,
     path: path.resolve('build'),
-    library: 'Component',
+    library: 'ReactSwap',
     libraryTarget: 'umd'
   },
   plugins: [definePlugin],
@@ -94,7 +94,7 @@ const min = {
   output: {
     filename: `${require('./package.json').name}.min.js`,
     path: path.resolve('build'),
-    library: 'Component',
+    library: 'ReactSwap',
     libraryTarget: 'umd'
   },
   plugins: [

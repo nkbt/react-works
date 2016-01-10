@@ -1,5 +1,8 @@
+'use strict';
+
+
 module.exports = {
-  'Smoketest, page with examples should load': function (browser) {
+  'Smoketest, page with examples should load'(browser) {
     browser
       .url('http://localhost:8080/')
       .waitForElementVisible('body', 1000)
