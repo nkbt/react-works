@@ -2,7 +2,8 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nkbt/help)
 
-[![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=svg)](https://circleci.com/gh/nkbt/react-swap)
+[![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=shield)](https://circleci.com/gh/nkbt/react-swap)
+[![Appveyor](https://ci.appveyor.com/api/projects/status/i7wh20dxm0s1jevm?svg=true)](https://ci.appveyor.com/project/nkbt/react-swap)
 [![codecov.io](https://codecov.io/github/nkbt/react-swap/coverage.svg?branch=master)](https://codecov.io/github/nkbt/react-swap?branch=master)
 [![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
 [![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
@@ -14,8 +15,10 @@ React component-wrapper to swap one element with another and back, useful to sho
 ### NPM
 
 ```sh
-npm install --save react-swap
+npm install --save react react-swap
 ```
+
+Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 
 
 ### Bower:
@@ -35,12 +38,14 @@ or in `bower.json`
 
 then include as
 ```html
+<script src="bower_components/react/react.js"></script>
 <script src="bower_components/react-swap/build/react-swap.js"></script>
 ```
 
 
 ### 1998 Script Tag:
 ```html
+<script src="https://npmcdn.com/react/dist/react.js"></script>
 <script src="https://npmcdn.com/react-swap/build/react-swap.js"></script>
 (Module exposed as `ReactSwap`)
 ```
@@ -249,6 +254,9 @@ The reason is that when custom component is used, it is not possible to capture 
 
 
 ## Development and testing
+
+Currently is being developed and tested with the latest stable `Node 5` on `OSX` and `Windows`.
+Should be ok with Node 4, but not guaranteed.
 
 To run example covering all `ReactSwap` features, use `npm start`, which will compile `src/example/Example.js`
 

@@ -30,5 +30,12 @@
   "homepage": "https://github.com/nkbt/react-swap",
   "dependencies": {
     "react": "^0.14"
-  }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
