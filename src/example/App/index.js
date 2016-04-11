@@ -1,7 +1,8 @@
 import React from 'react';
-import Swap from '../ReactSwap';
+import Swap from '../../ReactSwap';
 import On from './On';
 import Off from './Off';
+import {name} from '../../../package.json';
 
 
 const Clickable = React.createClass({
@@ -194,6 +195,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
+        <h1>{name}</h1>
         <Clickable />
         <Hoverable />
         <Delayed />

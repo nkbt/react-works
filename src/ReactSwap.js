@@ -24,7 +24,7 @@ const ReactSwap = React.createClass({
 
   getInitialState() {
     return {
-      isSwapped: !!this.props.isSwapped
+      isSwapped: Boolean(this.props.isSwapped)
     };
   },
 
@@ -56,11 +56,11 @@ const ReactSwap = React.createClass({
 
 
   setTimer(callback, timeout) {
-    if (timeout) {
-      this.timer = setTimeout(callback, timeout);
-    } else {
-      return callback();
+    if (!timeout) {
+      callback();
+      return;
     }
+    this.timer = setTimeout(callback, timeout);
   },
 
 

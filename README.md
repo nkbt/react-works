@@ -1,12 +1,12 @@
-# react-swap
+# react-swap [![npm](https://img.shields.io/npm/v/react-swap.svg?style=flat-square)](https://www.npmjs.com/package/react-swap)
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nkbt/help)
+[![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
 
-[![Circle CI](https://circleci.com/gh/nkbt/react-swap.svg?style=shield)](https://circleci.com/gh/nkbt/react-swap)
-[![Appveyor](https://ci.appveyor.com/api/projects/status/i7wh20dxm0s1jevm?svg=true)](https://ci.appveyor.com/project/nkbt/react-swap)
-[![codecov.io](https://codecov.io/github/nkbt/react-swap/coverage.svg?branch=master)](https://codecov.io/github/nkbt/react-swap?branch=master)
-[![Dependency Status](https://david-dm.org/nkbt/react-swap.svg)](https://david-dm.org/nkbt/react-swap)
-[![devDependency Status](https://david-dm.org/nkbt/react-swap/dev-status.svg)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
+[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-swap.svg?style=flat-square&label=nix-build)](https://circleci.com/gh/nkbt/react-swap)
+[![AppVeyor](https://img.shields.io/appveyor/ci/nkbt/react-swap.svg?style=flat-square&label=win-build)](https://ci.appveyor.com/project/nkbt/react-swap)
+[![Coverage](https://img.shields.io/codecov/c/github/nkbt/react-swap.svg?style=flat-square)](https://codecov.io/github/nkbt/react-swap?branch=master)
+[![Dependencies](https://img.shields.io/david/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap)
+[![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
 React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
