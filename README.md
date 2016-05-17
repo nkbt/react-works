@@ -53,7 +53,7 @@ then include as
 
 ## Demo
 
-[http://nkbt.github.io/react-swap/example](http://nkbt.github.io/react-swap/example)
+[http://nkbt.github.io/react-swap](http://nkbt.github.io/react-swap)
 
 ## Codepen demo
 
@@ -258,13 +258,13 @@ The reason is that when custom component is used, it is not possible to capture 
 Currently is being developed and tested with the latest stable `Node 5` on `OSX` and `Windows`.
 Should be ok with Node 4, but not guaranteed.
 
-To run example covering all `ReactSwap` features, use `npm start`, which will compile `src/example/Example.js`
+To run example covering all `ReactSwap` features, use `npm start dev`, which will compile `src/example/Example.js`
 
 ```bash
 git clone git@github.com:nkbt/react-swap.git
 cd react-swap
 npm install
-npm start
+npm start dev
 
 # then
 open http://localhost:8080
@@ -273,13 +273,14 @@ open http://localhost:8080
 ## Tests
 
 ```bash
-npm test
-
-# to run tests in watch mode for development
-npm run test:dev
+# to run tests
+npm start test
 
 # to generate test coverage (./reports/coverage)
-npm run test:cov
+npm start test.cov
+
+# to run end-to-end tests
+npm start test.e2e
 ```
 
 ## License

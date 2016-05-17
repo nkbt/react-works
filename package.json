@@ -3,8 +3,11 @@
   "version": "1.5.0",
   "description": "React component-wrapper to swap one element with another and back",
   "main": "lib/index.js",
+  "config": {
+    "component": "ReactSwap"
+  },
   "scripts": {
-    "start": "COMPONENT_NAME=ReactSwap p-s --config node_modules/react-component-template/package-scripts.js -s",
+    "start": "p-s --config node_modules/react-component-template/package-scripts.js -s",
     "test": "npm start test",
     "precommit": "npm start precommit",
     "prepush": "npm start prepush",
@@ -37,6 +40,6 @@
   },
   "devDependencies": {
     "p-s": "0.7.1",
-    "react-component-template": "file:///Users/nkbt/nkbt/react-component-template"
+    "react-component-template": "0.1.0"
   }
 }
