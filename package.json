@@ -4,12 +4,12 @@
   "description": "React component-wrapper to swap one element with another and back",
   "main": "lib/index.js",
   "scripts": {
-    "postversion": "npm start postversion",
-    "precommit": "npm start precommit",
-    "prepublish": "npm start prepublish",
-    "prepush": "npm start prepush",
     "start": "COMPONENT_NAME=ReactSwap p-s --config node_modules/react-component-template/package-scripts.js -s",
-    "test": "npm start test"
+    "test": "npm start test",
+    "precommit": "npm start precommit",
+    "prepush": "npm start prepush",
+    "postversion": "npm start postversion",
+    "prepublish": "npm start prepublish"
   },
   "repository": {
     "type": "git",
