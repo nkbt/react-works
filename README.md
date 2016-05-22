@@ -255,8 +255,7 @@ The reason is that when custom component is used, it is not possible to capture 
 
 ## Development and testing
 
-Currently is being developed and tested with the latest stable `Node 5` on `OSX` and `Windows`.
-Should be ok with Node 4, but not guaranteed.
+Currently is being developed and tested with the latest stable `Node 6` on `OSX` and `Windows`.
 
 To run example covering all `ReactSwap` features, use `npm start dev`, which will compile `src/example/Example.js`
 

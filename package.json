@@ -7,7 +7,7 @@
     "component": "ReactSwap"
   },
   "scripts": {
-    "start": "p-s --config node_modules/react-component-template/package-scripts.js -s",
+    "start": "p-s --config react-component-template/package-scripts -s",
     "test": "npm start test",
     "precommit": "npm start precommit",
     "prepush": "npm start prepush",
@@ -29,7 +29,7 @@
     "hover",
     "dropdown"
   ],
-  "author": "Nik Butenko <nik@butenko.me> (http://butenko.me/)",
+  "author": "Nik Butenko <nik@butenko.me>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nkbt/react-swap/issues"
@@ -39,7 +39,7 @@
     "react": "^0.14 || ^15"
   },
   "devDependencies": {
-    "p-s": "0.8.0",
+    "p-s": "0.9.0",
     "react-component-template": "0.1.2"
   }
 }
