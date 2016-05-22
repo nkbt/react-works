@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ReactSwap = React.createClass({
+export const ReactSwap = React.createClass({
   propTypes: {
     children: React.PropTypes.node.isRequired,
     isHover: React.PropTypes.bool,
@@ -106,6 +106,3 @@ const ReactSwap = React.createClass({
     return React.cloneElement(content, props);
   }
 });
-
-
-export default ReactSwap;

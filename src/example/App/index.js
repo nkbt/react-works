@@ -1,8 +1,8 @@
 import React from 'react';
-import Swap from '../../ReactSwap';
+import ReactSwap from '../..';
 import On from './On';
 import Off from './Off';
-import {name} from '../../../package.json';
+import css from './App.css';
 
 
 const Clickable = React.createClass({
@@ -10,10 +10,10 @@ const Clickable = React.createClass({
     return (
       <div>
         <h2>Clickable</h2>
-        <Swap>
+        <ReactSwap>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -25,10 +25,10 @@ const Hoverable = React.createClass({
     return (
       <div>
         <h2>Hoverable</h2>
-        <Swap isHover={true}>
+        <ReactSwap isHover={true}>
           <Off data-swap-handler={1}>OFF</Off>
           <On>ON</On>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -40,10 +40,10 @@ const Delayed = React.createClass({
     return (
       <div>
         <h2>Hoverable with delay</h2>
-        <Swap isHover={true} delay={200}>
+        <ReactSwap isHover={true} delay={200}>
           <Off>OFF</Off>
           <On>ON</On>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -55,7 +55,7 @@ const Deep = React.createClass({
     return (
       <div>
         <h2>Deep Swap</h2>
-        <Swap>
+        <ReactSwap>
           <div>
             <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
           </div>
@@ -65,7 +65,7 @@ const Deep = React.createClass({
               <Clickable />
             </div>
           </div>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -82,7 +82,7 @@ const Table = React.createClass({
               <h2>Table Swap</h2>
             </td>
           </tr>
-          <Swap>
+          <ReactSwap>
             <tr>
               <td>
                 <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
@@ -93,7 +93,7 @@ const Table = React.createClass({
                 <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
               </td>
             </tr>
-          </Swap>
+          </ReactSwap>
         </tbody>
       </table>
     );
@@ -112,7 +112,7 @@ const DeepTableSwap = React.createClass({
             </td>
           </tr>
         </tbody>
-        <Swap>
+        <ReactSwap>
           <tbody>
             <tr>
               <td>
@@ -130,7 +130,7 @@ const DeepTableSwap = React.createClass({
               </td>
             </tr>
           </tbody>
-        </Swap>
+        </ReactSwap>
       </table>
     );
   }
@@ -152,10 +152,10 @@ const WithCallback = React.createClass({
     return (
       <div>
         <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
-        <Swap onSwap={this.onSwap}>
+        <ReactSwap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -181,10 +181,10 @@ const ToggleFromOutside = React.createClass({
           &nbsp;
           <button onClick={this.onClick}>toggle</button>
         </h2>
-        <Swap isSwapped={this.state.opened}>
+        <ReactSwap isSwapped={this.state.opened}>
           <Off>OFF</Off>
           <On>ON</On>
-        </Swap>
+        </ReactSwap>
       </div>
     );
   }
@@ -194,8 +194,8 @@ const ToggleFromOutside = React.createClass({
 const App = React.createClass({
   render() {
     return (
-      <div>
-        <h1>{name}</h1>
+      <div className={css.app}>
+        <h1>react-swap</h1>
         <Clickable />
         <Hoverable />
         <Delayed />

@@ -13,7 +13,6 @@ React component-wrapper to swap one element with another and back, useful to sho
 ## Installation
 
 ### NPM
-
 ```sh
 npm install --save react react-swap
 ```
@@ -23,23 +22,7 @@ Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 
 ### Bower:
 ```sh
-bower install --save https://npmcdn.com/react-swap/build/react-swap.js
-```
-
-or in `bower.json`
-
-```json
-{
-  "dependencies": {
-    "react-motion": "https://npmcdn.com/react-swap/bower.zip"
-  }
-}
-```
-
-then include as
-```html
-<script src="bower_components/react/react.js"></script>
-<script src="bower_components/react-swap/build/react-swap.js"></script>
+bower install --save https://npmcdn.com/react-swap/bower.zip
 ```
 
 
@@ -61,10 +44,9 @@ then include as
 
 ## Usage
 ```js
-import React from 'react';
-const {PropTypes} = React;
-import Swap from './ReactSwap';
-
+import React, {PropTypes} from 'react';
+import ReactDOM from 'react-dom';
+import ReactSwap from 'react-swap';
 
 const Off = React.createClass({
   propTypes: {
@@ -213,7 +195,9 @@ const App = React.createClass({
 });
 
 
-React.render(<App />, document.body);
+const appRoot = document.createElement('div');
+document.body.appendChild(appRoot);
+ReactDOM.render(<App />, appRoot);
 ```
 
 ## Options

@@ -2,7 +2,12 @@
   "name": "react-swap",
   "version": "0.0.0",
   "description": "React component-wrapper to swap one element with another and back",
-  "main": "lib/index.js",
+  "main": [
+    "build/react-swap.js",
+    "build/react-swap.js.map",
+    "build/react-swap.min.js",
+    "build/react-swap.min.js.map"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nkbt/react-swap.git"
@@ -19,7 +24,7 @@
     "dropdown"
   ],
   "authors": [
-    "Nik Butenko <nik@butenko.me> (http://butenko.me/)"
+    "Nik Butenko <nik@butenko.me>"
   ],
   "license": "MIT",
   "homepage": "https://github.com/nkbt/react-swap",
