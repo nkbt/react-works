@@ -39,7 +39,7 @@
     "react": "^0.14 || ^15"
   },
   "devDependencies": {
-    "p-s": "1.0.0",
+    "p-s": "1.0.1",
     "react-component-template": "0.1.2"
   }
 }
