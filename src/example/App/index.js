@@ -40,7 +40,7 @@ const Delayed = React.createClass({
     return (
       <div>
         <h2>Hoverable with delay</h2>
-        <ReactSwap isHover={true} delay={200}>
+        <ReactSwap delay={200} isHover={true}>
           <Off>OFF</Off>
           <On>ON</On>
         </ReactSwap>
@@ -57,10 +57,10 @@ const Deep = React.createClass({
         <h2>Deep Swap</h2>
         <ReactSwap>
           <div>
-            <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
+            <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
           </div>
           <div>
-            <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
+            <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
             <div style={{marginLeft: 50}}>
               <Clickable />
             </div>
@@ -85,12 +85,12 @@ const Table = React.createClass({
           <ReactSwap>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
+                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
               </td>
             </tr>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
+                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
               </td>
             </tr>
           </ReactSwap>
@@ -116,14 +116,14 @@ const DeepTableSwap = React.createClass({
           <tbody>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Click me</h3>
+                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
               </td>
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td>
-                <h3 style={{marginLeft: 20}} data-swap-handler={1}>Unclick me</h3>
+                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
                 <div style={{marginLeft: 20}}>
                   <Table />
                 </div>
