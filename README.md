@@ -8,7 +8,7 @@
 [![Dependencies](https://img.shields.io/david/nkbt/react-bulkhead.svg?style=flat-square)](https://david-dm.org/nkbt/react-bulkhead)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-bulkhead.svg?style=flat-square)](https://david-dm.org/nkbt/react-bulkhead#info=devDependencies)
 
-React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
+React component to allow 3rd party components to operate over DOM-tree (d3, three.js)
 
 ## Installation
 
@@ -50,9 +50,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {ReactBulkhead} from 'react-bulkhead';
 
+
+const onCreate = ({element}) => {
+  element.innerHTML = 'Gotcha! Mutable DOM here';
+}
+
 const App = () => (
   <div>
-    <ReactBulkhead />
+    <ReactBulkhead onCreate={onCreate} />
   </div>
 );
 
