@@ -4,7 +4,8 @@ import shallowCompare from 'react/lib/shallowCompare';
 
 export const ReactBulkhead = React.createClass({
   propTypes: {
-    element: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.func]),
+    element: React.PropTypes.string,
+    propsWhitelist: React.PropTypes.arrayOf(React.PropTypes.string),
     onCreate: React.PropTypes.func.isRequired,
     children: React.PropTypes.node
   },
@@ -12,7 +13,8 @@ export const ReactBulkhead = React.createClass({
 
   getDefaultProps() {
     return {
-      element: 'div'
+      element: 'div',
+      propsWhitelist: ['id', 'className', 'style']
     };
   },
 
@@ -26,6 +28,7 @@ export const ReactBulkhead = React.createClass({
     if (this.ref) {
       const {
         element: _element,
+        propsWhitelist: _propsWhitelist,
         onCreate,
         children: _children,
         ...props
@@ -44,6 +47,7 @@ export const ReactBulkhead = React.createClass({
 
   componentWillReceiveProps({
     element: _element,
+    propsWhitelist: _propsWhitelist,
     onCreate: _onCreate,
     children: _children,
     ...newProps
@@ -78,11 +82,15 @@ export const ReactBulkhead = React.createClass({
   render() {
     const {
       element,
+      propsWhitelist,
       onCreate: _onCreate,
       children: _children,
-      ...props
+      ...rest
     } = this.props;
+    const elementProps = Object.keys(rest)
+      .filter(key => propsWhitelist.indexOf(key) > -1)
+      .reduce((props, key) => Object.assign(props, {[key]: rest[key]}), {});
 
-    return React.createElement(element, {...props, ref: this.onRef});
+    return React.createElement(element, {...elementProps, ref: this.onRef});
   }
 });
