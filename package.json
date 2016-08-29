@@ -21,7 +21,11 @@
   "keywords": [
     "component",
     "react-component",
-    "react"
+    "react",
+    "bulkhead",
+    "dom",
+    "side-effect",
+    "ref"
   ],
   "author": "Nik Butenko <nik@butenko.me>",
   "license": "MIT",

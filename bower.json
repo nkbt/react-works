@@ -15,7 +15,11 @@
   "keywords": [
     "component",
     "react-component",
-    "react"
+    "react",
+    "bulkhead",
+    "dom",
+    "side-effect",
+    "ref"
   ],
   "authors": [
     "Nik Butenko <nik@butenko.me>"
