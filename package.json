@@ -39,6 +39,6 @@
     "react": "^0.14 || ^15"
   },
   "devDependencies": {
-    "react-component-template": "0.1.5"
+    "react-component-template": "0.1.9"
   }
 }
