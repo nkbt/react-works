@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "import": "lerna import"
   },
   "devDependencies": {
     "eslint": "3.14.1",
