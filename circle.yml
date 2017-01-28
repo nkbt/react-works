@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 7.4.0
+  environment:
+    NODE_ENV: development
+
+dependencies:
+  pre:
+    - npm set progress=false
+  override:
+    - npm install
+  post:
+    - node_modules/.bin/lerna bootstrap
+
+test:
+  override:
+    - echo ¯\_(ツ)_/¯
