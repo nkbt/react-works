@@ -1,3 +1,4 @@
-/lib/
-/build/
-/reports/
+build/
+lib/
+pub/
+reports/

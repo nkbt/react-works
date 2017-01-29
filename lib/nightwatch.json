@@ -1,6 +1,6 @@
 {
   "src_folders" : ["test-e2e"],
-  "output_folder" : "reports/test-e2e",
+  "output_folder" : "reports/e2e",
 
   "selenium" : {
     "start_process" : false
@@ -21,7 +21,7 @@
         "enabled" : true,
         "on_failure" : true,
         "on_error" : false,
-        "path" : "reports/test-e2e"
+        "path" : "reports/e2e"
       },
       "desiredCapabilities": {
         "browserName": "chrome",

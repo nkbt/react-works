@@ -169,7 +169,7 @@ const ToggleFromOutside = React.createClass({
 });
 
 
-const App = () => (
+export const App = () => (
   <div style={css.app}>
     <h1>react-swap</h1>
     <Clickable />
@@ -182,6 +182,3 @@ const App = () => (
     <ToggleFromOutside />
   </div>
 );
-
-
-export default App;
