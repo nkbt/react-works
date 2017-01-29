@@ -2,8 +2,7 @@
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
 
-[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-swap.svg?style=flat-square&label=nix-build)](https://circleci.com/gh/nkbt/react-swap)
-[![AppVeyor](https://img.shields.io/appveyor/ci/nkbt/react-swap.svg?style=flat-square&label=win-build)](https://ci.appveyor.com/project/nkbt/react-swap)
+[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-swap.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-swap)
 [![Coverage](https://img.shields.io/codecov/c/github/nkbt/react-swap.svg?style=flat-square)](https://codecov.io/github/nkbt/react-swap?branch=master)
 [![Dependencies](https://img.shields.io/david/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
@@ -12,7 +11,9 @@ React component-wrapper to swap one element with another and back, useful to sho
 
 ## Installation
 
+
 ### NPM
+
 ```sh
 npm install --save react react-swap
 ```
@@ -20,13 +21,8 @@ npm install --save react react-swap
 Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 
 
-### Bower:
-```sh
-bower install --save https://unpkg.com/react-swap/bower.zip
-```
-
-
 ### 1998 Script Tag:
+
 ```html
 <script src="https://unpkg.com/react/dist/react.js"></script>
 <script src="https://unpkg.com/react-swap/build/react-swap.js"></script>
@@ -38,9 +34,11 @@ bower install --save https://unpkg.com/react-swap/bower.zip
 
 [http://nkbt.github.io/react-swap](http://nkbt.github.io/react-swap)
 
+
 ## Codepen demo
 
 [http://codepen.io/nkbt/pen/zvodrN](http://codepen.io/nkbt/pen/zvodrN?editors=101)
+
 
 ## Usage
 ```js
@@ -200,6 +198,7 @@ document.body.appendChild(appRoot);
 ReactDOM.render(<App />, appRoot);
 ```
 
+
 ## Options
 
 
@@ -239,9 +238,9 @@ The reason is that when custom component is used, it is not possible to capture 
 
 ## Development and testing
 
-Currently is being developed and tested with the latest stable `Node 6` on `OSX` and `Windows`.
+Currently is being developed and tested with the latest stable `Node 7` on `OSX`.
 
-To run example covering all `ReactSwap` features, use `npm start dev`, which will compile `src/example/Example.js`
+To run example covering all `ReactSwap` features, use `npm start dev`, which will compile `example/Example.js`
 
 ```bash
 git clone git@github.com:nkbt/react-swap.git
