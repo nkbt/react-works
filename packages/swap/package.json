@@ -1,0 +1,65 @@
+{
+  "name": "react-swap",
+  "version": "1.5.2",
+  "description": "React component-wrapper to swap one element with another and back",
+  "main": "lib/index.js",
+  "config": {
+    "component": "ReactSwap"
+  },
+  "scripts": {
+    "start": "../../scripts/dev.js",
+    "dev": "../../scripts/dev.js",
+    "build": "../../scripts/build.js",
+    "dist": "../../scripts/dist.js",
+    "pub": "../../scripts/pub.js",
+    "lib": "../../scripts/lib.js",
+    "prepublish": "../../scripts/build.js",
+    "lint": "../../scripts/lint.js",
+    "test": "../../scripts/test.js",
+    "e2e": "../../scripts/e2e.js"
+  },
+  "repository": "https://github.com/nkbt/react-works/tree/master/packages/swap",
+  "keywords": [
+    "component",
+    "react-component",
+    "react",
+    "react-swap",
+    "swap",
+    "toggle",
+    "switch",
+    "hover",
+    "dropdown"
+  ],
+  "author": "Nik Butenko <nik@butenko.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nkbt/react-works/issues",
+    "email": "nik@butenko.me"
+  },
+  "homepage": "https://github.com/nkbt/react-works/tree/master/packages/swap",
+  "peerDependencies": {
+    "react": "^0.14 || ^15"
+  },
+  "files": [
+    "build",
+    "lib",
+    "src",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "babel": {
+    "presets": [
+      ["es2015", {"loose": true}],
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "env": {
+      "production": {
+        "plugins": ["transform-react-remove-prop-types"]
+      }
+    }
+  }
+}
