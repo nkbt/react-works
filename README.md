@@ -10,6 +10,7 @@ Monorepo for React components
 
 ## packages
 
+### [react-bulkhead](./packages/bulkhead) [![react-bulkhead](https://img.shields.io/npm/v/react-bulkhead.svg?style=flat-square)](https://www.npmjs.com/package/react-bulkhead)
 ### [react-swap](./packages/swap) [![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square)](https://www.npmjs.com/package/react-swap)
 
 
