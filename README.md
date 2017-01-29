@@ -1,7 +1,5 @@
 # react-works 
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/nkbt/react-works.svg)](https://greenkeeper.io/)
-
 Monorepo for React components
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
