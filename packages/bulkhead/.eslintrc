@@ -1,0 +1,6 @@
+{
+  "extends": "./node_modules/react-component-template/.eslintrc",
+  "rules": {
+    "no-extra-parens": 0
+  }
+}
