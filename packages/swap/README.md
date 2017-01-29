@@ -3,7 +3,6 @@
 React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
-[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-swap.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-swap)
 [![Dependencies](https://img.shields.io/david/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
@@ -234,36 +233,6 @@ Though you can put any custom components inside as shown in example above.
 
 The reason is that when custom component is used, it is not possible to capture `onClick` on it.
 
-
-## Development and testing
-To run example covering all package features, use `npm start`, which will compile `example/index.js`
-
-```bash
-git clone git@github.com:nkbt/react-works.git
-cd react-works
-npm install
-npm run lerna -- bootstrap
-
-cd packages/swap
-npm start
-
-# then
-open http://localhost:8080
-```
-
-## Tests
-
-```bash
-# to run lint
-npm run lint
-npm run lerna -- run lint
-
-# to run tests
-npm run lerna -- run test
-
-# to run end-to-end tests
-npm run lerna -- run e2e
-```
 
 ## License
 
