@@ -1,20 +1,26 @@
 /* eslint no-console:0 */
 
 import React from 'react';
-import {ReactBulkhead} from '../..';
+import {ReactBulkhead} from '../../src/Component';
 
 
 const onCreate = ({element}) => {
   console.log(`WithEvents: onCreate`, {element});
 
-  element.innerHTML = `Hover me!`;
+  Object.assign(element, {
+    innerHTML: `Hover me!`
+  });
 
   const mouseover = () => {
-    element.innerHTML = `HOVERED`;
+    Object.assign(element, {
+      innerHTML: `HOVERED`
+    });
   };
 
   const mouseout = () => {
-    element.innerHTML = `Hover me!`;
+    Object.assign(element, {
+      innerHTML: `Hover me!`
+    });
   };
 
   element.addEventListener(`mouseover`, mouseover, false);
@@ -44,9 +50,13 @@ export const WithEvents = React.createClass({
   render() {
     return (
       <div>
-        <label>
+        <label htmlFor="onDestroy">
           Destroy!&nbsp;
-          <input onChange={this.onDestroy} type="checkbox" value={this.state.isDestroyed} />
+          <input
+            id="onDestroy"
+            onChange={this.onDestroy}
+            type="checkbox"
+            value={this.state.isDestroyed} />
         </label>
         {this.state.isDestroyed ?
           null :
