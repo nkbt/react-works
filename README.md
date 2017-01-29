@@ -3,7 +3,7 @@
 Monorepo for React components
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
-[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-works.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-works)
+[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-works/master.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-works/tree/master)
 [![Dependencies](https://img.shields.io/david/nkbt/react-works.svg?style=flat-square)](https://david-dm.org/nkbt/react-works)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-works.svg?style=flat-square)](https://david-dm.org/nkbt/react-works#info=devDependencies)
 
