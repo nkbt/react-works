@@ -4,11 +4,11 @@ import {WithUpdates} from './WithUpdates';
 import {WithEvents} from './WithEvents';
 
 
-import css from './App.css';
+import * as css from './App.css';
 
 
-const App = () => (
-  <div className={css.app}>
+export const App = () => (
+  <div style={css.app}>
     <h1>react-bulkhead</h1>
 
     <section>
@@ -27,6 +27,3 @@ const App = () => (
     </section>
   </div>
 );
-
-
-export default App;

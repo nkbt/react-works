@@ -1,12 +1,14 @@
 /* eslint no-console:0 */
 
 import React from 'react';
-import {ReactBulkhead} from '../..';
+import {ReactBulkhead} from '../../src/Component';
 
 
 const onCreate = ({element}) => {
   console.log(`Simple: onCreate`, {element});
-  element.innerHTML = `Gotcha! Mutable DOM here`;
+  Object.assign(element, {
+    innerHTML: `Gotcha! Mutable DOM here`
+  });
 };
 
 

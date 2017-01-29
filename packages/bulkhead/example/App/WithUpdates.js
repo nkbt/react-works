@@ -1,14 +1,16 @@
 /* eslint no-console:0 */
 
 import React from 'react';
-import {ReactBulkhead} from '../..';
+import {ReactBulkhead} from '../../src/Component';
 
 
 const onCreate = ({element, value}) => {
   console.log(`WithUpdates: onCreate`, {element, value});
 
   const update = val => {
-    element.innerHTML = `Set with element.innerHTML${val ? `: "${val}"` : ``}`;
+    Object.assign(element, {
+      innerHTML: `Set with element.innerHTML${val ? `: "${val}"` : ``}`
+    });
   };
 
   update(value);
