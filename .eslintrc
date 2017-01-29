@@ -1,12 +1,14 @@
 {
   "extends": "airbnb",
   "rules": {
+    "arrow-parens": [2, "as-needed"],
     "quotes": [2, "backtick"],
     "object-curly-spacing": [2, "never"],
     "comma-dangle": [2, "never"],
     "react/jsx-filename-extension": [2, {"extensions": [".js"]}],
     "react/no-multi-comp": 0,
     "react/prefer-es6-class": [2, "never"],
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0
   }
 }

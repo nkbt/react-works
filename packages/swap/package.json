@@ -7,12 +7,15 @@
     "component": "ReactSwap"
   },
   "scripts": {
-    "start": "react-component-template",
-    "test": "npm start test",
-    "precommit": "npm start precommit",
-    "prepush": "npm start prepush",
-    "postversion": "npm start postversion",
-    "prepublish": "npm start prepublish"
+    "start": "../../scripts/dev.js",
+    "build": "../../scripts/build.js",
+    "dev": "../../scripts/dev.js",
+    "test": "../../scripts/test.js",
+    "e2e": "../../scripts/e2e.js",
+    "dist": "../../scripts/dist.js",
+    "pub": "../../scripts/pub.js",
+    "lib": "../../scripts/lib.js",
+    "prepublish": "../../scripts/build.js"
   },
   "repository": "https://github.com/nkbt/react-works/tree/master/packages/swap",
   "keywords": [
@@ -36,10 +39,6 @@
   "peerDependencies": {
     "react": "^0.14 || ^15"
   },
-  "devDependencies": {
-    "react": "15.4.2",
-    "react-dom": "15.4.2"
-  },
   "files": [
     "build",
     "lib",
@@ -47,5 +46,19 @@
     "LICENSE",
     "package.json",
     "README.md"
-  ]
+  ],
+  "babel": {
+    "presets": [
+      ["es2015", {"loose": true}],
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "env": {
+      "production": {
+        "plugins": ["transform-react-remove-prop-types"]
+      }
+    }
+  }
 }
