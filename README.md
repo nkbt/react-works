@@ -38,7 +38,8 @@ npm run lerna -- run lint
 npm run lerna -- run test
 
 # to run end-to-end tests for all packages
-npm run lerna -- run e2e
+# note `--concurrency 1`, we should run e2e in sequence
+npm run lerna -- run e2e --concurrency 1
 ```
 
 ### Run package example

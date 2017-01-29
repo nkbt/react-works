@@ -16,4 +16,4 @@ test:
   override:
     - node_modules/.bin/lerna run lint
     - node_modules/.bin/lerna run test
-    - node_modules/.bin/lerna run e2e
+    - node_modules/.bin/lerna run e2e --concurrency 1
