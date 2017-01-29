@@ -14,4 +14,4 @@ dependencies:
 
 test:
   override:
-    - echo ¯\_(ツ)_/¯
+    - echo 'No tests yet'
