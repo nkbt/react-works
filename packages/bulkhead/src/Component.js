@@ -13,8 +13,9 @@ export const ReactBulkhead = React.createClass({
 
   getDefaultProps() {
     return {
-      element: 'div',
-      propsWhitelist: ['id', 'className', 'style']
+      element: `div`,
+      propsWhitelist: [`id`, `className`, `style`],
+      children: null
     };
   },
 
@@ -35,7 +36,7 @@ export const ReactBulkhead = React.createClass({
       } = this.props;
       const bulkhead = onCreate({element: this.ref, ...props});
 
-      if (typeof bulkhead !== 'object') {
+      if (typeof bulkhead !== `object`) {
         return;
       }
 

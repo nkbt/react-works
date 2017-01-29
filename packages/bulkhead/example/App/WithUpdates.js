@@ -5,17 +5,17 @@ import {ReactBulkhead} from '../..';
 
 
 const onCreate = ({element, value}) => {
-  console.log('WithUpdates: onCreate', {element, value});
+  console.log(`WithUpdates: onCreate`, {element, value});
 
   const update = val => {
-    element.innerHTML = `Set with element.innerHTML${val ? `: "${val}"` : ''}`;
+    element.innerHTML = `Set with element.innerHTML${val ? `: "${val}"` : ``}`;
   };
 
   update(value);
 
   return {
     onUpdate(next) {
-      console.log('WithUpdates: onUpdate', {value: next.value});
+      console.log(`WithUpdates: onUpdate`, {value: next.value});
       update(next.value);
     }
   };
@@ -24,7 +24,7 @@ const onCreate = ({element, value}) => {
 
 export const WithUpdates = React.createClass({
   getInitialState() {
-    return {value: ''};
+    return {value: ``};
   },
 
 
