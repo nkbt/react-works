@@ -67,3 +67,7 @@ npm run test
 # to run end-to-end tests
 npm run e2e
 ```
+
+
+## Moar badges
+[![Greenkeeper badge](https://badges.greenkeeper.io/nkbt/react-works.svg)](https://greenkeeper.io/)
