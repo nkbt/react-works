@@ -5,8 +5,8 @@ import {ReactBulkhead} from '../..';
 
 
 const onCreate = ({element}) => {
-  console.log('Simple: onCreate', {element});
-  element.innerHTML = 'Gotcha! Mutable DOM here';
+  console.log(`Simple: onCreate`, {element});
+  element.innerHTML = `Gotcha! Mutable DOM here`;
 };
 
 

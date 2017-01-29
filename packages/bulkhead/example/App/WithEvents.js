@@ -5,26 +5,26 @@ import {ReactBulkhead} from '../..';
 
 
 const onCreate = ({element}) => {
-  console.log('WithEvents: onCreate', {element});
+  console.log(`WithEvents: onCreate`, {element});
 
-  element.innerHTML = 'Hover me!';
+  element.innerHTML = `Hover me!`;
 
   const mouseover = () => {
-    element.innerHTML = 'HOVERED';
+    element.innerHTML = `HOVERED`;
   };
 
   const mouseout = () => {
-    element.innerHTML = 'Hover me!';
+    element.innerHTML = `Hover me!`;
   };
 
-  element.addEventListener('mouseover', mouseover, false);
-  element.addEventListener('mouseout', mouseout, false);
+  element.addEventListener(`mouseover`, mouseover, false);
+  element.addEventListener(`mouseout`, mouseout, false);
 
   return {
     onDestroy() {
-      console.log('WithEvents: onDestroy');
-      element.removeEventListener('mouseover', mouseover, false);
-      element.removeEventListener('mouseout', mouseout, false);
+      console.log(`WithEvents: onDestroy`);
+      element.removeEventListener(`mouseover`, mouseover, false);
+      element.removeEventListener(`mouseout`, mouseout, false);
     }
   };
 };

@@ -1,4 +1,1 @@
-'use strict';
-
-
-module.exports = require('react-component-template/test-e2e/Smoketest');
+module.exports = require(`../../../lib/test/e2e`);

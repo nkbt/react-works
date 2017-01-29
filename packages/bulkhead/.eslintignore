@@ -1,5 +1,4 @@
-/example/
-/lib/
-/node_modules/
-/build/
-/reports/
+build/
+lib/
+pub/
+reports/
