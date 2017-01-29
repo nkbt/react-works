@@ -3,14 +3,19 @@
 Monorepo for React components
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
-[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-works.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-works)
+[![CircleCI](https://img.shields.io/circleci/project/nkbt/react-works/master.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-works/tree/master)
 [![Dependencies](https://img.shields.io/david/nkbt/react-works.svg?style=flat-square)](https://david-dm.org/nkbt/react-works)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-works.svg?style=flat-square)](https://david-dm.org/nkbt/react-works#info=devDependencies)
 
 
-## packages
 
-### [react-swap](./packages/swap) [![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square)](https://www.npmjs.com/package/react-swap)
+## Packages
+
+|package|npm|
+|---|---|
+|[packages/bulkhead](./packages/bulkhead)|[![react-bulkhead](https://img.shields.io/npm/v/react-bulkhead.svg?style=flat-square&label=react-bulkhead)](https://www.npmjs.com/package/react-swap)|
+|[packages/swap](./packages/swap)|[![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square&label=react-swap)](https://www.npmjs.com/package/react-swap)|
+
 
 
 ## Development and testing
@@ -38,7 +43,8 @@ npm run lerna -- run lint
 npm run lerna -- run test
 
 # to run end-to-end tests for all packages
-npm run lerna -- run e2e
+# note `--concurrency 1`, we should run e2e in sequence
+npm run lerna -- run e2e --concurrency 1
 ```
 
 ### Run package example
@@ -70,4 +76,10 @@ npm run e2e
 
 
 ## Moar badges
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/nkbt/react-works.svg)](https://greenkeeper.io/)
+
+
+## License
+
+MIT
