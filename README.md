@@ -70,4 +70,10 @@ npm run e2e
 
 
 ## Moar badges
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/nkbt/react-works.svg)](https://greenkeeper.io/)
+
+
+## License
+
+MIT
