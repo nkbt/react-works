@@ -1,140 +1,118 @@
 import React from 'react';
-import ReactSwap from '../..';
-import On from './On';
-import Off from './Off';
-import css from './App.css';
+import ReactSwap from '../../src';
+import * as css from './App.css';
 
 
-const Clickable = React.createClass({
-  render() {
-    return (
+const On = props => <div style={css.on} {...props} />;
+const Off = props => <div style={css.off} {...props} />;
+
+
+const Clickable = () => (
+  <div>
+    <h2>Clickable</h2>
+    <ReactSwap>
+      <Off data-swap-handler={1}>OFF</Off>
+      <On data-swap-handler={1}>ON</On>
+    </ReactSwap>
+  </div>
+);
+
+
+const Hoverable = () => (
+  <div>
+    <h2>Hoverable</h2>
+    <ReactSwap isHover>
+      <Off data-swap-handler={1}>OFF</Off>
+      <On>ON</On>
+    </ReactSwap>
+  </div>
+);
+
+
+const Delayed = () => (
+  <div>
+    <h2>Hoverable with delay</h2>
+    <ReactSwap delay={200} isHover>
+      <Off>OFF</Off>
+      <On>ON</On>
+    </ReactSwap>
+  </div>
+);
+
+
+const Deep = () => (
+  <div>
+    <h2>Deep Swap</h2>
+    <ReactSwap>
       <div>
-        <h2>Clickable</h2>
-        <ReactSwap>
-          <Off data-swap-handler={1}>OFF</Off>
-          <On data-swap-handler={1}>ON</On>
-        </ReactSwap>
+        <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
       </div>
-    );
-  }
-});
-
-
-const Hoverable = React.createClass({
-  render() {
-    return (
       <div>
-        <h2>Hoverable</h2>
-        <ReactSwap isHover={true}>
-          <Off data-swap-handler={1}>OFF</Off>
-          <On>ON</On>
-        </ReactSwap>
+        <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
+        <div style={{marginLeft: 50}}>
+          <Clickable />
+        </div>
       </div>
-    );
-  }
-});
+    </ReactSwap>
+  </div>
+);
 
 
-const Delayed = React.createClass({
-  render() {
-    return (
-      <div>
-        <h2>Hoverable with delay</h2>
-        <ReactSwap delay={200} isHover={true}>
-          <Off>OFF</Off>
-          <On>ON</On>
-        </ReactSwap>
-      </div>
-    );
-  }
-});
-
-
-const Deep = React.createClass({
-  render() {
-    return (
-      <div>
-        <h2>Deep Swap</h2>
-        <ReactSwap>
-          <div>
+const Table = () => (
+  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+    <tbody>
+      <tr>
+        <td>
+          <h2>Table Swap</h2>
+        </td>
+      </tr>
+      <ReactSwap>
+        <tr>
+          <td>
             <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
-          </div>
-          <div>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
-            <div style={{marginLeft: 50}}>
-              <Clickable />
+          </td>
+        </tr>
+      </ReactSwap>
+    </tbody>
+  </table>
+);
+
+
+const DeepTableSwap = () => (
+  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+    <tbody>
+      <tr>
+        <td>
+          <h2>Deep Table Swap</h2>
+        </td>
+      </tr>
+    </tbody>
+    <ReactSwap>
+      <tbody>
+        <tr>
+          <td>
+            <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
+          </td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>
+            <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
+            <div style={{marginLeft: 20}}>
+              <Table />
             </div>
-          </div>
-        </ReactSwap>
-      </div>
-    );
-  }
-});
-
-
-const Table = React.createClass({
-  render() {
-    return (
-      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
-        <tbody>
-          <tr>
-            <td>
-              <h2>Table Swap</h2>
-            </td>
-          </tr>
-          <ReactSwap>
-            <tr>
-              <td>
-                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
-              </td>
-            </tr>
-          </ReactSwap>
-        </tbody>
-      </table>
-    );
-  }
-});
-
-
-const DeepTableSwap = React.createClass({
-  render() {
-    return (
-      <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
-        <tbody>
-          <tr>
-            <td>
-              <h2>Deep Table Swap</h2>
-            </td>
-          </tr>
-        </tbody>
-        <ReactSwap>
-          <tbody>
-            <tr>
-              <td>
-                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Click me</h3>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>
-                <h3 data-swap-handler={1} style={{marginLeft: 20}}>Unclick me</h3>
-                <div style={{marginLeft: 20}}>
-                  <Table />
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </ReactSwap>
-      </table>
-    );
-  }
-});
+          </td>
+        </tr>
+      </tbody>
+    </ReactSwap>
+  </table>
+);
 
 
 const WithCallback = React.createClass({
@@ -151,7 +129,7 @@ const WithCallback = React.createClass({
   render() {
     return (
       <div>
-        <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
+        <h2>With callback (opened: {this.state.opened ? `yes` : `no`})</h2>
         <ReactSwap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
@@ -191,23 +169,19 @@ const ToggleFromOutside = React.createClass({
 });
 
 
-const App = React.createClass({
-  render() {
-    return (
-      <div className={css.app}>
-        <h1>react-swap</h1>
-        <Clickable />
-        <Hoverable />
-        <Delayed />
-        <Deep />
-        <Table />
-        <DeepTableSwap />
-        <WithCallback />
-        <ToggleFromOutside />
-      </div>
-    );
-  }
-});
+const App = () => (
+  <div style={css.app}>
+    <h1>react-swap</h1>
+    <Clickable />
+    <Hoverable />
+    <Delayed />
+    <Deep />
+    <Table />
+    <DeepTableSwap />
+    <WithCallback />
+    <ToggleFromOutside />
+  </div>
+);
 
 
 export default App;
