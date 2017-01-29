@@ -8,10 +8,14 @@ Monorepo for React components
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-works.svg?style=flat-square)](https://david-dm.org/nkbt/react-works#info=devDependencies)
 
 
-## packages
 
-### [react-bulkhead](./packages/bulkhead) [![react-bulkhead](https://img.shields.io/npm/v/react-bulkhead.svg?style=flat-square)](https://www.npmjs.com/package/react-bulkhead)
-### [react-swap](./packages/swap) [![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square)](https://www.npmjs.com/package/react-swap)
+## Packages
+
+|package|npm|
+|---|---|
+|[packages/bulkhead](./packages/bulkhead)|[![react-bulkhead](https://img.shields.io/npm/v/react-bulkhead.svg?style=flat-square&label=react-bulkhead)](https://www.npmjs.com/package/react-swap)|
+|[packages/swap](./packages/swap)|[![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square&label=react-swap)](https://www.npmjs.com/package/react-swap)|
+
 
 
 ## Development and testing
