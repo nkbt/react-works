@@ -1,3 +1,3 @@
-const {ReactSwap} = require('./Component');
+const {ReactSwap} = require(`./Component`);
 
 module.exports = ReactSwap;
