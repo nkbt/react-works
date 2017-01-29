@@ -1,13 +1,12 @@
 # react-swap [![npm](https://img.shields.io/npm/v/react-swap.svg?style=flat-square)](https://www.npmjs.com/package/react-swap)
 
-[![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
+React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
+[![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
 [![CircleCI](https://img.shields.io/circleci/project/nkbt/react-swap.svg?style=flat-square)](https://circleci.com/gh/nkbt/react-swap)
-[![Coverage](https://img.shields.io/codecov/c/github/nkbt/react-swap.svg?style=flat-square)](https://codecov.io/github/nkbt/react-swap?branch=master)
 [![Dependencies](https://img.shields.io/david/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap)
 [![Dev Dependencies](https://img.shields.io/david/dev/nkbt/react-swap.svg?style=flat-square)](https://david-dm.org/nkbt/react-swap#info=devDependencies)
 
-React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
 ## Installation
 
@@ -237,16 +236,16 @@ The reason is that when custom component is used, it is not possible to capture 
 
 
 ## Development and testing
-
-Currently is being developed and tested with the latest stable `Node 7` on `OSX`.
-
-To run example covering all `ReactSwap` features, use `npm start dev`, which will compile `example/Example.js`
+To run example covering all package features, use `npm start`, which will compile `example/index.js`
 
 ```bash
-git clone git@github.com:nkbt/react-swap.git
-cd react-swap
+git clone git@github.com:nkbt/react-works.git
+cd react-works
 npm install
-npm start dev
+npm run lerna -- bootstrap
+
+cd packages/swap
+npm start
 
 # then
 open http://localhost:8080
@@ -255,14 +254,15 @@ open http://localhost:8080
 ## Tests
 
 ```bash
-# to run tests
-npm start test
+# to run lint
+npm run lint
+npm run lerna -- run lint
 
-# to generate test coverage (./reports/coverage)
-npm start test.cov
+# to run tests
+npm run lerna -- run test
 
 # to run end-to-end tests
-npm start test.e2e
+npm run lerna -- run e2e
 ```
 
 ## License
