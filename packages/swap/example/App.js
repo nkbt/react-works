@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactSwap from '../../src';
+import {ReactSwap} from '../src/Component';
 import * as css from './App.css';
 
 
