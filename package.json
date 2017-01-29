@@ -1,7 +1,7 @@
 {
   "scripts": {
     "lint": "eslint .",
-    "import": "lerna import"
+    "lerna": "lerna"
   },
   "devDependencies": {
     "babel-cli": "6.22.2",
