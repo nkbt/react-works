@@ -17,7 +17,7 @@ export const ReactSwap = React.createClass({
       isHover: false,
       isSwapped: false,
       delay: 0,
-      dataHandler: 'swapHandler'
+      dataHandler: `swapHandler`
     };
   },
 
@@ -30,7 +30,7 @@ export const ReactSwap = React.createClass({
 
 
   componentWillReceiveProps({isSwapped}) {
-    if (typeof isSwapped !== 'undefined' && this.state.isSwapped !== isSwapped) {
+    if (typeof isSwapped !== `undefined` && this.state.isSwapped !== isSwapped) {
       this.replaceState({isSwapped});
     }
   },

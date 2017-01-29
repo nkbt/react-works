@@ -1,3 +1,3 @@
-'use strict';
 
-module.exports = require('react-component-template/webpack.config');
+
+module.exports = require(`react-component-template/webpack.config`);
