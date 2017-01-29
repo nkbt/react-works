@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "rules": {
     "quotes": [2, "backtick"],
-    "object-curly-spacing": [2, "never"]
+    "object-curly-spacing": [2, "never"],
+    "comma-dangle": [2, "never"]
   }
 }
