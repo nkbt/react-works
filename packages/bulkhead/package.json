@@ -1,6 +1,6 @@
 {
   "name": "react-bulkhead",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React component to allow 3rd party components to operate over DOM-tree (d3, three.js)",
   "main": "lib/index.js",
   "config": {
