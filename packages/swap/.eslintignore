@@ -1,4 +1,5 @@
-build/
-lib/
-pub/
-reports/
+/node_modules/
+/build/
+/lib/
+/pub/
+/reports/

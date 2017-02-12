@@ -45,19 +45,5 @@
     "LICENSE",
     "package.json",
     "README.md"
-  ],
-  "babel": {
-    "presets": [
-      ["es2015", {"loose": true}],
-      "react"
-    ],
-    "plugins": [
-      "transform-object-rest-spread"
-    ],
-    "env": {
-      "production": {
-        "plugins": ["transform-react-remove-prop-types"]
-      }
-    }
-  }
+  ]
 }
