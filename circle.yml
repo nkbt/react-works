@@ -10,10 +10,11 @@ dependencies:
   override:
     - npm install
   post:
-    - node_modules/.bin/lerna bootstrap
+    - npm run -s lerna -- bootstrap
 
 test:
   override:
-    - node_modules/.bin/lerna run lint
-    - node_modules/.bin/lerna run test
-    - node_modules/.bin/lerna run e2e --concurrency 1
+    - npm run -s lint
+    - npm run -s lerna -- run lint
+    - npm run -s lerna -- run test
+    - npm run -s lerna -- run e2e --concurrency 1
