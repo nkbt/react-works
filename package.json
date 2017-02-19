@@ -25,7 +25,7 @@
     "nightwatch-autorun": "3.1.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    "rimraf": "2.5.4",
+    "rimraf": "2.6.0",
     "sinon": "1.17.7",
     "tap-xunit": "1.7.0",
     "tape": "4.6.3",
