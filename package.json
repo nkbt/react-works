@@ -30,6 +30,6 @@
     "tap-xunit": "1.7.0",
     "tape": "4.6.3",
     "webpack": "2.2.1",
-    "webpack-dev-server": "2.4.0"
+    "webpack-dev-server": "2.4.1"
   }
 }
