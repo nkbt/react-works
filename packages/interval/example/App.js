@@ -13,20 +13,6 @@ export const App = React.createClass({
     };
   },
 
-  inc1() {
-    const {count} = this.state;
-
-    this.setState({count: count + 1});
-  },
-
-
-  inc10() {
-    const {count} = this.state;
-
-    this.setState({count: count + 10});
-  },
-
-
   onChangeTimeout({target: {value}}) {
     this.setState({timeout: parseInt(value, 10)});
   },
@@ -53,6 +39,20 @@ export const App = React.createClass({
   },
 
 
+  inc1() {
+    const {count} = this.state;
+
+    this.setState({count: count + 1});
+  },
+
+
+  inc10() {
+    const {count} = this.state;
+
+    this.setState({count: count + 10});
+  },
+
+
   render() {
     const {destroy, callback, timeout, enabled, count} = this.state;
 
@@ -60,7 +60,7 @@ export const App = React.createClass({
       <div className="app">
         <h1>react-interval</h1>
 
-        <div style={{background: destroy ? '#f1f2f3' : '#f1fef3', padding: 10}}>
+        <div style={{background: destroy ? `#f1f2f3` : `#f1fef3`, padding: 10}}>
 
           {destroy ? null : <ReactInterval {...{timeout, enabled, callback}} />}
 
@@ -99,7 +99,7 @@ export const App = React.createClass({
         <br />
 
         <button onClick={this.onToggleDestroy}>
-          {destroy ? 'Create Interval' : 'Destroy Interval'}
+          {destroy ? `Create Interval` : `Destroy Interval`}
         </button>
       </div>
     );
