@@ -14,6 +14,7 @@ Monorepo for React components
 |package|npm|
 |---|---|
 |[packages/bulkhead](./packages/bulkhead)|[![react-bulkhead](https://img.shields.io/npm/v/react-bulkhead.svg?style=flat-square&label=react-bulkhead)](https://www.npmjs.com/package/react-bulkhead)|
+|[packages/element-resize](./packages/element-resize)|[![react-element-resize](https://img.shields.io/npm/v/react-element-resize.svg?style=flat-square&label=react-element-resize)](https://www.npmjs.com/package/react-element-resize)|
 |[packages/swap](./packages/swap)|[![react-swap](https://img.shields.io/npm/v/react-swap.svg?style=flat-square&label=react-swap)](https://www.npmjs.com/package/react-swap)|
 |[packages/interval](./packages/interval)|[![react-interval](https://img.shields.io/npm/v/react-interval.svg?style=flat-square&label=react-interval)](https://www.npmjs.com/package/react-interval)|
 
