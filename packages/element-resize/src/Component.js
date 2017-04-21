@@ -1,18 +1,20 @@
+/* global window */
+
 import React from 'react';
 import debounce from 'lodash.debounce';
 
 
 const iframeStyle = {
-  display: 'block',
-  position: 'absolute',
+  display: `block`,
+  position: `absolute`,
   top: 0,
   left: 0,
-  width: '100%',
-  height: '100%',
-  overflow: 'hidden',
-  border: 'none',
-  background: 'transparent',
-  pointerEvents: 'none',
+  width: `100%`,
+  height: `100%`,
+  overflow: `hidden`,
+  border: `none`,
+  background: `transparent`,
+  pointerEvents: `none`,
   zIndex: -1
 };
 
@@ -34,8 +36,11 @@ export const ReactElementResize = React.createClass({
 
   getDefaultProps() {
     return {
-      style: {},
+      onResize: undefined,
+      onScroll: undefined,
       debounceTimeout: -1,
+      debounceOptions: undefined,
+      style: {},
       children: () => null
     };
   },
@@ -74,13 +79,13 @@ export const ReactElementResize = React.createClass({
     const {onResize, onScroll} = this.props;
 
     if (onResize) {
-      this.sensor.contentWindow.addEventListener('resize', this.onResizeDebounced, false);
-      this.rafOnResize = requestAnimationFrame(this.onResize);
+      this.sensor.contentWindow.addEventListener(`resize`, this.onResizeDebounced, false);
+      this.rafOnResize = window.requestAnimationFrame(this.onResize);
     }
 
     if (onScroll) {
-      this.container.addEventListener('scroll', this.onScrollDebounced, false);
-      this.rafOnScroll = requestAnimationFrame(this.onScroll);
+      this.container.addEventListener(`scroll`, this.onScrollDebounced, false);
+      this.rafOnScroll = window.requestAnimationFrame(this.onScroll);
     }
   },
 
@@ -89,16 +94,16 @@ export const ReactElementResize = React.createClass({
     const {onResize, onScroll} = this.props;
 
     if (onResize) {
-      cancelAnimationFrame(this.rafOnResize);
-      this.sensor.contentWindow.removeEventListener('resize', this.onResizeDebounced, false);
+      window.cancelAnimationFrame(this.rafOnResize);
+      this.sensor.contentWindow.removeEventListener(`resize`, this.onResizeDebounced, false);
       if (this.onResizeDebounced.cancel) {
         this.onResizeDebounced.cancel();
       }
     }
 
     if (onScroll) {
-      cancelAnimationFrame(this.rafOnScroll);
-      this.container.removeEventListener('scroll', this.onScrollDebounced, false);
+      window.cancelAnimationFrame(this.rafOnScroll);
+      this.container.removeEventListener(`scroll`, this.onScrollDebounced, false);
       if (this.onScrollDebounced.cancel) {
         this.onScrollDebounced.cancel();
       }
@@ -143,11 +148,11 @@ export const ReactElementResize = React.createClass({
       ...props
     } = this.props;
     const {width, height, offsetLeft, offsetTop, scrollLeft, scrollTop} = this.state;
-    const shouldRender = onResize && width > -1 && height > -1 ||
-      onScroll && offsetLeft > -1 && offsetTop > -1 && scrollLeft > -1 && scrollTop > -1;
+    const shouldRender = (onResize && width > -1 && height > -1) ||
+      (onScroll && offsetLeft > -1 && offsetTop > -1 && scrollLeft > -1 && scrollTop > -1);
 
     return (
-      <div ref={this.onContainerRef} style={{position: 'relative', ...style}} {...props}>
+      <div ref={this.onContainerRef} style={{position: `relative`, ...style}} {...props}>
         {onResize ?
           <iframe ref={this.onSensorRef} style={iframeStyle} /> : null}
         {shouldRender ?
