@@ -1,6 +1,6 @@
 # react-element-resize [![npm](https://img.shields.io/npm/v/react-element-resize.svg?style=flat-square)](https://www.npmjs.com/package/react-element-resize)
 
-Safe React wrapper for setElementResize
+React component-wrapper to swap one element with another and back, useful to show/hide popups, expand/collapse elements, various toggles, etc.
 
 [![Gitter](https://img.shields.io/gitter/room/nkbt/help.svg?style=flat-square)](https://gitter.im/nkbt/help)
 [![Dependencies](https://img.shields.io/david/nkbt/react-element-resize.svg?style=flat-square)](https://david-dm.org/nkbt/react-element-resize)
@@ -34,74 +34,30 @@ Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 
 ## Codepen demo
 
-[http://codepen.io/nkbt/pen/ZGmpoO](http://codepen.io/nkbt/pen/ZGmpoO?editors=101)
-
-## Usage
-
-### Quickstart
-Start counting on render
-
 ```js
-import ReactElementResize from 'react-element-resize';
-
-const App = React.createClass({
-  getInitialState() {
-    return {count: 0};
-  },
-
-  render() {
-    const {count} = this.state;
-
-    return (
-      <div>
-        {count}
-        <ReactElementResize timeout={1000} enabled={true}
-          callback={() => this.setState({count: this.state.count + 1})} />
-      </div>
-    );
-  }
-});
+// TODO
 ```
 
-### Full example
-Change timeout on the fly, start and stop counting
-
+## Usage
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactElementResize from 'react-element-resize';
+import {ReactElementResize} from 'react-element-resize';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      enabled: false,
-      timeout: 1000,
-      count: 0
-    };
-  },
 
-  render() {
-    const {timeout, enabled, count} = this.state;
+const onResize = ({width, height}) =>
+  console.log({width, height})
 
-    return (
-      <div>
-        <ReactElementResize {...{timeout, enabled}}
-          callback={() => this.setState({count: this.state.count + 1})} />
 
-        <input type="number" step="200" min="200" max="5000" value={this.state.timeout}
-          onChange={({target: {value}}) => this.setState({timeout: parseInt(value, 10)})} />&nbsp;
+const onScroll = ({offsetLeft, offsetTop, scrollLeft, scrollTop}) =>
+  console.log({offsetLeft, offsetTop, scrollLeft, scrollTop})
 
-        <button disabled={enabled} onClick={() => this.setState({enabled: true})}>
-          Start</button>&nbsp;
 
-        <button disabled={!enabled} onClick={() => this.setState({enabled: false})}>
-          Stop</button>&nbsp;
-
-        {count}
-      </div>
-    );
-  }
-});
+const App = () => (
+  <ReactElementResize debounceTimeout={200} onResize={onResize} onScroll={onScroll}>
+    {data => <pre>{JSON.stringify(data, null, 2)}</pre>}
+  </ReactElementResize>
+);
 
 const appRoot = document.createElement('div');
 document.body.appendChild(appRoot);
@@ -110,20 +66,9 @@ ReactDOM.render(<App />, appRoot);
 
 ## Options
 
-
-#### `callback`: PropTypes.func.isRequired
-
-Function repeatedly called after timeout
-
-
-#### `enabled`: PropTypes.bool (default: false)
-
-Should start timer?
-
-
-#### `timeout`: PropTypes.number (default: 1000)
-
-Timeout before each `callback` call
+```js
+// TODO
+```
 
 
 ## License

@@ -4,103 +4,42 @@ import {ReactElementResize} from '../src/Component';
 
 export const App = React.createClass({
   getInitialState() {
-    return {
-      callback: this.inc1,
-      destroy: false,
-      enabled: false,
-      timeout: 200,
-      count: 0
-    };
-  },
-
-  onChangeTimeout({target: {value}}) {
-    this.setState({timeout: parseInt(value, 10)});
+    return {log: []};
   },
 
 
-  onToggleElementResize() {
-    const {enabled} = this.state;
-
-    this.setState({enabled: !enabled});
-  },
-
-
-  onToggleDestroy() {
-    const {destroy} = this.state;
-
-    this.setState({destroy: !destroy});
-  },
-
-
-  onToggleCallback() {
-    const {callback} = this.state;
-
-    this.setState({callback: callback === this.inc1 ? this.inc10 : this.inc1});
-  },
-
-
-  inc1() {
-    const {count} = this.state;
-
-    this.setState({count: count + 1});
-  },
-
-
-  inc10() {
-    const {count} = this.state;
-
-    this.setState({count: count + 10});
+  onLog(data) {
+    this.setState({log: [JSON.stringify(data)].concat(this.state.log).slice(0, 20)});
   },
 
 
   render() {
-    const {destroy, callback, timeout, enabled, count} = this.state;
-
+    const {log} = this.state;
     return (
       <div className="app">
         <h1>react-element-resize</h1>
 
-        <div style={{background: destroy ? `#f1f2f3` : `#f1fef3`, padding: 10}}>
+        <h2>Debounce scrolling and resize by 200ms</h2>
+        <ReactElementResize
+          className="wrapper"
+          debounceTimeout={200}
+          onResize={this.onLog}
+          onScroll={this.onLog}>
+          {data => <pre className="pre">{JSON.stringify(data, null, 2)}</pre>}
+        </ReactElementResize>
 
-          {destroy ? null : <ReactElementResize {...{timeout, enabled, callback}} />}
+        <h2>Debounce scrolling by 200ms but no more then 1000ms</h2>
+        <ReactElementResize
+          className="wrapper"
+          debounceTimeout={200}
+          debounceOptions={{maxWait: 1000}}
+          onScroll={this.onLog}>
+          {data => <pre className="pre">{JSON.stringify(data, null, 2)}</pre>}
+        </ReactElementResize>
 
-          <input
-            max="5000"
-            min="200"
-            onChange={this.onChangeTimeout}
-            step="200"
-            type="number"
-            value={timeout} />
-          &nbsp;
-
-          <button disabled={callback === this.inc1} onClick={this.onToggleCallback}>
-            +1
-          </button>
-          &nbsp;
-
-          <button disabled={callback === this.inc10} onClick={this.onToggleCallback}>
-            +10
-          </button>
-          &nbsp;
-
-          <button disabled={enabled} onClick={this.onToggleElementResize}>
-            Start
-          </button>
-          &nbsp;
-
-          <button disabled={!enabled} onClick={this.onToggleElementResize}>
-            Stop
-          </button>
-          &nbsp;
-
-          {count}
-
+        <div className="log">
+          {log.map((line, i) => <pre className="line" key={`${i}/${line}`}>{line}</pre>)}
         </div>
-        <br />
-
-        <button onClick={this.onToggleDestroy}>
-          {destroy ? `Create ElementResize` : `Destroy ElementResize`}
-        </button>
       </div>
     );
   }
