@@ -1,0 +1,27 @@
+.app {
+  padding: 2em;
+}
+
+.wrapper {
+  overflow: auto;
+  height: 200px;
+  background: #f1f2f3;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pre {
+  margin: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.log {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(220, 220, 255, 0.2);
+}
+
+.line {
+  margin: 0;
+  padding: 0;
+}
