@@ -118,7 +118,7 @@ const DeepTableSwap = () => (
 class WithCallback extends React.Component {
   state = {opened: false};
 
-  onSwap = (opened) => {
+  onSwap = opened => {
     this.setState({opened});
   };
 

@@ -5,7 +5,7 @@ import {ReactElementResize} from '../src/Component';
 export class App extends React.Component {
   state = {log: []};
 
-  onLog = (data) => {
+  onLog = data => {
     this.setState({log: [JSON.stringify(data)].concat(this.state.log).slice(0, 20)});
   };
 

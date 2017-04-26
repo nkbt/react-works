@@ -40,7 +40,7 @@ export class ReactSwap extends React.Component {
     this.clearTimer();
   }
 
-  onClick = (event) => {
+  onClick = event => {
     // Should react on click only on [data-swap-handler="1"] elements
     if (!event.target.dataset[this.props.dataHandler]) {
       return;
@@ -59,7 +59,7 @@ export class ReactSwap extends React.Component {
     this.timer = setTimeout(callback, timeout);
   };
 
-  change = (value) => {
+  change = value => {
     const {onSwap} = this.props;
 
     this.setState({isSwapped: value}, () => onSwap(value));

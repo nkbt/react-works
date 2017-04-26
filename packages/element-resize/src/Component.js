@@ -102,7 +102,7 @@ export class ReactElementResize extends React.Component {
     }
   }
 
-  onContainerRef = (ref) => {
+  onContainerRef = ref => {
     this.container = ref;
   };
 
@@ -120,7 +120,7 @@ export class ReactElementResize extends React.Component {
     this.setState({offsetLeft, offsetTop, scrollLeft, scrollTop});
   };
 
-  onSensorRef = (ref) => {
+  onSensorRef = ref => {
     this.sensor = ref;
   };
 
