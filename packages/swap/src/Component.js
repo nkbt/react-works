@@ -1,51 +1,46 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 
 const noop = () => {};
 
 
-export const ReactSwap = React.createClass({
-  propTypes: {
-    children: React.PropTypes.node.isRequired,
-    isHover: React.PropTypes.bool,
-    isSwapped: React.PropTypes.bool,
-    delay: React.PropTypes.number,
-    dataHandler: React.PropTypes.string,
-    onSwap: React.PropTypes.func
-  },
+export class ReactSwap extends React.Component {
+  static defaultProps = {
+    isHover: false,
+    isSwapped: false,
+    delay: 0,
+    dataHandler: `swapHandler`,
+    onSwap: noop
+  };
 
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    isHover: PropTypes.bool,
+    isSwapped: PropTypes.bool,
+    delay: PropTypes.number,
+    dataHandler: PropTypes.string,
+    onSwap: PropTypes.func
+  };
 
-  getDefaultProps() {
-    return {
-      isHover: false,
-      isSwapped: false,
-      delay: 0,
-      dataHandler: `swapHandler`,
-      onSwap: noop
-    };
-  },
+  constructor(props) {
+    super(props);
+    const {isSwapped} = props;
 
-
-  getInitialState() {
-    const {isSwapped} = this.props;
-
-    return {isSwapped: Boolean(isSwapped)};
-  },
-
+    this.state = {isSwapped: Boolean(isSwapped)};
+  }
 
   componentWillReceiveProps({isSwapped}) {
     if (typeof isSwapped !== `undefined` && this.state.isSwapped !== isSwapped) {
       this.setState({isSwapped});
     }
-  },
-
+  }
 
   componentWillUnmount() {
     this.clearTimer();
-  },
+  }
 
-
-  onClick(event) {
+  onClick = (event) => {
     // Should react on click only on [data-swap-handler="1"] elements
     if (!event.target.dataset[this.props.dataHandler]) {
       return;
@@ -54,51 +49,44 @@ export const ReactSwap = React.createClass({
     event.stopPropagation();
 
     this.swap();
-  },
+  };
 
-
-  setTimer(callback, timeout) {
+  setTimer = (callback, timeout) => {
     if (!timeout) {
       callback();
       return;
     }
     this.timer = setTimeout(callback, timeout);
-  },
+  };
 
-
-  clearTimer() {
-    if (this.props.delay) {
-      clearTimeout(this.timer);
-    }
-  },
-
-
-  change(value) {
+  change = (value) => {
     const {onSwap} = this.props;
 
     this.setState({isSwapped: value}, () => onSwap(value));
-  },
+  };
 
+  clearTimer = () => {
+    if (this.props.delay) {
+      clearTimeout(this.timer);
+    }
+  };
 
-  expand() {
+  expand = () => {
     this.change(true);
     this.clearTimer();
-  },
+  };
 
-
-  hide() {
+  hide = () => {
     this.setTimer(() => this.change(false), this.props.delay);
-  },
+  };
 
-
-  swap() {
+  swap = () => {
     if (this.state.isSwapped) {
       this.hide();
     } else {
       this.expand();
     }
-  },
-
+  };
 
   render() {
     const content = this.state.isSwapped ? this.props.children[1] : this.props.children[0];
@@ -108,4 +96,4 @@ export const ReactSwap = React.createClass({
 
     return React.cloneElement(content, props);
   }
-});
+}

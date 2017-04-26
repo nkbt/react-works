@@ -115,16 +115,12 @@ const DeepTableSwap = () => (
 );
 
 
-const WithCallback = React.createClass({
-  getInitialState() {
-    return {opened: false};
-  },
+class WithCallback extends React.Component {
+  state = {opened: false};
 
-
-  onSwap(opened) {
-    this.replaceState({opened});
-  },
-
+  onSwap = (opened) => {
+    this.setState({opened});
+  };
 
   render() {
     return (
@@ -137,19 +133,14 @@ const WithCallback = React.createClass({
       </div>
     );
   }
-});
+}
 
+class ToggleFromOutside extends React.Component {
+  state = {opened: false};
 
-const ToggleFromOutside = React.createClass({
-  getInitialState() {
-    return {opened: false};
-  },
-
-
-  onClick() {
-    this.replaceState({opened: !this.state.opened});
-  },
-
+  onClick = () => {
+    this.setState({opened: !this.state.opened});
+  };
 
   render() {
     return (
@@ -166,7 +157,7 @@ const ToggleFromOutside = React.createClass({
       </div>
     );
   }
-});
+}
 
 
 export const App = () => (

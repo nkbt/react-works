@@ -1,6 +1,7 @@
 /* global window */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
 
@@ -19,44 +20,37 @@ const iframeStyle = {
 };
 
 
-export const ReactElementResize = React.createClass({
-  propTypes: {
-    onResize: React.PropTypes.func,
-    onScroll: React.PropTypes.func,
-    debounceTimeout: React.PropTypes.number,
-    debounceOptions: React.PropTypes.shape({
-      leading: React.PropTypes.bool,
-      trailing: React.PropTypes.bool,
-      maxWait: React.PropTypes.number
+export class ReactElementResize extends React.Component {
+  static defaultProps = {
+    onResize: undefined,
+    onScroll: undefined,
+    debounceTimeout: -1,
+    debounceOptions: undefined,
+    style: {},
+    children: () => null
+  };
+
+  static propTypes = {
+    onResize: PropTypes.func,
+    onScroll: PropTypes.func,
+    debounceTimeout: PropTypes.number,
+    debounceOptions: PropTypes.shape({
+      leading: PropTypes.bool,
+      trailing: PropTypes.bool,
+      maxWait: PropTypes.number
     }),
-    style: React.PropTypes.object,
-    children: React.PropTypes.func
-  },
+    style: PropTypes.object,
+    children: PropTypes.func
+  };
 
-
-  getDefaultProps() {
-    return {
-      onResize: undefined,
-      onScroll: undefined,
-      debounceTimeout: -1,
-      debounceOptions: undefined,
-      style: {},
-      children: () => null
-    };
-  },
-
-
-  getInitialState() {
-    return {
-      width: -1,
-      height: -1,
-      offsetLeft: -1,
-      offsetTop: -1,
-      scrollLeft: -1,
-      scrollTop: -1
-    };
-  },
-
+  state = {
+    width: -1,
+    height: -1,
+    offsetLeft: -1,
+    offsetTop: -1,
+    scrollLeft: -1,
+    scrollTop: -1
+  };
 
   componentWillMount() {
     const {debounceTimeout, debounceOptions, onResize, onScroll} = this.props;
@@ -72,8 +66,7 @@ export const ReactElementResize = React.createClass({
         debounce(this.onScroll, debounceTimeout, debounceOptions) :
         this.onScroll;
     }
-  },
-
+  }
 
   componentDidMount() {
     const {onResize, onScroll} = this.props;
@@ -87,8 +80,7 @@ export const ReactElementResize = React.createClass({
       this.container.addEventListener(`scroll`, this.onScrollDebounced, false);
       this.rafOnScroll = window.requestAnimationFrame(this.onScroll);
     }
-  },
-
+  }
 
   componentWillUnmount() {
     const {onResize, onScroll} = this.props;
@@ -108,34 +100,29 @@ export const ReactElementResize = React.createClass({
         this.onScrollDebounced.cancel();
       }
     }
-  },
+  }
 
+  onContainerRef = (ref) => {
+    this.container = ref;
+  };
 
-  onResize() {
+  onResize = () => {
     const {innerWidth: width, innerHeight: height} = this.sensor.contentWindow;
     const {onResize} = this.props;
     onResize({width, height});
     this.setState({width, height});
-  },
+  };
 
-
-  onScroll() {
+  onScroll = () => {
     const {offsetLeft, offsetTop, scrollLeft, scrollTop} = this.container;
     const {onScroll} = this.props;
     onScroll({offsetLeft, offsetTop, scrollLeft, scrollTop});
     this.setState({offsetLeft, offsetTop, scrollLeft, scrollTop});
-  },
+  };
 
-
-  onContainerRef(ref) {
-    this.container = ref;
-  },
-
-
-  onSensorRef(ref) {
+  onSensorRef = (ref) => {
     this.sensor = ref;
-  },
-
+  };
 
   render() {
     const {
@@ -160,4 +147,4 @@ export const ReactElementResize = React.createClass({
       </div>
     );
   }
-});
+}
