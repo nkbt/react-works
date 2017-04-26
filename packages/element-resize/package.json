@@ -38,10 +38,11 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/packages/element-resize",
   "peerDependencies": {
-    "react": "^0.14 || ^15"
+    "react": "^15.3.0"
   },
   "dependencies": {
-    "lodash.debounce": "4.0.8"
+    "lodash.debounce": "4.0.8",
+    "prop-types": "^15.5.8"
   },
   "files": [
     "build",
