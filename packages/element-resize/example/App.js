@@ -2,16 +2,12 @@ import React from 'react';
 import {ReactElementResize} from '../src/Component';
 
 
-export const App = React.createClass({
-  getInitialState() {
-    return {log: []};
-  },
+export class App extends React.Component {
+  state = {log: []};
 
-
-  onLog(data) {
+  onLog = data => {
     this.setState({log: [JSON.stringify(data)].concat(this.state.log).slice(0, 20)});
-  },
-
+  };
 
   render() {
     const {log} = this.state;
@@ -43,4 +39,4 @@ export const App = React.createClass({
       </div>
     );
   }
-});
+}

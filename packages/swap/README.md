@@ -166,7 +166,7 @@ const WithCallback = React.createClass({
     return (
       <div>
         <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
-        <Swap onSwap={opened => this.replaceState({opened})}>
+        <Swap onSwap={opened => this.setState({opened})}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
         </Swap>

@@ -1,29 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import shallowCompare from 'react/lib/shallowCompare';
 
 
-export const ReactBulkhead = React.createClass({
-  propTypes: {
-    element: React.PropTypes.string,
-    propsWhitelist: React.PropTypes.arrayOf(React.PropTypes.string),
-    onCreate: React.PropTypes.func.isRequired,
-    children: React.PropTypes.node
-  },
+export class ReactBulkhead extends React.Component {
+  static defaultProps = {
+    element: `div`,
+    propsWhitelist: [`id`, `className`, `style`],
+    children: null
+  };
 
-
-  getDefaultProps() {
-    return {
-      element: `div`,
-      propsWhitelist: [`id`, `className`, `style`],
-      children: null
-    };
-  },
-
+  static propTypes = {
+    element: PropTypes.string,
+    propsWhitelist: PropTypes.arrayOf(PropTypes.string),
+    onCreate: PropTypes.func.isRequired,
+    children: PropTypes.node
+  };
 
   componentWillMount() {
     this.ref = null;
-  },
-
+  }
 
   componentDidMount() {
     if (this.ref) {
@@ -43,8 +39,7 @@ export const ReactBulkhead = React.createClass({
       this.onUpdate = bulkhead.onUpdate;
       this.onDestroy = bulkhead.onDestroy;
     }
-  },
-
+  }
 
   componentWillReceiveProps({
     element: _element,
@@ -60,25 +55,21 @@ export const ReactBulkhead = React.createClass({
     if (this.onUpdate && shallowCompare(this, newProps)) {
       this.onUpdate(newProps);
     }
-  },
-
+  }
 
   shouldComponentUpdate() {
     return false;
-  },
-
+  }
 
   componentWillUnmount() {
     if (this.onDestroy) {
       this.onDestroy();
     }
-  },
+  }
 
-
-  onRef(ref) {
+  onRef = ref => {
     this.ref = ref;
-  },
-
+  };
 
   render() {
     const {
@@ -94,4 +85,4 @@ export const ReactBulkhead = React.createClass({
 
     return React.createElement(element, {...elementProps, ref: this.onRef});
   }
-});
+}

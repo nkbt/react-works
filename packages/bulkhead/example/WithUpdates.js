@@ -24,16 +24,12 @@ const onCreate = ({element, value}) => {
 };
 
 
-export const WithUpdates = React.createClass({
-  getInitialState() {
-    return {value: ``};
-  },
+export class WithUpdates extends React.Component {
+  state = {value: ``};
 
-
-  onChange({target: {value}}) {
+  onChange = ({target: {value}}) => {
     this.setState({value});
-  },
-
+  };
 
   render() {
     return (
@@ -43,4 +39,4 @@ export const WithUpdates = React.createClass({
       </div>
     );
   }
-});
+}

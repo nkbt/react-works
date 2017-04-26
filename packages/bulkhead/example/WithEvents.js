@@ -36,16 +36,12 @@ const onCreate = ({element}) => {
 };
 
 
-export const WithEvents = React.createClass({
-  getInitialState() {
-    return {isDestroyed: false};
-  },
+export class WithEvents extends React.Component {
+  state = {isDestroyed: false};
 
-
-  onDestroy({target: {checked}}) {
+  onDestroy = ({target: {checked}}) => {
     this.setState({isDestroyed: checked});
-  },
-
+  };
 
   render() {
     return (
@@ -64,4 +60,4 @@ export const WithEvents = React.createClass({
       </div>
     );
   }
-});
+}

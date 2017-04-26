@@ -2,56 +2,48 @@ import React from 'react';
 import {ReactInterval} from '../src/Component';
 
 
-export const App = React.createClass({
-  getInitialState() {
-    return {
-      callback: this.inc1,
-      destroy: false,
-      enabled: false,
-      timeout: 200,
-      count: 0
-    };
-  },
+export class App extends React.Component {
+  state = {
+    callback: this.inc1,
+    destroy: false,
+    enabled: false,
+    timeout: 200,
+    count: 0
+  };
 
-  onChangeTimeout({target: {value}}) {
+  onChangeTimeout = ({target: {value}}) => {
     this.setState({timeout: parseInt(value, 10)});
-  },
+  };
 
-
-  onToggleInterval() {
-    const {enabled} = this.state;
-
-    this.setState({enabled: !enabled});
-  },
-
-
-  onToggleDestroy() {
-    const {destroy} = this.state;
-
-    this.setState({destroy: !destroy});
-  },
-
-
-  onToggleCallback() {
+  onToggleCallback = () => {
     const {callback} = this.state;
 
     this.setState({callback: callback === this.inc1 ? this.inc10 : this.inc1});
-  },
+  };
 
+  onToggleDestroy = () => {
+    const {destroy} = this.state;
 
-  inc1() {
+    this.setState({destroy: !destroy});
+  };
+
+  onToggleInterval = () => {
+    const {enabled} = this.state;
+
+    this.setState({enabled: !enabled});
+  };
+
+  inc1 = () => {
     const {count} = this.state;
 
     this.setState({count: count + 1});
-  },
+  };
 
-
-  inc10() {
+  inc10 = () => {
     const {count} = this.state;
 
     this.setState({count: count + 10});
-  },
-
+  };
 
   render() {
     const {destroy, callback, timeout, enabled, count} = this.state;
@@ -104,4 +96,4 @@ export const App = React.createClass({
       </div>
     );
   }
-});
+}
