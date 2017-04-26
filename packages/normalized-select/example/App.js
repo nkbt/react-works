@@ -4,14 +4,13 @@ import {NormalizedSelect} from '../src/Component';
 
 class App extends React.Component {
   state = {
-    single: 'apples',
-    multi: ['apples']
+    single: `apples`,
+    multi: [`apples`]
   };
 
-  renderOptions = () => {
-    return ['apples', 'oranges', 'bananas', 'kiwis']
+  renderOptions = () =>
+    [`apples`, `oranges`, `bananas`, `kiwis`]
       .map(option => <option key={option} value={option}>{option}</option>);
-  };
 
   render() {
     return (
@@ -20,21 +19,24 @@ class App extends React.Component {
         <div>
           <h2>Single choice select</h2>
           <p>(drop-in replacement)</p>
-          <label>
+          <label htmlFor="single">
             <NormalizedSelect
+              id="single"
               value={this.state.single}
               onChange={e => this.setState({single: e.target.value})}>
               {this.renderOptions()}
             </NormalizedSelect>
           </label>
 
-          <pre>this.state.single = {JSON.stringify(this.state.single, null, '  ')}</pre>
+          <pre>this.state.single = {JSON.stringify(this.state.single, null, `  `)}</pre>
         </div>
 
         <div>
           <h2>Multi-choice select</h2>
-          <label>
-            <NormalizedSelect multiple={true}
+          <label htmlFor="multi">
+            <NormalizedSelect
+              id="multi"
+              multiple
               size={5}
               value={this.state.multi}
               onChange={e => this.setState({multi: e.target.value})}>
@@ -42,7 +44,7 @@ class App extends React.Component {
             </NormalizedSelect>
           </label>
 
-          <pre>this.state.multi = {JSON.stringify(this.state.multi, null, '  ')}</pre>
+          <pre>this.state.multi = {JSON.stringify(this.state.multi, null, `  `)}</pre>
         </div>
       </div>
     );

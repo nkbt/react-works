@@ -13,7 +13,7 @@ export class NormalizedSelect extends React.PureComponent {
     onChange: undefined
   };
 
-  onChange = (event) => {
+  onChange = event => {
     if (!this.props.multiple) {
       this.props.onChange(event);
       return;
