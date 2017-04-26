@@ -2,7 +2,7 @@ import React from 'react';
 import {NormalizedSelect} from '../src/Component';
 
 
-class App extends React.Component {
+export class App extends React.PureComponent {
   state = {
     single: `apples`,
     multi: [`apples`]
@@ -50,6 +50,3 @@ class App extends React.Component {
     );
   }
 }
-
-
-export default App;
