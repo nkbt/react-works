@@ -19,6 +19,6 @@ publish(path.join(CWD, `pub`), {
     name: `Nik Butenko`,
     email: `noisekit@butenko.me`
   },
-  clone: `/tmp/${name}`,
+  clone: path.relative(CWD, `/tmp/${name}`),
   logger: message => console.log(message)
 }, err => err ? console.error(err) : console.log(`Published`));
