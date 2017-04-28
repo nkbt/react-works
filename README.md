@@ -19,6 +19,7 @@ Monorepo for React components
 |[packages/interval](./packages/interval)|[![react-interval](https://img.shields.io/npm/v/react-interval.svg?style=flat-square&label=react-interval)](https://www.npmjs.com/package/react-interval)|
 |[packages/page-click](./packages/page-click)|[![react-page-click](https://img.shields.io/npm/v/react-page-click.svg?style=flat-square&label=react-page-click)](https://www.npmjs.com/package/react-page-click)|
 |[packages/normalized-select](./packages/normalized-select)|[![react-normalized-select](https://img.shields.io/npm/v/react-normalized-select.svg?style=flat-square&label=react-normalized-select)](https://www.npmjs.com/package/react-normalized-select)|
+|[packages/text-filter](./packages/text-filter)|[![react-text-filter](https://img.shields.io/npm/v/react-text-filter.svg?style=flat-square&label=react-text-filter)](https://www.npmjs.com/package/react-text-filter)|
 
 
 
