@@ -15,5 +15,9 @@ publish(path.join(CWD, `pub`), {
   repo: `https://github.com/nkbt/${name}.git`,
   branch: `gh-pages`,
   message: `Publish examples`,
+  user: {
+    name: `Nik Butenko`,
+    email: `noisekit@butenko.me`
+  },
   logger: message => console.log(message)
 }, err => err ? console.error(err) : console.log(`Published`));
