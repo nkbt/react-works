@@ -5,7 +5,7 @@ import {WithEvents} from './WithEvents';
 
 
 export const App = () => (
-  <div style="app">
+  <div className="app">
     <h1>react-bulkhead</h1>
 
     <section>
