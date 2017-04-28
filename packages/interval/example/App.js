@@ -3,13 +3,17 @@ import {ReactInterval} from '../src/Component';
 
 
 export class App extends React.Component {
-  state = {
-    callback: this.inc1,
-    destroy: false,
-    enabled: false,
-    timeout: 200,
-    count: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      callback: this.inc1,
+      destroy: false,
+      enabled: false,
+      timeout: 200,
+      count: 0
+    };
+  }
+
 
   onChangeTimeout = ({target: {value}}) => {
     this.setState({timeout: parseInt(value, 10)});
