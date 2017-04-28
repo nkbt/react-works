@@ -12,17 +12,19 @@ export class TextFilter extends React.PureComponent {
   };
 
   static defaultProps = {
+    filter: undefined,
     minLength: 2,
     debounceTimeout: 300
   };
 
   render() {
-    const {onFilter, filter, ...props} = this.props;
+    const {onFilter, filter, ...rest} = this.props;
 
     return (
-      <DebounceInput placeholder="Filter"
+      <DebounceInput
+        placeholder="Filter"
         // Pass props through
-        {...props}
+        {...rest}
         onChange={onFilter}
         value={filter} />
     );

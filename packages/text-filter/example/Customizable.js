@@ -18,13 +18,13 @@ List.propTypes = {
 
 
 const fruits = [
-  'apple',
-  'orange',
-  'banana',
-  'kiwi',
-  'pineapple',
-  'golden kiwi',
-  'green apple'
+  `apple`,
+  `orange`,
+  `banana`,
+  `kiwi`,
+  `pineapple`,
+  `golden kiwi`,
+  `green apple`
 ];
 
 
@@ -33,7 +33,7 @@ const fruitFilter = filter => fruit => fruit.toLowerCase().indexOf(filter.toLowe
 
 export class Customizable extends React.PureComponent {
   state = {
-    filter: '',
+    filter: ``,
     minLength: 2,
     debounceTimeout: 300
   };
@@ -60,9 +60,10 @@ export class Customizable extends React.PureComponent {
     return (
       <div>
         <h2>Customizable</h2>
-        <label>
+        <label htmlFor="minLength">
           Min length [{minLength}]:&nbsp;
           <input
+            id="minLength"
             type="range"
             step={1}
             min={0}
@@ -71,9 +72,10 @@ export class Customizable extends React.PureComponent {
             onChange={this.onChangeMinLength} />&nbsp;
         </label>&nbsp;
 
-        <label>
+        <label htmlFor="timeout">
           Debounce timeout [{debounceTimeout}ms]:&nbsp;
           <input
+            id="timeout"
             disabled={indefinite}
             type="range"
             step={100}
