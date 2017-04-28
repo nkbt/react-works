@@ -42,14 +42,14 @@ npm run lerna -- bootstrap
 
 ```bash
 # to run eslint for all packages
-npm run lerna -- run lint
+npm run lerna -- start lint
 
 # to run tests for all packages
-npm run lerna -- run test
+npm run lerna -- start test
 
 # to run end-to-end tests for all packages
 # note `--concurrency 1`, we should run e2e in sequence
-npm run lerna -- run e2e --concurrency 1
+npm run lerna -- start e2e --concurrency 1
 ```
 
 ### Run package example
@@ -70,13 +70,13 @@ open http://localhost:8080
 cd packages/<package-name>
 
 # to run lint
-npm run lint
+npm start lint
 
 # to run tests
-npm run test
+npm start test
 
 # to run end-to-end tests
-npm run e2e
+npm start e2e
 ```
 
 
