@@ -1,10 +1,9 @@
 import React from 'react';
 import {ReactSwap} from '../src/Component';
-import * as css from './App.css';
 
 
-const On = props => <div style={css.on} {...props} />;
-const Off = props => <div style={css.off} {...props} />;
+const On = props => <div className="on" {...props} />;
+const Off = props => <div className="off" {...props} />;
 
 
 const Clickable = () => (
@@ -161,7 +160,7 @@ class ToggleFromOutside extends React.Component {
 
 
 export const App = () => (
-  <div style={css.app}>
+  <div className="app">
     <h1>react-swap</h1>
     <Clickable />
     <Hoverable />

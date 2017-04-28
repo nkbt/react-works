@@ -7,7 +7,7 @@
     "component": "ReactSwap"
   },
   "scripts": {
-    "start": "node -e 'require(\"../../scripts/\" + process.argv[1])'",
+    "start": "../../scripts/start.js",
     "prepublish": "npm start -s build"
   },
   "repository": "https://github.com/nkbt/react-works/tree/master/packages/swap",

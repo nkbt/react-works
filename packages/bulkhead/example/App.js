@@ -4,11 +4,8 @@ import {WithUpdates} from './WithUpdates';
 import {WithEvents} from './WithEvents';
 
 
-import * as css from './App.css';
-
-
 export const App = () => (
-  <div style={css.app}>
+  <div style="app">
     <h1>react-bulkhead</h1>
 
     <section>
