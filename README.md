@@ -29,35 +29,35 @@ Monorepo for React components
 
 Currently is being developed and tested with the latest stable `Node 7` on `OSX`.
 
-```sh
+```bash
 git clone git@github.com:nkbt/react-works.git
 cd react-works
 npm install
 
 # install dependencies for all packages
-npm run lerna -- bootstrap
+lerna bootstrap
 ```
 
 ### Run tests for all packages
 
 ```bash
 # to run eslint for all packages
-npm run lerna -- run lint
+lerna run start lint
 
 # to run tests for all packages
-npm run lerna -- run test
+lerna run start test
 
 # to run end-to-end tests for all packages
 # note `--concurrency 1`, we should run e2e in sequence
-npm run lerna -- run e2e --concurrency 1
+lerna run start e2e --concurrency 1
 ```
 
 ### Run package example
 
 To run example covering all package features, use `npm start`, which will compile `example/index.js`
 
-```sh
-cd packages/<package-name>
+```bash
+cd packages/package-name
 npm start
 
 # then
@@ -66,17 +66,17 @@ open http://localhost:8080
 
 ### Test one package only
 
-```sh
-cd packages/<package-name>
+```bash
+cd packages/package-name
 
 # to run lint
-npm run lint
+npm start lint
 
 # to run tests
-npm run test
+npm start test
 
 # to run end-to-end tests
-npm run e2e
+npm start e2e
 ```
 
 

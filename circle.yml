@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 7.5.0
+    version: 7.8.0
   environment:
     NODE_ENV: development
 
@@ -10,11 +10,11 @@ dependencies:
   override:
     - npm install
   post:
-    - npm run -s lerna -- bootstrap
+    - $(npm bin)/lerna bootstrap
 
 test:
   override:
     - npm run -s lint
-    - npm run -s lerna -- run lint
-    - npm run -s lerna -- run test
-    - npm run -s lerna -- run e2e --concurrency 1
+    - $(npm bin)/lerna run start lint
+    - $(npm bin)/lerna run start test
+    - $(npm bin)/lerna run start e2e --concurrency 1
