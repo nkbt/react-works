@@ -1,8 +1,8 @@
 import test from '../../../lib/test/tape';
-import {ReactInterval} from '../src/Component';
+import {TextFilter} from '../src/Component';
 
 
-test(`ReactInterval`, t => {
-  t.ok(ReactInterval instanceof Function, `should be function`);
+test(`TextFilter`, t => {
+  t.ok(TextFilter instanceof Function, `should be function`);
   t.end();
 });

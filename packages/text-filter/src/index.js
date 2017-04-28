@@ -1,4 +1,4 @@
-const {ReactInterval} = require(`./Component`);
+const {TextFilter} = require(`./Component`);
 
-ReactInterval.ReactInterval = ReactInterval;
-module.exports = ReactInterval;
+TextFilter.TextFilter = TextFilter;
+module.exports = TextFilter;

@@ -1,10 +1,10 @@
 {
-  "name": "react-interval",
-  "version": "1.3.3",
-  "description": "Safe React wrapper for setInterval",
+  "name": "react-text-filter",
+  "version": "2.1.0",
+  "description": "React component that renders filtering Input",
   "main": "lib/index.js",
   "config": {
-    "component": "ReactInterval"
+    "component": "TextFilter"
   },
   "scripts": {
     "start": "../../scripts/dev.js",
@@ -18,17 +18,14 @@
     "test": "../../scripts/test.js",
     "e2e": "../../scripts/e2e.js"
   },
-  "repository": "https://github.com/nkbt/react-works/tree/master/packages/interval",
+  "repository": "https://github.com/nkbt/react-works/tree/master/packages/text-filter",
   "keywords": [
     "component",
     "react-component",
     "react",
-    "interval",
-    "timer",
-    "timeout",
-    "setTimeout",
-    "setInterval",
-    "repeater"
+    "react-text-filter",
+    "filter",
+    "text-filter"
   ],
   "author": "Nik Butenko <nik@butenko.me>",
   "license": "MIT",
@@ -36,11 +33,12 @@
     "url": "https://github.com/nkbt/react-works/issues",
     "email": "nik@butenko.me"
   },
-  "homepage": "https://github.com/nkbt/react-works/tree/master/packages/interval",
+  "homepage": "https://github.com/nkbt/react-works/tree/master/packages/text-filter",
   "peerDependencies": {
     "react": "^15.3.0"
   },
   "dependencies": {
+    "react-debounce-input": "^3.0.0",
     "prop-types": "^15.5.8"
   },
   "files": [

@@ -1,65 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DebounceInput from 'react-debounce-input';
 
 
-export class ReactInterval extends React.Component {
-  static defaultProps = {
-    enabled: false,
-    timeout: 1000
-  };
-
+export class TextFilter extends React.PureComponent {
   static propTypes = {
-    callback: PropTypes.func.isRequired,
-    enabled: PropTypes.bool,
-    timeout: PropTypes.number
+    onFilter: PropTypes.func.isRequired,
+    filter: PropTypes.string,
+    minLength: PropTypes.number,
+    debounceTimeout: PropTypes.number
   };
 
-  componentDidMount() {
-    if (this.props.enabled) {
-      this.start();
-    }
-  }
-
-  shouldComponentUpdate({timeout, callback, enabled}) {
-    return (
-      this.props.timeout !== timeout ||
-      this.props.callback !== callback ||
-      this.props.enabled !== enabled
-    );
-  }
-
-  componentDidUpdate({enabled}) {
-    if (this.props.enabled !== enabled) {
-      if (this.props.enabled) {
-        this.start();
-      } else {
-        this.stop();
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    this.stop();
-  }
-
-  callback = () => {
-    if (this.timer) {
-      this.props.callback();
-      this.start();
-    }
-  };
-
-  start = () => {
-    this.stop();
-    this.timer = setTimeout(this.callback, this.props.timeout);
-  };
-
-  stop = () => {
-    clearTimeout(this.timer);
-    this.timer = null;
+  static defaultProps = {
+    minLength: 2,
+    debounceTimeout: 300
   };
 
   render() {
-    return false;
+    const {onFilter, filter, ...props} = this.props;
+
+    return (
+      <DebounceInput placeholder="Filter"
+        // Pass props through
+        {...props}
+        onChange={onFilter}
+        value={filter} />
+    );
   }
 }
