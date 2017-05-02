@@ -16,7 +16,7 @@
     "babel-preset-react": "6.24.1",
     "babel-register": "6.24.1",
     "concurrently": "3.4.0",
-    "css-loader": "0.28.0",
+    "css-loader": "0.28.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-babel": "4.1.1",
