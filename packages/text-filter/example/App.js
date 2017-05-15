@@ -2,7 +2,7 @@ import React from 'react';
 import {Customizable} from './Customizable';
 
 
-export const App = () =>
+export const App = () => (
   <div className="app">
     <div>
       <h1>react-text-filter</h1>
@@ -12,4 +12,5 @@ export const App = () =>
       </section>
 
     </div>
-  </div>;
+  </div>
+);
