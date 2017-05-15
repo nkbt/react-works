@@ -19,6 +19,7 @@
     "react/jsx-filename-extension": [2, {"extensions": [".js"]}],
     "react/jsx-closing-bracket-location": [2, {"nonEmpty": "after-props", "selfClosing": "after-props"}],
     "react/jsx-sort-props": 0,
+    "react/jsx-wrap-multilines": [2, {declaration: true, assignment: false, return: true, arrow: true}],
     "react/no-multi-comp": 0,
     "react/prefer-es6-class": 2,
     "react/no-array-index-key": 0,
