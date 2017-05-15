@@ -141,7 +141,7 @@ export class ReactElementResize extends React.Component {
     return (
       <div ref={this.onContainerRef} style={{position: `relative`, ...style}} {...props}>
         {onResize ?
-          <iframe ref={this.onSensorRef} style={iframeStyle} /> : null}
+          <iframe ref={this.onSensorRef} title="Element resize sensor" style={iframeStyle} /> : null}
         {shouldRender ?
           render({width, height, offsetLeft, offsetTop, scrollLeft, scrollTop}) : null}
       </div>
