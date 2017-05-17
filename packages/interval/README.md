@@ -22,8 +22,8 @@ Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 ### 1998 Script Tag:
 
 ```html
-<script src="https://unpkg.com/react/dist/react.js"></script>
-<script src="https://unpkg.com/react-interval/build/react-interval.js"></script>
+<script src="https://unpkg.com/react/dist/react.min.js"></script>
+<script src="https://unpkg.com/react-interval/build/react-interval.min.js"></script>
 (Module exposed as `ReactInterval`)
 ```
 
