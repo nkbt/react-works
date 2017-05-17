@@ -33,7 +33,7 @@
     "react": "^15.3.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.8"
+    "prop-types": "^15.5.10"
   },
   "files": [
     "build",
