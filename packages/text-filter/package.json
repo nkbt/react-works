@@ -1,6 +1,6 @@
 {
   "name": "react-text-filter",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "React component that renders filtering Input",
   "main": "lib/index.js",
   "config": {
@@ -30,8 +30,8 @@
     "react": "^15.3.0"
   },
   "dependencies": {
-    "react-debounce-input": "^3.0.0",
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.5.10",
+    "react-debounce-input": "^3.0.0"
   },
   "files": [
     "build",
