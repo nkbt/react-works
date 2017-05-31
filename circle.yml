@@ -1,18 +1,147 @@
-machine:
-  node:
-    version: 8
-  environment:
-    NODE_ENV: development
+version: 2.0
+jobs:
+  build:
+    working_directory: ~/react-works
+    docker:
+      - image: circleci/node:8
+      - image: selenium/standalone-chrome:3.4.0
 
-dependencies:
-  override:
-    - yarn
-  post:
-    - yarn lerna bootstrap
+    steps:
+      - checkout
 
-test:
-  override:
-    - yarn lint
-    - yarn lerna run start lint
-    - yarn lerna run start test
-    - yarn lerna run start e2e -- --concurrency 1
+
+      - restore_cache:
+          key: react-works-deps-{{ checksum "yarn.lock" }}
+      - run:
+          name: Yarn install
+          command: yarn install
+      - save_cache:
+          key: react-works-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+
+      - restore_cache:
+          keys:
+            - bulkhead-deps-{{ checksum "packages/bulkhead/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - element-resize-deps-{{ checksum "packages/element-resize/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - interval-deps-{{ checksum "packages/interval/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - normalized-select-deps-{{ checksum "packages/normalized-select/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - page-click-deps-{{ checksum "packages/page-click/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - swap-deps-{{ checksum "packages/swap/yarn.lock" }}
+      - restore_cache:
+          keys:
+            - text-filter-deps-{{ checksum "packages/text-filter/yarn.lock" }}
+
+
+      - run: $(yarn bin)/lerna bootstrap
+
+
+      - save_cache:
+          key: bulkhead-deps-{{ checksum "packages/bulkhead/yarn.lock" }}
+          paths:
+            - packages/bulkhead/node_modules
+      - save_cache:
+          key: element-resize-deps-{{ checksum "packages/element-resize/yarn.lock" }}
+          paths:
+            - packages/element-resize/node_modules
+      - save_cache:
+          key: interval-deps-{{ checksum "packages/interval/yarn.lock" }}
+          paths:
+            - packages/interval/node_modules
+      - save_cache:
+          key: normalized-select-deps-{{ checksum "packages/normalized-select/yarn.lock" }}
+          paths:
+            - packages/normalized-select/node_modules
+      - save_cache:
+          key: page-click-deps-{{ checksum "packages/page-click/yarn.lock" }}
+          paths:
+            - packages/page-click/node_modules
+      - save_cache:
+          key: swap-deps-{{ checksum "packages/swap/yarn.lock" }}
+          paths:
+            - packages/swap/node_modules
+      - save_cache:
+          key: text-filter-deps-{{ checksum "packages/text-filter/yarn.lock" }}
+          paths:
+            - packages/text-filter/node_modules
+
+
+#      - run:
+#          name: Lint
+#          command: $(yarn bin)/eslint .
+
+
+#      - run:
+#          name: Lint packages
+#          command: $(yarn bin)/lerna run start lint
+
+
+#      - run:
+#          name: Test packages
+#          command: $(yarn bin)/lerna run start test
+
+
+      - run:
+          name: Build packages
+          command: $(yarn bin)/lerna run start pub
+
+
+      - deploy:
+          name: Start end-to-end servers
+          background: true
+          command: |
+            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+            $(yarn bin)/lerna exec yarn start startServer
+
+
+      - deploy:
+          name: Wait for end-to-end servers
+          command: sleep 10
+
+
+      - deploy:
+          name: Run end-to-end tests bulkhead
+          working_directory: ~/react-works/packages/bulkhead
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests element-resize
+          working_directory: ~/react-works/packages/element-resize
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests interval
+          working_directory: ~/react-works/packages/interval
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests normalized-select
+          working_directory: ~/react-works/packages/normalized-select
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests page-click
+          working_directory: ~/react-works/packages/page-click
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests nightwatch
+          working_directory: ~/react-works/packages/nightwatch
+          command: ../../node_modules/.bin/nightwatch
+
+      - deploy:
+          name: Run end-to-end tests text-filter
+          working_directory: ~/react-works/packages/text-filter
+          command: ../../node_modules/.bin/nightwatch
+
