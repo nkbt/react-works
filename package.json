@@ -34,7 +34,7 @@
     "react-dom": "15.5.4",
     "rimraf": "2.6.1",
     "sinon": "2.3.1",
-    "style-loader": "0.18.1",
+    "style-loader": "0.18.2",
     "tap-xunit": "1.7.0",
     "tape": "4.6.3",
     "webpack": "3.0.0",
