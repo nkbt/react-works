@@ -35,7 +35,7 @@
     "sinon": "2.3.5",
     "style-loader": "0.18.2",
     "tap-xunit": "1.7.0",
-    "tape": "4.6.3",
+    "tape": "4.7.0",
     "webpack": "3.0.0",
     "webpack-dev-server": "2.5.0"
   }
