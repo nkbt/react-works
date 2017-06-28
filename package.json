@@ -32,7 +32,7 @@
     "nightwatch-autorun": "3.1.0",    "react": "15.6.1",
     "react-dom": "15.6.1",
     "rimraf": "2.6.1",
-    "sinon": "2.3.5",
+    "sinon": "2.3.6",
     "style-loader": "0.18.2",
     "tap-xunit": "1.7.0",
     "tape": "4.6.3",
