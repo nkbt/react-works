@@ -28,7 +28,7 @@
     "glob": "7.1.2",
     "html-webpack-include-assets-plugin": "0.0.5",
     "html-webpack-plugin": "2.29.0",
-    "lerna": "2.0.0-rc.5",
+    "lerna": "2.0.0",
     "nightwatch-autorun": "3.1.0",    "react": "15.6.1",
     "react-dom": "15.6.1",
     "rimraf": "2.6.1",
