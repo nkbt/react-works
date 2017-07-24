@@ -33,7 +33,7 @@
     "react": "^15.3.0"
   },
   "dependencies": {
-    "lodash.debounce": "4.0.8",
+    "lodash.debounce": "^4.0.8",
     "prop-types": "^15.5.10"
   },
   "files": [

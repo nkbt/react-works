@@ -1,20 +1,18 @@
 machine:
   node:
-    version: 7.8.0
+    version: 8
   environment:
     NODE_ENV: development
 
 dependencies:
-  pre:
-    - npm set progress=false
   override:
-    - npm install
+    - yarn
   post:
-    - $(npm bin)/lerna bootstrap
+    - yarn lerna bootstrap
 
 test:
   override:
-    - npm run -s lint
-    - $(npm bin)/lerna run start lint
-    - $(npm bin)/lerna run start test
-    - $(npm bin)/lerna run start e2e --concurrency 1
+    - yarn lint
+    - yarn lerna run start lint
+    - yarn lerna run start test
+    - yarn lerna run start e2e -- --concurrency 1
