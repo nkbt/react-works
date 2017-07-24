@@ -26,7 +26,7 @@
     "extract-text-webpack-plugin": "2.1.2",
     "gh-pages": "1.0.0",
     "glob": "7.1.2",
-    "html-webpack-include-assets-plugin": "0.0.5",
+    "html-webpack-include-assets-plugin": "0.0.6",
     "html-webpack-plugin": "2.29.0",
     "lerna": "2.0.0-rc.5",
     "nightwatch-autorun": "3.1.0",    "react": "15.6.1",
