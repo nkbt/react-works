@@ -59,7 +59,5 @@ export class ReactInterval extends React.Component {
     this.timer = null;
   };
 
-  render() {
-    return false;
-  }
+  render = () => false;
 }

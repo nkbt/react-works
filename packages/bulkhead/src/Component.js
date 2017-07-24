@@ -57,9 +57,7 @@ export class ReactBulkhead extends React.Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
+  shouldComponentUpdate = () => false;
 
   componentWillUnmount() {
     if (this.onDestroy) {
