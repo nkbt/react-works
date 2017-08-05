@@ -84,17 +84,17 @@ jobs:
 
 #      - run:
 #          name: Lint packages
-#          command: $(yarn bin)/lerna run exec lint
+#          command: $(yarn bin)/lerna run call lint
 
 
 #      - run:
 #          name: Test packages
-#          command: $(yarn bin)/lerna run exec test
+#          command: $(yarn bin)/lerna run call test
 
 
       - run:
           name: Build packages
-          command: $(yarn bin)/lerna run exec pub
+          command: $(yarn bin)/lerna run call pub
 
 
       - deploy:
@@ -102,7 +102,7 @@ jobs:
           background: true
           command: |
             export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            $(yarn bin)/lerna exec yarn exec startServer
+            $(yarn bin)/lerna run call startServer
 
 
       - deploy:
