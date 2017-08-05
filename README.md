@@ -70,13 +70,13 @@ open http://localhost:8080
 cd packages/package-name
 
 # to run lint
-yarn start lint
+yarn exec lint
 
 # to run tests
-yarn start test
+yarn exec test
 
 # to run end-to-end tests
-yarn start e2e
+yarn exec e2e
 ```
 
 
