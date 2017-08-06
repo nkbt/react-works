@@ -28,7 +28,7 @@ const createServer = ({cwd, port}) => new Promise((resolve, reject) => {
       reject(err);
       return;
     }
-    console.log(`Server "${path.basename(cwd)}" is listening on 0.0.0.0:${port}`);
+    console.log(`Server "${path.basename(cwd)}" is listening on ${DOCKER_IP}:${port}`);
     setTimeout(() => resolve(server));
   });
 });

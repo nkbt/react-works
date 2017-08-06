@@ -2,8 +2,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "lerna": "lerna",
-    "test": "concurrently 'eslint .' 'lerna run lint' 'lerna run test' 'lerna run e2e --concurrency 1'"
+    "lerna": "lerna"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -16,7 +15,6 @@
     "babel-preset-node7": "^1.5.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
-    "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "eslint": "^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
