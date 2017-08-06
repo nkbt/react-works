@@ -27,15 +27,15 @@ Monorepo for React components
 
 ### Install
 
-Currently is being developed and tested with the latest stable `Node 7` on `OSX`.
+Currently is being developed and tested with the latest stable `Node 8` on `OSX`.
 
 ```bash
 git clone git@github.com:nkbt/react-works.git
 cd react-works
-npm install
+yarn install
 
 # install dependencies for all packages
-lerna bootstrap
+yarn lerna bootstrap
 ```
 
 ### Run tests for all packages
@@ -54,11 +54,11 @@ lerna run start e2e --concurrency 1
 
 ### Run package example
 
-To run example covering all package features, use `npm start`, which will compile `example/index.js`
+To run example covering all package features, use `yarn start`, which will compile `example/index.js`
 
 ```bash
 cd packages/package-name
-npm start
+yarn start
 
 # then
 open http://localhost:8080
@@ -70,13 +70,13 @@ open http://localhost:8080
 cd packages/package-name
 
 # to run lint
-npm start lint
+yarn call lint
 
 # to run tests
-npm start test
+yarn call test
 
 # to run end-to-end tests
-npm start e2e
+yarn call e2e
 ```
 
 

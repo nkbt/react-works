@@ -14,6 +14,7 @@
     "no-confusing-arrow": 0,
     "no-console": 0,
     "strict": 0,
+    "global-require": 0,
     "lines-around-directive": [2, {"before": "never", "after": "always"}],
     "import/no-dynamic-require": 0,
     "import/prefer-default-export": 0,

@@ -1,0 +1,54 @@
+version: 2
+
+
+jobs:
+  build:
+    working_directory: ~/react-works
+    docker:
+      - image: circleci/node:8
+      - image: selenium/standalone-firefox:3.4.0
+
+    steps:
+      - checkout
+
+
+      - run:
+          name: Enable Yarn workspaces
+          command: |
+            echo "workspaces-experimental true" >> ~/.yarnrc
+            cat ~/.yarnrc
+
+
+      - restore_cache:
+          key: deps-{{ checksum "yarn.lock" }}
+
+
+      - run: yarn install --pure-lockfile
+
+
+      - save_cache:
+          key: deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+
+      - run: yarn lerna bootstrap
+
+
+      - run: yarn lint
+
+
+      - run: yarn lerna run call lint
+
+
+      - run: yarn lerna run call test
+
+
+      - run: yarn lerna run call pub
+
+
+      - run:
+          name: yarn lerna run call e2e -- --parallel
+          command: |
+            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+            yarn lerna run call e2e -- --parallel
