@@ -21,9 +21,11 @@ jobs:
 
       - restore_cache:
           key: deps-{{ checksum "yarn.lock" }}
-      - run:
-          name: Yarn install
-          command: yarn install
+
+
+      - run: yarn install --pure-lockfile
+
+
       - save_cache:
           key: deps-{{ checksum "yarn.lock" }}
           paths:
@@ -33,28 +35,20 @@ jobs:
       - run: yarn lerna bootstrap
 
 
-      - run:
-          name: Lint
-          command: yarn lint
+      - run: yarn lint
+
+
+      - run: yarn lerna run call lint
+
+
+      - run: yarn lerna run call test
+
+
+      - run: yarn lerna run call pub
 
 
       - run:
-          name: Lint packages
-          command: yarn lerna run call lint
-
-
-      - run:
-          name: Test packages
-          command: yarn lerna run call test
-
-
-      - run:
-          name: Build packages
-          command: $(yarn bin)/lerna run call pub
-
-
-      - run:
-          name: End-to-end test packages
-          environment:
-            DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-          command: yarn lerna run call e2e -- --concurrency 1
+          name: yarn lerna run call e2e -- --concurrency 1
+          command: |
+            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+            yarn lerna run call e2e -- --concurrency 1
