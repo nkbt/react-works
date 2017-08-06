@@ -1,4 +1,4 @@
-import test from '../../../lib/test/tape';
+import test from 'tape';
 import {TextFilter} from '../src/Component';
 
 
