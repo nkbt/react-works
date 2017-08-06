@@ -14,7 +14,9 @@ jobs:
 
       - run:
           name: Enable Yarn workspaces
-          command: echo "workspaces-experimental true" >> ~/.yarnrc
+          command: |
+            echo "workspaces-experimental true" >> ~/.yarnrc
+            cat ~/.yarnrc
 
 
       - restore_cache:
@@ -28,17 +30,17 @@ jobs:
             - node_modules
 
 
-      - run: $(yarn bin)/lerna bootstrap
+      - run: yarn lerna bootstrap
 
 
       - run:
           name: Lint
-          command: $(yarn bin)/eslint .
+          command: yarn lint
 
 
       - run:
           name: Lint packages
-          command: $(yarn bin)/lerna run call lint
+          command: yarn lerna run call lint
 
 
 
