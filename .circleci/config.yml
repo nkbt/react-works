@@ -48,7 +48,7 @@ jobs:
 
 
       - run:
-          name: yarn lerna run call e2e -- --concurrency 1
+          name: yarn lerna run call e2e -- --parallel
           command: |
             export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            yarn lerna run call e2e -- --concurrency 1
+            yarn lerna run call e2e -- --parallel

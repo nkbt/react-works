@@ -8,6 +8,7 @@ const finalhandler = require(`finalhandler`);
 const http = require(`http`);
 const serveStatic = require(`serve-static`);
 const {CWD} = require(`../lib/bash`);
+const portfinder = require(`portfinder`);
 
 
 const {
@@ -20,27 +21,45 @@ if (!DOCKER_IP) {
 }
 
 
-const createServer = ({cwd, port}) => new Promise((resolve, reject) => {
-  const serve = serveStatic(`${cwd}/pub`);
-  const server = http.createServer((req, res) => serve(req, res, finalhandler(req, res)));
+const nextTick = () => new Promise(resolve => process.nextTick(resolve));
+
+
+let count = 0;
+const listen = server => new Promise(async (resolve, reject) => {
+  const port = await portfinder.getPortPromise({port: 3000});
   server.listen(port, `0.0.0.0`, err => {
-    if (err) {
-      reject(err);
-      return;
+    if (!err) {
+      Object.assign(server, {port});
+      return resolve();
     }
-    console.log(`Server "${path.basename(cwd)}" is listening on ${DOCKER_IP}:${port}`);
-    setTimeout(() => resolve(server));
+
+    if (!err.message.includes(`EADDRINUSE`) || count > 10) {
+      return reject(err);
+    }
+
+    count += 1;
+    return listen(server).then(resolve, reject);
   });
 });
+
+
+const createServer = async ({cwd}) => {
+  const serve = serveStatic(`${cwd}/pub`);
+  const server = http.createServer((req, res) => serve(req, res, finalhandler(req, res)));
+  await listen(server);
+  console.log(`Server "${path.basename(cwd)}" is listening on ${DOCKER_IP}:${server.port}`);
+  await nextTick();
+  return server;
+};
 
 
 const wait = func =>
   new Promise((resolve, reject) => func((err, ...args) => err ? reject(err) : resolve(...args)));
 
 
-const run = async ({cwd, port}) => {
-  const server = await createServer({cwd, port});
-  const finish = () => new Promise(resolve => server.close(() => setTimeout(resolve)));
+const run = async ({cwd}) => {
+  const server = await createServer({cwd});
+  const finish = () => new Promise(resolve => server.close(() => process.nextTick(resolve)));
   const die = async err => {
     console.error(err.message);
     console.log(err.stack);
@@ -65,7 +84,7 @@ const run = async ({cwd, port}) => {
   const browser = client.api();
 
   browser
-    .url(`http://${DOCKER_IP}:3000`)
+    .url(`http://${DOCKER_IP}:${server.port}`)
     .waitForElementVisible(`body`, 1000)
     .assert.containsText(`body`, require(`${cwd}/package.json`).name)
     .end();
@@ -82,4 +101,4 @@ const run = async ({cwd, port}) => {
 };
 
 
-run({cwd: CWD, port: 3000});
+run({cwd: CWD});

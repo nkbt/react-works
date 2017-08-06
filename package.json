@@ -30,6 +30,7 @@
     "html-webpack-plugin": "^2.29.0",
     "lerna": "^2.0.0",
     "nightwatch": "^0.9.16",
+    "portfinder": "^1.0.13",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "rimraf": "^2.6.1",
