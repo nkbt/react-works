@@ -1,0 +1,125 @@
+version: 2
+
+
+jobs:
+  build:
+    working_directory: ~/react-works
+    docker:
+      - image: circleci/node:8
+#      - image: selenium/standalone-firefox:3.4.0
+
+    steps:
+      - checkout
+
+
+      - run:
+          name: Enable Yarn workspaces
+          command: echo "workspaces-experimental true" >> ~/.yarnrc
+
+
+      - restore_cache:
+          key: deps-{{ checksum "yarn.lock" }}
+      - run:
+          name: Yarn install
+          command: yarn install
+      - save_cache:
+          key: deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+
+      - run: $(yarn bin)/lerna bootstrap
+
+
+      - run:
+          name: Lint
+          command: $(yarn bin)/eslint .
+
+
+      - run:
+          name: Lint packages
+          command: $(yarn bin)/lerna run call lint
+
+
+
+
+
+#workflows:
+#  version: 2
+#  build:
+#    jobs:
+#      - install
+#      - lint:
+#          requires:
+#            - install
+#      - test:
+#          requires:
+#            - install
+#      - e2e:
+#          requires:
+#            - install
+#      - build:
+#          requires:
+#            - install
+
+
+
+
+#      - run:
+#          name: Test packages
+#          command: $(yarn bin)/lerna run call test
+
+
+#      - run:
+#          name: Build packages
+#          command: $(yarn bin)/lerna run call pub
+#
+#
+#      - deploy:
+#          name: Start end-to-end servers
+#          background: true
+#          command: |
+#            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+#            $(yarn bin)/lerna run call startServer
+#
+#
+#      - deploy:
+#          name: Wait for end-to-end servers
+#          command: sleep 10
+#
+#
+#      - deploy:
+#          name: Run end-to-end tests bulkhead
+#          working_directory: ~/react-works/packages/bulkhead
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests element-resize
+#          working_directory: ~/react-works/packages/element-resize
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests interval
+#          working_directory: ~/react-works/packages/interval
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests normalized-select
+#          working_directory: ~/react-works/packages/normalized-select
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests page-click
+#          working_directory: ~/react-works/packages/page-click
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests nightwatch
+#          working_directory: ~/react-works/packages/nightwatch
+#          command: ../../node_modules/.bin/nightwatch
+#
+#      - deploy:
+#          name: Run end-to-end tests text-filter
+#          working_directory: ~/react-works/packages/text-filter
+#          command: ../../node_modules/.bin/nightwatch
+#

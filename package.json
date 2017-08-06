@@ -1,4 +1,5 @@
 {
+  "private": true,
   "scripts": {
     "lint": "eslint .",
     "lerna": "lerna",
@@ -41,5 +42,8 @@
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "workspaces": [
+    "packages/*"
+  ]
 }
