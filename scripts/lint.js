@@ -5,4 +5,4 @@
 const {npm, CWD} = require(`../lib/bash`);
 
 
-npm(`eslint .`, {cwd: CWD});
+npm(`eslint --fix .`, {cwd: CWD});

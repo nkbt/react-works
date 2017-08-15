@@ -12,13 +12,6 @@ jobs:
       - checkout
 
 
-      - run:
-          name: Enable Yarn workspaces
-          command: |
-            echo "workspaces-experimental true" >> ~/.yarnrc
-            cat ~/.yarnrc
-
-
       - restore_cache:
           key: deps-{{ checksum "yarn.lock" }}
 
@@ -33,6 +26,9 @@ jobs:
 
 
       - run: yarn lerna bootstrap
+
+
+      - run: yarn lerna run call build
 
 
       - run: yarn lint

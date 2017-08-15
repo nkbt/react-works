@@ -42,14 +42,13 @@ yarn lerna bootstrap
 
 ```bash
 # to run eslint for all packages
-lerna run start lint
+lerna run call lint
 
 # to run tests for all packages
-lerna run start test
+lerna run call test
 
 # to run end-to-end tests for all packages
-# note `--concurrency 1`, we should run e2e in sequence
-lerna run start e2e --concurrency 1
+lerna run call e2e
 ```
 
 ### Run package example
@@ -76,6 +75,8 @@ yarn call lint
 yarn call test
 
 # to run end-to-end tests
+docker run -p 4444:4444 selenium/standalone-firefox:3.4.0
+yarn call pub
 yarn call e2e
 ```
 
