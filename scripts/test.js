@@ -9,7 +9,15 @@ const {CWD} = require(`../lib/bash`);
 
 require(`babel-register`)({
   babelrc: false,
-  presets: [`node7`, `react`],
+  plugins: [
+    `transform-object-rest-spread`,
+    `transform-class-properties`,
+    [`transform-react-remove-prop-types`, {removeImport: true}]
+  ],
+  presets: [
+    `react`,
+    [`env`, {targets: {node: `7`}}]
+  ],
   retainLines: true,
   comments: false
 });

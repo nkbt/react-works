@@ -26,7 +26,7 @@ const nextTick = () => new Promise(resolve => process.nextTick(resolve));
 
 let count = 0;
 const listen = server => new Promise(async (resolve, reject) => {
-  const port = await portfinder.getPortPromise({port: 3000});
+  const port = await portfinder.getPortPromise({port: 7000});
   server.listen(port, `0.0.0.0`, err => {
     if (!err) {
       Object.assign(server, {port});

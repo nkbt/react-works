@@ -3,9 +3,9 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/react-works
+    working_directory: ~/app
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:8.4.0
       - image: selenium/standalone-firefox:3.4.0
 
     steps:
@@ -13,10 +13,12 @@ jobs:
 
 
       - run:
-          name: Enable Yarn workspaces
+          name: Checkout master
           command: |
-            echo "workspaces-experimental true" >> ~/.yarnrc
-            cat ~/.yarnrc
+            git fetch --all
+            git checkout master
+            git reset --hard origin/master
+            git checkout $CIRCLE_BRANCH
 
 
       - restore_cache:
@@ -32,23 +34,33 @@ jobs:
             - node_modules
 
 
-      - run: yarn lerna bootstrap
-
-
-      - run: yarn lint
-
-
-      - run: yarn lerna run call lint
-
-
-      - run: yarn lerna run call test
-
-
-      - run: yarn lerna run call pub
+      - run:
+          name: Prepublush
+          command: yarn lerna run prepublish -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
 
 
       - run:
-          name: yarn lerna run call e2e -- --parallel
+          name: Lint Root
+          command: yarn lint
+
+
+      - run:
+          name: Lint
+          command: yarn lerna run lint -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+
+
+      - run:
+          name: Test
+          command: yarn lerna run test -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+
+
+      - run:
+          name: Pub
+          command: yarn lerna run pub -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+
+
+      - run:
+          name: End to end tests
           command: |
             export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            yarn lerna run call e2e -- --parallel
+            yarn lerna run e2e -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
