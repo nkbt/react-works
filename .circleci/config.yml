@@ -36,7 +36,7 @@ jobs:
 
       - run:
           name: Prepublush
-          command: yarn lerna run prepublish -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run prepublish
 
 
       - run:
