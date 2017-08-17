@@ -37,7 +37,7 @@ const listen = server => new Promise(async (resolve, reject) => {
       return reject(err);
     }
 
-    count = count + 1;
+    count += 1;
     return listen(server).then(resolve, reject);
   });
 });
