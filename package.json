@@ -27,7 +27,7 @@
     "finalhandler": "^1.0.4",
     "gh-pages": "^1.0.0",
     "glob": "^7.1.2",
-    "html-webpack-include-assets-plugin": "^0.0.7",
+    "html-webpack-include-assets-plugin": "^0.0.8",
     "html-webpack-plugin": "^2.29.0",
     "lerna": "^2.0.0",
     "nightwatch": "^0.9.16",
