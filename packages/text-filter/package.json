@@ -35,11 +35,11 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/packages/text-filter",
   "peerDependencies": {
-    "react": "^15.3.0"
+    "react": "^15.3.0 || ^16.0.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "react-debounce-input": "^3.0.0"
+    "prop-types": "^15.6.0",
+    "react-debounce-input": "^3.0.1"
   },
   "files": [
     "build",
