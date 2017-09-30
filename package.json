@@ -7,7 +7,7 @@
     "nuke": "rm -rf node_modules yarn.lock",
     "postnuke": "yarn install",
     "pub": "lerna publish",
-    "postpub": "git push --follow-tags && yarn changelog",
+    "postpub": "git push --follow-tags",
     "pub-dry": "lerna publish --skip-git --skip-npm"
   },
   "devDependencies": {
