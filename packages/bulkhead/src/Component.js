@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shallowCompare from 'react/lib/shallowCompare';
+import shallowEqual from './shallowEqual';
 
 
 export class ReactBulkhead extends React.Component {
@@ -52,7 +52,7 @@ export class ReactBulkhead extends React.Component {
       return;
     }
 
-    if (this.onUpdate && shallowCompare(this, newProps)) {
+    if (this.onUpdate && !shallowEqual(this.props, newProps)) {
       this.onUpdate(newProps);
     }
   }
