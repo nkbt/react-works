@@ -38,10 +38,10 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/packages/page-click",
   "peerDependencies": {
-    "react": "^15.3.0"
+    "react": "^15.3.0 || ^16.0.0"
   },
   "dependencies": {
-    "prop-types": "^15.5.10"
+    "prop-types": "^15.6.0"
   },
   "files": [
     "build",
