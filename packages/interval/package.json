@@ -3,6 +3,7 @@
   "version": "2.0.2",
   "description": "Safe React wrapper for setInterval",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "config": {
     "component": "ReactInterval"
   },
@@ -41,6 +42,7 @@
     "react": "^15.3.0 || ^16.0.0"
   },
   "dependencies": {
+    "@types/react": "^16.0.2",
     "prop-types": "^15.6.0"
   },
   "files": [
