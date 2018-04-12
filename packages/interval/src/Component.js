@@ -28,8 +28,8 @@ export class ReactInterval extends React.Component {
     );
   }
 
-  componentDidUpdate({enabled}) {
-    if (this.props.enabled !== enabled) {
+  componentDidUpdate({enabled, timeout}) {
+    if (this.props.enabled !== enabled || this.props.timeout !== timeout) {
       if (this.props.enabled) {
         this.start();
       } else {
