@@ -9,7 +9,8 @@ export class App extends React.Component {
       callback: this.inc1,
       destroy: false,
       enabled: false,
-      timeout: 200,
+      timeout: 1000,
+      immediate: false,
       count: 0
     };
   }
@@ -37,6 +38,15 @@ export class App extends React.Component {
     this.setState({enabled: !enabled});
   };
 
+  startImmediatly = () => {
+    const {enabled} = this.state;
+
+    this.setState({
+      enabled: !enabled,
+      immediate: true
+    });
+  };
+
   inc1 = () => {
     const {count} = this.state;
 
@@ -50,7 +60,7 @@ export class App extends React.Component {
   };
 
   render() {
-    const {destroy, callback, timeout, enabled, count} = this.state;
+    const {destroy, callback, timeout, enabled, immediate, count} = this.state;
 
     return (
       <div className="app">
@@ -58,7 +68,7 @@ export class App extends React.Component {
 
         <div style={{background: destroy ? `#f1f2f3` : `#f1fef3`, padding: 10}}>
 
-          {destroy ? null : <ReactInterval {...{timeout, enabled, callback}} />}
+          {destroy ? null : <ReactInterval {...{timeout, enabled, callback, immediate}} />}
 
           <input
             max="5000"
@@ -81,6 +91,11 @@ export class App extends React.Component {
 
           <button disabled={enabled} onClick={this.onToggleInterval}>
             Start
+          </button>
+          &nbsp;
+
+          <button disabled={enabled} onClick={this.startImmediatly}>
+            Start immediatly
           </button>
           &nbsp;
 
