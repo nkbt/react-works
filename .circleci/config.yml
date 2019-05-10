@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/app
     docker:
       - image: circleci/node:8.4.0
-      - image: selenium/standalone-firefox:3.4.0
+#      - image: selenium/standalone-firefox:3.4.0
 
     steps:
       - checkout
@@ -46,21 +46,21 @@ jobs:
 
       - run:
           name: Lint
-          command: yarn lerna run lint -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run lint --parallel --stream --no-bail
 
 
       - run:
           name: Test
-          command: yarn lerna run test -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run test --parallel --stream --no-bail
 
 
       - run:
           name: Pub
-          command: yarn lerna run pub -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run pub --parallel --stream --no-bail
 
 
-      - run:
-          name: End to end tests
-          command: |
-            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            yarn lerna run e2e -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+#      - run:
+#          name: End to end tests
+#          command: |
+#            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+#            yarn lerna run e2e --parallel --stream --no-bail
