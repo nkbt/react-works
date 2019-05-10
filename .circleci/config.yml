@@ -46,17 +46,17 @@ jobs:
 
       - run:
           name: Lint
-          command: yarn lerna run lint -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run lint --parallel --stream --no-bail
 
 
       - run:
           name: Test
-          command: yarn lerna run test -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run test --parallel --stream --no-bail
 
 
       - run:
           name: Pub
-          command: yarn lerna run pub -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+          command: yarn lerna run pub --parallel --stream --no-bail
 
 
       - run:

@@ -10,6 +10,7 @@
     "react/jsx-sort-props": 0,
     "react/no-multi-comp": 0,
     "react/prefer-es6-class": 2,
-    "react/no-array-index-key": 0
+    "react/no-array-index-key": 0,
+    "jsx-a11y/label-has-for": 0
   }
 }
