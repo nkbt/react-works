@@ -17,6 +17,7 @@ export class ReactPageClick extends React.PureComponent {
     notifyOnTouchEnd: false
   };
 
+
   static propTypes = {
     children: PropTypes.node.isRequired,
     notify: PropTypes.func.isRequired,
@@ -26,10 +27,6 @@ export class ReactPageClick extends React.PureComponent {
     notifyOnTouchEnd: PropTypes.bool
   };
 
-  componentWillMount() {
-    this.insideClick = false;
-    this.touchStart = null;
-  }
 
   componentDidMount() {
     global.window.addEventListener(`mousedown`, this.onDocumentMouseDown, false);
@@ -38,12 +35,14 @@ export class ReactPageClick extends React.PureComponent {
     global.window.addEventListener(`touchend`, this.onDocumentTouchEnd, false);
   }
 
+
   componentWillUnmount() {
     global.window.removeEventListener(`mousedown`, this.onDocumentMouseDown, false);
     global.window.removeEventListener(`mouseup`, this.onDocumentMouseUp, false);
     global.window.removeEventListener(`touchstart`, this.onDocumentTouchStart, false);
     global.window.removeEventListener(`touchend`, this.onDocumentTouchEnd, false);
   }
+
 
   onDocumentMouseDown = (...args) => {
     if (this.insideClick) {
@@ -52,9 +51,11 @@ export class ReactPageClick extends React.PureComponent {
     this.props.notify(...args);
   };
 
+
   onDocumentMouseUp = () => {
     this.insideClick = false;
   };
+
 
   onDocumentTouchEnd = (event, ...args) => {
     // on mobile safari click events are not bubbled up to the document unless the target has the
@@ -73,6 +74,7 @@ export class ReactPageClick extends React.PureComponent {
     this.insideClick = false;
   };
 
+
   onDocumentTouchStart = (event, ...args) => {
     if (this.insideClick) {
       return;
@@ -84,6 +86,7 @@ export class ReactPageClick extends React.PureComponent {
     }
   };
 
+
   onMouseDown = (...args) => {
     this.insideClick = true;
     if (this.props.onMouseDown) {
@@ -91,12 +94,20 @@ export class ReactPageClick extends React.PureComponent {
     }
   };
 
+
   onTouchStart = (...args) => {
     this.insideClick = true;
     if (this.props.onTouchStart) {
       this.props.onTouchStart(...args);
     }
   };
+
+
+  insideClick = false;
+
+
+  touchStart = null;
+
 
   render() {
     const props = this.props.outsideOnly ? {
