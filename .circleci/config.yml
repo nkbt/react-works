@@ -63,4 +63,4 @@ jobs:
           name: End to end tests
           command: |
             export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            yarn lerna run e2e -- --parallel --since $([ "$CIRCLE_BRANCH" = "master" ] || echo "master")
+            yarn lerna run e2e --parallel --stream --no-bail
