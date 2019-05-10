@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/app
     docker:
       - image: circleci/node:8.4.0
-      - image: selenium/standalone-firefox:3.4.0
+#      - image: selenium/standalone-firefox:3.4.0
 
     steps:
       - checkout
@@ -59,8 +59,8 @@ jobs:
           command: yarn lerna run pub --parallel --stream --no-bail
 
 
-      - run:
-          name: End to end tests
-          command: |
-            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
-            yarn lerna run e2e --parallel --stream --no-bail
+#      - run:
+#          name: End to end tests
+#          command: |
+#            export DOCKER_IP=$(ifconfig | grep "inet addr:" | grep "Bcast:0.0.0.0" | cut -d: -f2 | awk '{ print $1}')
+#            yarn lerna run e2e --parallel --stream --no-bail
