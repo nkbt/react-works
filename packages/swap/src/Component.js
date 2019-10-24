@@ -30,6 +30,7 @@ export class ReactSwap extends React.Component {
     this.state = {isSwapped: Boolean(isSwapped)};
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps({isSwapped}) {
     const {isSwapped: isSwapped1} = this.state;
     if (typeof isSwapped !== 'undefined' && isSwapped1 !== isSwapped) {

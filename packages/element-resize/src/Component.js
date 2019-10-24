@@ -51,6 +51,7 @@ export class ReactElementResize extends React.Component {
     scrollTop: -1
   };
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillMount() {
     const {debounceTimeout, debounceOptions, onResize, onScroll} = this.props;
 

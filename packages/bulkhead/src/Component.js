@@ -17,6 +17,7 @@ export class ReactBulkhead extends React.Component {
     children: PropTypes.node
   };
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillMount() {
     this.ref = null;
   }
@@ -41,6 +42,7 @@ export class ReactBulkhead extends React.Component {
     }
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps({
     element: _element,
     propsWhitelist: _propsWhitelist,
