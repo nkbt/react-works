@@ -1,4 +1,4 @@
-const {TextFilter} = require(`./Component`);
+const {TextFilter} = require('./Component');
 
 TextFilter.TextFilter = TextFilter;
 module.exports = TextFilter;

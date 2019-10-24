@@ -6,7 +6,7 @@ export class App extends React.Component {
   state = {log: []};
 
   onLog = data => {
-    this.setState({log: [JSON.stringify(data)].concat(this.state.log).slice(0, 20)});
+    this.setState(({log}) => ({log: [JSON.stringify(data)].concat(log).slice(0, 20)}));
   };
 
   render() {

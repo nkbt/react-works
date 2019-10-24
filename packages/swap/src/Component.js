@@ -10,7 +10,7 @@ export class ReactSwap extends React.Component {
     isHover: false,
     isSwapped: false,
     delay: 0,
-    dataHandler: `swapHandler`,
+    dataHandler: 'swapHandler',
     onSwap: noop
   };
 
@@ -30,8 +30,10 @@ export class ReactSwap extends React.Component {
     this.state = {isSwapped: Boolean(isSwapped)};
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps({isSwapped}) {
-    if (typeof isSwapped !== `undefined` && this.state.isSwapped !== isSwapped) {
+    const {isSwapped: isSwapped1} = this.state;
+    if (typeof isSwapped !== 'undefined' && isSwapped1 !== isSwapped) {
       this.setState({isSwapped});
     }
   }
@@ -42,7 +44,8 @@ export class ReactSwap extends React.Component {
 
   onClick = event => {
     // Should react on click only on [data-swap-handler="1"] elements
-    if (!event.target.dataset[this.props.dataHandler]) {
+    const {dataHandler} = this.props;
+    if (!event.target.dataset[dataHandler]) {
       return;
     }
     event.preventDefault();
@@ -66,7 +69,8 @@ export class ReactSwap extends React.Component {
   };
 
   clearTimer = () => {
-    if (this.props.delay) {
+    const {delay} = this.props;
+    if (delay) {
       clearTimeout(this.timer);
     }
   };
@@ -77,11 +81,13 @@ export class ReactSwap extends React.Component {
   };
 
   hide = () => {
-    this.setTimer(() => this.change(false), this.props.delay);
+    const {delay} = this.props;
+    this.setTimer(() => this.change(false), delay);
   };
 
   swap = () => {
-    if (this.state.isSwapped) {
+    const {isSwapped} = this.state;
+    if (isSwapped) {
       this.hide();
     } else {
       this.expand();
@@ -89,10 +95,12 @@ export class ReactSwap extends React.Component {
   };
 
   render() {
-    const content = this.state.isSwapped ? this.props.children[1] : this.props.children[0];
-    const props = this.props.isHover ?
-      {onMouseLeave: this.hide, onMouseEnter: this.expand} :
-      {onClick: this.onClick};
+    const {isSwapped} = this.state;
+    const {children, isHover} = this.props;
+    const content = isSwapped ? children[1] : children[0];
+    const props = isHover
+      ? {onMouseLeave: this.hide, onMouseEnter: this.expand}
+      : {onClick: this.onClick};
 
     return React.cloneElement(content, props);
   }

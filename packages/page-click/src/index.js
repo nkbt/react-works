@@ -1,4 +1,4 @@
-const {ReactPageClick} = require(`./Component`);
+const {ReactPageClick} = require('./Component');
 
 ReactPageClick.ReactPageClick = ReactPageClick;
 module.exports = ReactPageClick;

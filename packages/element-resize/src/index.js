@@ -1,4 +1,4 @@
-const {ReactElementResize} = require(`./Component`);
+const {ReactElementResize} = require('./Component');
 
 ReactElementResize.ReactElementResize = ReactElementResize;
 module.exports = ReactElementResize;

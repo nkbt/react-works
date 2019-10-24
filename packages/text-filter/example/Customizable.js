@@ -18,13 +18,13 @@ List.propTypes = {
 
 
 const fruits = [
-  `apple`,
-  `orange`,
-  `banana`,
-  `kiwi`,
-  `pineapple`,
-  `golden kiwi`,
-  `green apple`
+  'apple',
+  'orange',
+  'banana',
+  'kiwi',
+  'pineapple',
+  'golden kiwi',
+  'green apple'
 ];
 
 
@@ -33,7 +33,7 @@ const fruitFilter = filter => fruit => fruit.toLowerCase().indexOf(filter.toLowe
 
 export class Customizable extends React.PureComponent {
   state = {
-    filter: ``,
+    filter: '',
     minLength: 2,
     debounceTimeout: 300
   };
@@ -53,9 +53,9 @@ export class Customizable extends React.PureComponent {
   render() {
     const {minLength, indefinite, debounceTimeout, filter} = this.state;
 
-    const filteredFruits = filter ?
-      fruits.filter(fruitFilter(filter)) :
-      fruits.slice(0);
+    const filteredFruits = filter
+      ? fruits.filter(fruitFilter(filter))
+      : fruits.slice(0);
 
     return (
       <div>

@@ -44,11 +44,11 @@ import {ReactElementResize} from 'react-element-resize';
 
 
 const onResize = ({width, height}) =>
-  console.log({width, height})
+  console.log({width, height});
 
 
 const onScroll = ({offsetLeft, offsetTop, scrollLeft, scrollTop}) =>
-  console.log({offsetLeft, offsetTop, scrollLeft, scrollTop})
+  console.log({offsetLeft, offsetTop, scrollLeft, scrollTop});
 
 
 const App = () => (

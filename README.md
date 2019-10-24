@@ -70,18 +70,7 @@ yarn lint
 
 # to run tests
 yarn test
-
-# to run end-to-end tests
-docker run -p 4444:4444 selenium/standalone-firefox:3.4.0
-yarn pub
-yarn e2e
 ```
-
-
-## Moar badges
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/nkbt/react-works.svg)](https://greenkeeper.io/)
-
 
 ## License
 

@@ -1,21 +1,19 @@
-/* global window */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
 
 const iframeStyle = {
-  display: `block`,
-  position: `absolute`,
+  display: 'block',
+  position: 'absolute',
   top: 0,
   left: 0,
-  width: `100%`,
-  height: `100%`,
-  overflow: `hidden`,
-  border: `none`,
-  background: `transparent`,
-  pointerEvents: `none`,
+  width: '100%',
+  height: '100%',
+  overflow: 'hidden',
+  border: 'none',
+  background: 'transparent',
+  pointerEvents: 'none',
   zIndex: -1
 };
 
@@ -39,6 +37,7 @@ export class ReactElementResize extends React.Component {
       trailing: PropTypes.bool,
       maxWait: PropTypes.number
     }),
+    // eslint-disable-next-line react/forbid-prop-types
     style: PropTypes.object,
     children: PropTypes.func
   };
@@ -52,19 +51,20 @@ export class ReactElementResize extends React.Component {
     scrollTop: -1
   };
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillMount() {
     const {debounceTimeout, debounceOptions, onResize, onScroll} = this.props;
 
     if (onResize) {
-      this.onResizeDebounced = debounceTimeout > -1 ?
-        debounce(this.onResize, debounceTimeout, debounceOptions) :
-        this.onResize;
+      this.onResizeDebounced = debounceTimeout > -1
+        ? debounce(this.onResize, debounceTimeout, debounceOptions)
+        : this.onResize;
     }
 
     if (onScroll) {
-      this.onScrollDebounced = debounceTimeout > -1 ?
-        debounce(this.onScroll, debounceTimeout, debounceOptions) :
-        this.onScroll;
+      this.onScrollDebounced = debounceTimeout > -1
+        ? debounce(this.onScroll, debounceTimeout, debounceOptions)
+        : this.onScroll;
     }
   }
 
@@ -72,12 +72,12 @@ export class ReactElementResize extends React.Component {
     const {onResize, onScroll} = this.props;
 
     if (onResize) {
-      this.sensor.contentWindow.addEventListener(`resize`, this.onResizeDebounced, false);
+      this.sensor.contentWindow.addEventListener('resize', this.onResizeDebounced, false);
       this.rafOnResize = window.requestAnimationFrame(this.onResize);
     }
 
     if (onScroll) {
-      this.container.addEventListener(`scroll`, this.onScrollDebounced, false);
+      this.container.addEventListener('scroll', this.onScrollDebounced, false);
       this.rafOnScroll = window.requestAnimationFrame(this.onScroll);
     }
   }
@@ -87,7 +87,7 @@ export class ReactElementResize extends React.Component {
 
     if (onResize) {
       window.cancelAnimationFrame(this.rafOnResize);
-      this.sensor.contentWindow.removeEventListener(`resize`, this.onResizeDebounced, false);
+      this.sensor.contentWindow.removeEventListener('resize', this.onResizeDebounced, false);
       if (this.onResizeDebounced.cancel) {
         this.onResizeDebounced.cancel();
       }
@@ -95,7 +95,7 @@ export class ReactElementResize extends React.Component {
 
     if (onScroll) {
       window.cancelAnimationFrame(this.rafOnScroll);
-      this.container.removeEventListener(`scroll`, this.onScrollDebounced, false);
+      this.container.removeEventListener('scroll', this.onScrollDebounced, false);
       if (this.onScrollDebounced.cancel) {
         this.onScrollDebounced.cancel();
       }
@@ -135,15 +135,15 @@ export class ReactElementResize extends React.Component {
       ...props
     } = this.props;
     const {width, height, offsetLeft, offsetTop, scrollLeft, scrollTop} = this.state;
-    const shouldRender = (onResize && width > -1 && height > -1) ||
-      (onScroll && offsetLeft > -1 && offsetTop > -1 && scrollLeft > -1 && scrollTop > -1);
+    const shouldRender = (onResize && width > -1 && height > -1)
+      || (onScroll && offsetLeft > -1 && offsetTop > -1 && scrollLeft > -1 && scrollTop > -1);
 
     return (
-      <div ref={this.onContainerRef} style={{position: `relative`, ...style}} {...props}>
-        {onResize ?
-          <iframe ref={this.onSensorRef} title="Element resize sensor" style={iframeStyle} /> : null}
-        {shouldRender ?
-          render({width, height, offsetLeft, offsetTop, scrollLeft, scrollTop}) : null}
+      <div ref={this.onContainerRef} style={{position: 'relative', ...style}} {...props}>
+        {onResize
+          ? <iframe ref={this.onSensorRef} title="Element resize sensor" style={iframeStyle} /> : null}
+        {shouldRender
+          ? render({width, height, offsetLeft, offsetTop, scrollLeft, scrollTop}) : null}
       </div>
     );
   }

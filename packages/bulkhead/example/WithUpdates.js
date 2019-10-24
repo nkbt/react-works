@@ -5,11 +5,11 @@ import {ReactBulkhead} from '../src/Component';
 
 
 const onCreate = ({element, value}) => {
-  console.log(`WithUpdates: onCreate`, {element, value});
+  console.log('WithUpdates: onCreate', {element, value});
 
   const update = val => {
     Object.assign(element, {
-      innerHTML: `Set with element.innerHTML${val ? `: "${val}"` : ``}`
+      innerHTML: `Set with element.innerHTML${val ? `: "${val}"` : ''}`
     });
   };
 
@@ -17,7 +17,7 @@ const onCreate = ({element, value}) => {
 
   return {
     onUpdate(next) {
-      console.log(`WithUpdates: onUpdate`, {value: next.value});
+      console.log('WithUpdates: onUpdate', {value: next.value});
       update(next.value);
     }
   };
@@ -25,17 +25,18 @@ const onCreate = ({element, value}) => {
 
 
 export class WithUpdates extends React.Component {
-  state = {value: ``};
+  state = {value: ''};
 
   onChange = ({target: {value}}) => {
     this.setState({value});
   };
 
   render() {
+    const {value} = this.state;
     return (
       <div>
-        <input onChange={this.onChange} type="text" value={this.state.value} />
-        <ReactBulkhead onCreate={onCreate} value={this.state.value} />
+        <input onChange={this.onChange} type="text" value={value} />
+        <ReactBulkhead onCreate={onCreate} value={value} />
       </div>
     );
   }

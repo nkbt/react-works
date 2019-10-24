@@ -56,7 +56,7 @@ export class App extends React.Component {
       <div className="app">
         <h1>react-interval</h1>
 
-        <div style={{background: destroy ? `#f1f2f3` : `#f1fef3`, padding: 10}}>
+        <div style={{background: destroy ? '#f1f2f3' : '#f1fef3', padding: 10}}>
 
           {destroy ? null : <ReactInterval {...{timeout, enabled, callback}} />}
 
@@ -69,22 +69,22 @@ export class App extends React.Component {
             value={timeout} />
           &nbsp;
 
-          <button disabled={callback === this.inc1} onClick={this.onToggleCallback}>
+          <button type="button" disabled={callback === this.inc1} onClick={this.onToggleCallback}>
             +1
           </button>
           &nbsp;
 
-          <button disabled={callback === this.inc10} onClick={this.onToggleCallback}>
+          <button type="button" disabled={callback === this.inc10} onClick={this.onToggleCallback}>
             +10
           </button>
           &nbsp;
 
-          <button disabled={enabled} onClick={this.onToggleInterval}>
+          <button type="button" disabled={enabled} onClick={this.onToggleInterval}>
             Start
           </button>
           &nbsp;
 
-          <button disabled={!enabled} onClick={this.onToggleInterval}>
+          <button type="button" disabled={!enabled} onClick={this.onToggleInterval}>
             Stop
           </button>
           &nbsp;
@@ -94,8 +94,8 @@ export class App extends React.Component {
         </div>
         <br />
 
-        <button onClick={this.onToggleDestroy}>
-          {destroy ? `Create Interval` : `Destroy Interval`}
+        <button type="button" onClick={this.onToggleDestroy}>
+          {destroy ? 'Create Interval' : 'Destroy Interval'}
         </button>
       </div>
     );

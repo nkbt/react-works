@@ -58,7 +58,7 @@ const Deep = () => (
 
 
 const Table = () => (
-  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -83,7 +83,7 @@ const Table = () => (
 
 
 const DeepTableSwap = () => (
-  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -122,9 +122,10 @@ class WithCallback extends React.Component {
   };
 
   render() {
+    const {opened} = this.state;
     return (
       <div>
-        <h2>With callback (opened: {this.state.opened ? `yes` : `no`})</h2>
+        <h2>With callback (opened: {opened ? 'yes' : 'no'})</h2>
         <ReactSwap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>
@@ -138,18 +139,19 @@ class ToggleFromOutside extends React.Component {
   state = {opened: false};
 
   onClick = () => {
-    this.setState({opened: !this.state.opened});
+    this.setState(({opened}) => ({opened: !opened}));
   };
 
   render() {
+    const {opened} = this.state;
     return (
       <div>
         <h2>
           Toggle from outside
           &nbsp;
-          <button onClick={this.onClick}>toggle</button>
+          <button type="button" onClick={this.onClick}>toggle</button>
         </h2>
-        <ReactSwap isSwapped={this.state.opened}>
+        <ReactSwap isSwapped={opened}>
           <Off>OFF</Off>
           <On>ON</On>
         </ReactSwap>

@@ -31,27 +31,31 @@ export class App extends React.Component {
       <div className="app">
         <h1>react-page-click</h1>
 
-        <button onClick={this.showModal}>
+        <button type="button" onClick={this.showModal}>
           Open Modal
         </button>
         &nbsp;Closes on mouse down or touch start events
 
         <br />
 
-        <button onClick={this.showLazyModal}>
+        <button type="button" onClick={this.showLazyModal}>
           Open Lazy Model
         </button>
         &nbsp;Closes on mouse down or touch end events
 
-        {showModal ?
-          <Modal onClose={this.hideModal}>
-            Modal content
-          </Modal> : null}
+        {showModal
+          ? (
+            <Modal onClose={this.hideModal}>
+              Modal content
+            </Modal>
+          ) : null}
 
-        {showLazyModal ?
-          <Modal onClose={this.hideLazyModal} notifyOnTouchEnd>
-            Lazy Modal content
-          </Modal> : null}
+        {showLazyModal
+          ? (
+            <Modal onClose={this.hideLazyModal} notifyOnTouchEnd>
+              Lazy Modal content
+            </Modal>
+          ) : null}
       </div>
     );
   }

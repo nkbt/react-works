@@ -9,9 +9,9 @@
  */
 
 /* eslint-disable no-self-compare */
-'use strict';
 
-const hasOwnProperty = Object.prototype.hasOwnProperty;
+
+const {hasOwnProperty} = Object.prototype;
 
 /**
  * inlined Object.is polyfill to avoid requiring consumers ship their own
@@ -39,7 +39,7 @@ function shallowEqual(objA, objB) {
     return true;
   }
 
-  if (typeof objA !== `object` || objA === null || typeof objB !== `object` || objB === null) {
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
     return false;
   }
 
