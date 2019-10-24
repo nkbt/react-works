@@ -14,6 +14,7 @@ export class ReactSwap extends React.Component {
     onSwap: noop
   };
 
+
   static propTypes = {
     children: PropTypes.node.isRequired,
     isHover: PropTypes.bool,
@@ -23,6 +24,7 @@ export class ReactSwap extends React.Component {
     onSwap: PropTypes.func
   };
 
+
   constructor(props) {
     super(props);
     const {isSwapped} = props;
@@ -30,17 +32,20 @@ export class ReactSwap extends React.Component {
     this.state = {isSwapped: Boolean(isSwapped)};
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps({isSwapped}) {
-    const {isSwapped: isSwapped1} = this.state;
-    if (typeof isSwapped !== 'undefined' && isSwapped1 !== isSwapped) {
-      this.setState({isSwapped});
+
+  componentDidUpdate({isSwapped: prevIsSwapped}) {
+    const {isSwapped: nextIsSwapped} = this.props;
+    if (prevIsSwapped !== nextIsSwapped && typeof nextIsSwapped !== 'undefined') {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({isSwapped: nextIsSwapped});
     }
   }
+
 
   componentWillUnmount() {
     this.clearTimer();
   }
+
 
   onClick = event => {
     // Should react on click only on [data-swap-handler="1"] elements
@@ -54,6 +59,7 @@ export class ReactSwap extends React.Component {
     this.swap();
   };
 
+
   setTimer = (callback, timeout) => {
     if (!timeout) {
       callback();
@@ -62,11 +68,13 @@ export class ReactSwap extends React.Component {
     this.timer = setTimeout(callback, timeout);
   };
 
+
   change = value => {
     const {onSwap} = this.props;
 
     this.setState({isSwapped: value}, () => onSwap(value));
   };
+
 
   clearTimer = () => {
     const {delay} = this.props;
@@ -75,15 +83,18 @@ export class ReactSwap extends React.Component {
     }
   };
 
+
   expand = () => {
     this.change(true);
     this.clearTimer();
   };
 
+
   hide = () => {
     const {delay} = this.props;
     this.setTimer(() => this.change(false), delay);
   };
+
 
   swap = () => {
     const {isSwapped} = this.state;
@@ -93,6 +104,7 @@ export class ReactSwap extends React.Component {
       this.expand();
     }
   };
+
 
   render() {
     const {isSwapped} = this.state;

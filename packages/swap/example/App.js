@@ -149,7 +149,9 @@ class ToggleFromOutside extends React.Component {
         <h2>
           Toggle from outside
           &nbsp;
-          <button type="button" onClick={this.onClick}>toggle</button>
+          <button type="button" onClick={this.onClick}>
+            toggle (opened: {opened ? 'yes' : 'no'})
+          </button>
         </h2>
         <ReactSwap isSwapped={opened}>
           <Off>OFF</Off>
