@@ -12,7 +12,7 @@ jobs:
       - restore_cache:
           key: deps-{{ checksum "yarn.lock" }}
       - run: yarn install --pure-lockfile --offline
-      - run: yarn deps
+      # - run: yarn deps
       - save_cache:
           key: deps-{{ checksum "yarn.lock" }}
           paths:

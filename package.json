@@ -8,7 +8,8 @@
     "postnuke": "yarn install",
     "pub": "lerna publish",
     "postpub": "git push --follow-tags",
-    "pub-dry": "lerna publish --skip-git --skip-npm"
+    "pub-dry": "lerna publish --skip-git --skip-npm",
+    "deps": "lerna run deps --parallel --stream --no-bail"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
