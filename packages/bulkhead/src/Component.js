@@ -10,6 +10,7 @@ export class ReactBulkhead extends React.Component {
     children: null
   };
 
+
   static propTypes = {
     element: PropTypes.string,
     propsWhitelist: PropTypes.arrayOf(PropTypes.string),
@@ -17,10 +18,9 @@ export class ReactBulkhead extends React.Component {
     children: PropTypes.node
   };
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillMount() {
-    this.ref = null;
-  }
+
+  ref = null;
+
 
   componentDidMount() {
     if (this.ref) {
@@ -42,24 +42,20 @@ export class ReactBulkhead extends React.Component {
     }
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillReceiveProps({
+
+  shouldComponentUpdate = ({
     element: _element,
     propsWhitelist: _propsWhitelist,
     onCreate: _onCreate,
     children: _children,
     ...newProps
-  }) {
-    if (!this.ref) {
-      return;
-    }
+  }) => () => this.ref && this.onUpdate && !shallowEqual(this.props, newProps);
 
-    if (this.onUpdate && !shallowEqual(this.props, newProps)) {
-      this.onUpdate(newProps);
-    }
+
+  componentDidUpdate() {
+    this.onUpdate(this.props);
   }
 
-  shouldComponentUpdate = () => false;
 
   componentWillUnmount() {
     if (this.onDestroy) {
@@ -67,9 +63,11 @@ export class ReactBulkhead extends React.Component {
     }
   }
 
+
   onRef = ref => {
     this.ref = ref;
   };
+
 
   render() {
     const {
