@@ -32,10 +32,11 @@ export class WithUpdates extends React.Component {
   };
 
   render() {
+    const {value} = this.state;
     return (
       <div>
-        <input onChange={this.onChange} type="text" value={this.state.value} />
-        <ReactBulkhead onCreate={onCreate} value={this.state.value} />
+        <input onChange={this.onChange} type="text" value={value} />
+        <ReactBulkhead onCreate={onCreate} value={value} />
       </div>
     );
   }

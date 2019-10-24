@@ -15,22 +15,25 @@ export class ReactInterval extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.enabled) {
+    const {enabled} = this.props;
+    if (enabled) {
       this.start();
     }
   }
 
   shouldComponentUpdate({timeout, callback, enabled}) {
+    const {timeout: timeout1, callback: callback1, enabled: enabled1} = this.props;
     return (
-      this.props.timeout !== timeout
-      || this.props.callback !== callback
-      || this.props.enabled !== enabled
+      timeout1 !== timeout
+      || callback1 !== callback
+      || enabled1 !== enabled
     );
   }
 
   componentDidUpdate({enabled, timeout}) {
-    if (this.props.enabled !== enabled || this.props.timeout !== timeout) {
-      if (this.props.enabled) {
+    const {timeout: timeout1, enabled: enabled1} = this.props;
+    if (enabled1 !== enabled || timeout1 !== timeout) {
+      if (enabled1) {
         this.start();
       } else {
         this.stop();
@@ -44,14 +47,16 @@ export class ReactInterval extends React.Component {
 
   callback = () => {
     if (this.timer) {
-      this.props.callback();
+      const {callback} = this.props;
+      callback();
       this.start();
     }
   };
 
   start = () => {
     this.stop();
-    this.timer = setTimeout(this.callback, this.props.timeout);
+    const {timeout} = this.props;
+    this.timer = setTimeout(this.callback, timeout);
   };
 
   stop = () => {

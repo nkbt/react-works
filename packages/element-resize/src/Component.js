@@ -1,5 +1,3 @@
-/* global window */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
@@ -39,6 +37,7 @@ export class ReactElementResize extends React.Component {
       trailing: PropTypes.bool,
       maxWait: PropTypes.number
     }),
+    // eslint-disable-next-line react/forbid-prop-types
     style: PropTypes.object,
     children: PropTypes.func
   };

@@ -45,7 +45,7 @@ import {ReactBulkhead} from 'react-bulkhead';
 
 const onCreate = ({element}) => {
   element.innerHTML = 'Gotcha! Mutable DOM here';
-}
+};
 
 const App = () => (
   <div>

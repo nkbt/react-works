@@ -44,6 +44,7 @@ export class WithEvents extends React.Component {
   };
 
   render() {
+    const {isDestroyed, value} = this.state;
     return (
       <div>
         <label htmlFor="onDestroy">
@@ -52,11 +53,9 @@ export class WithEvents extends React.Component {
             id="onDestroy"
             onChange={this.onDestroy}
             type="checkbox"
-            value={this.state.isDestroyed} />
+            value={isDestroyed} />
         </label>
-        {this.state.isDestroyed
-          ? null
-          : <ReactBulkhead onCreate={onCreate} value={this.state.value} />}
+        {isDestroyed ? null : <ReactBulkhead onCreate={onCreate} value={value} />}
       </div>
     );
   }

@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 const MAX_MOVE = 20;
 
 
-const extractCoordinates = ({changedTouches}) => ({x: changedTouches[0].screenX, y: changedTouches[0].screenY});
+const extractCoordinates = ({changedTouches}) => ({
+  x: changedTouches[0].screenX,
+  y: changedTouches[0].screenY
+});
 
 
 export class ReactPageClick extends React.PureComponent {
@@ -27,13 +30,18 @@ export class ReactPageClick extends React.PureComponent {
   };
 
 
+  insideClick = false;
+
+
+  touchStart = null;
+
+
   componentDidMount() {
     global.window.addEventListener('mousedown', this.onDocumentMouseDown, false);
     global.window.addEventListener('mouseup', this.onDocumentMouseUp, false);
     global.window.addEventListener('touchstart', this.onDocumentTouchStart, false);
     global.window.addEventListener('touchend', this.onDocumentTouchEnd, false);
   }
-
 
   componentWillUnmount() {
     global.window.removeEventListener('mousedown', this.onDocumentMouseDown, false);
@@ -42,78 +50,71 @@ export class ReactPageClick extends React.PureComponent {
     global.window.removeEventListener('touchend', this.onDocumentTouchEnd, false);
   }
 
-
   onDocumentMouseDown = (...args) => {
     if (this.insideClick) {
       return;
     }
-    this.props.notify(...args);
+    const {notify} = this.props;
+    notify(...args);
   };
-
 
   onDocumentMouseUp = () => {
     this.insideClick = false;
   };
 
-
   onDocumentTouchEnd = (event, ...args) => {
     // on mobile safari click events are not bubbled up to the document unless the target has the
     // css `cursor: pointer;` http://www.quirksmode.org/blog/archives/2010/10/click_event_del_1.html
     // so try and work out if we should call the notify prop
-    if (this.props.notifyOnTouchEnd && this.touchStart && !this.insideClick) {
+    const {notifyOnTouchEnd, notify} = this.props;
+    if (notifyOnTouchEnd && this.touchStart && !this.insideClick) {
       const {x, y} = extractCoordinates(event);
       const dx = Math.abs(x - this.touchStart.x);
       const dy = Math.abs(y - this.touchStart.y);
 
       if (dx < MAX_MOVE && dy < MAX_MOVE) {
-        this.props.notify(event, ...args);
+        notify(event, ...args);
       }
     }
     this.touchStart = null;
     this.insideClick = false;
   };
 
-
   onDocumentTouchStart = (event, ...args) => {
     if (this.insideClick) {
       return;
     }
-    if (this.props.notifyOnTouchEnd) {
+    const {notifyOnTouchEnd, notify} = this.props;
+    if (notifyOnTouchEnd) {
       this.touchStart = extractCoordinates(event);
     } else {
-      this.props.notify(event, ...args);
+      notify(event, ...args);
     }
   };
-
 
   onMouseDown = (...args) => {
     this.insideClick = true;
-    if (this.props.onMouseDown) {
-      this.props.onMouseDown(...args);
+    const {onMouseDown} = this.props;
+    if (onMouseDown) {
+      onMouseDown(...args);
     }
   };
-
 
   onTouchStart = (...args) => {
     this.insideClick = true;
-    if (this.props.onTouchStart) {
-      this.props.onTouchStart(...args);
+    const {onTouchStart} = this.props;
+    if (onTouchStart) {
+      onTouchStart(...args);
     }
   };
 
-
-  insideClick = false;
-
-
-  touchStart = null;
-
-
   render() {
-    const props = this.props.outsideOnly ? {
+    const {children, outsideOnly} = this.props;
+    const props = outsideOnly ? {
       onMouseDown: this.onMouseDown,
       onTouchStart: this.onTouchStart
     } : {};
 
-    return React.cloneElement(React.Children.only(this.props.children), props);
+    return React.cloneElement(React.Children.only(children), props);
   }
 }
