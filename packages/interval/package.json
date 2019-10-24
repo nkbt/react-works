@@ -1,6 +1,6 @@
 {
   "name": "react-interval",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Safe React wrapper for setInterval",
   "main": "lib/index.js",
   "types": "index.d.ts",
