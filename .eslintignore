@@ -1,2 +1,6 @@
 /node_modules/
-/packages/
+/packages/*/node_modules/
+/packages/*/build/
+/packages/*/lib/
+/packages/*/pub/
+/packages/*/reports/
