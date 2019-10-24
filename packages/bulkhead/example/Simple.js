@@ -5,9 +5,9 @@ import {ReactBulkhead} from '../src/Component';
 
 
 const onCreate = ({element}) => {
-  console.log(`Simple: onCreate`, {element});
+  console.log('Simple: onCreate', {element});
   Object.assign(element, {
-    innerHTML: `Gotcha! Mutable DOM here`
+    innerHTML: 'Gotcha! Mutable DOM here'
   });
 };
 

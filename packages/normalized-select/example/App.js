@@ -4,13 +4,12 @@ import {NormalizedSelect} from '../src/Component';
 
 export class App extends React.PureComponent {
   state = {
-    single: `apples`,
-    multi: [`apples`]
+    single: 'apples',
+    multi: ['apples']
   };
 
-  renderOptions = () =>
-    [`apples`, `oranges`, `bananas`, `kiwis`]
-      .map(option => <option key={option} value={option}>{option}</option>);
+  renderOptions = () => ['apples', 'oranges', 'bananas', 'kiwis']
+    .map(option => <option key={option} value={option}>{option}</option>);
 
   render() {
     return (
@@ -28,7 +27,7 @@ export class App extends React.PureComponent {
             </NormalizedSelect>
           </label>
 
-          <pre>this.state.single = {JSON.stringify(this.state.single, null, `  `)}</pre>
+          <pre>this.state.single = {JSON.stringify(this.state.single, null, '  ')}</pre>
         </div>
 
         <div>
@@ -44,7 +43,7 @@ export class App extends React.PureComponent {
             </NormalizedSelect>
           </label>
 
-          <pre>this.state.multi = {JSON.stringify(this.state.multi, null, `  `)}</pre>
+          <pre>this.state.multi = {JSON.stringify(this.state.multi, null, '  ')}</pre>
         </div>
       </div>
     );

@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 const MAX_MOVE = 20;
 
 
-const extractCoordinates = ({changedTouches}) =>
-  ({x: changedTouches[0].screenX, y: changedTouches[0].screenY});
+const extractCoordinates = ({changedTouches}) => ({x: changedTouches[0].screenX, y: changedTouches[0].screenY});
 
 
 export class ReactPageClick extends React.PureComponent {
@@ -29,18 +28,18 @@ export class ReactPageClick extends React.PureComponent {
 
 
   componentDidMount() {
-    global.window.addEventListener(`mousedown`, this.onDocumentMouseDown, false);
-    global.window.addEventListener(`mouseup`, this.onDocumentMouseUp, false);
-    global.window.addEventListener(`touchstart`, this.onDocumentTouchStart, false);
-    global.window.addEventListener(`touchend`, this.onDocumentTouchEnd, false);
+    global.window.addEventListener('mousedown', this.onDocumentMouseDown, false);
+    global.window.addEventListener('mouseup', this.onDocumentMouseUp, false);
+    global.window.addEventListener('touchstart', this.onDocumentTouchStart, false);
+    global.window.addEventListener('touchend', this.onDocumentTouchEnd, false);
   }
 
 
   componentWillUnmount() {
-    global.window.removeEventListener(`mousedown`, this.onDocumentMouseDown, false);
-    global.window.removeEventListener(`mouseup`, this.onDocumentMouseUp, false);
-    global.window.removeEventListener(`touchstart`, this.onDocumentTouchStart, false);
-    global.window.removeEventListener(`touchend`, this.onDocumentTouchEnd, false);
+    global.window.removeEventListener('mousedown', this.onDocumentMouseDown, false);
+    global.window.removeEventListener('mouseup', this.onDocumentMouseUp, false);
+    global.window.removeEventListener('touchstart', this.onDocumentTouchStart, false);
+    global.window.removeEventListener('touchend', this.onDocumentTouchEnd, false);
   }
 
 

@@ -10,7 +10,7 @@ export class ReactSwap extends React.Component {
     isHover: false,
     isSwapped: false,
     delay: 0,
-    dataHandler: `swapHandler`,
+    dataHandler: 'swapHandler',
     onSwap: noop
   };
 
@@ -31,7 +31,7 @@ export class ReactSwap extends React.Component {
   }
 
   componentWillReceiveProps({isSwapped}) {
-    if (typeof isSwapped !== `undefined` && this.state.isSwapped !== isSwapped) {
+    if (typeof isSwapped !== 'undefined' && this.state.isSwapped !== isSwapped) {
       this.setState({isSwapped});
     }
   }
@@ -90,9 +90,9 @@ export class ReactSwap extends React.Component {
 
   render() {
     const content = this.state.isSwapped ? this.props.children[1] : this.props.children[0];
-    const props = this.props.isHover ?
-      {onMouseLeave: this.hide, onMouseEnter: this.expand} :
-      {onClick: this.onClick};
+    const props = this.props.isHover
+      ? {onMouseLeave: this.hide, onMouseEnter: this.expand}
+      : {onClick: this.onClick};
 
     return React.cloneElement(content, props);
   }

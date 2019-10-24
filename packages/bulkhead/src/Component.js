@@ -5,8 +5,8 @@ import shallowEqual from './shallowEqual';
 
 export class ReactBulkhead extends React.Component {
   static defaultProps = {
-    element: `div`,
-    propsWhitelist: [`id`, `className`, `style`],
+    element: 'div',
+    propsWhitelist: ['id', 'className', 'style'],
     children: null
   };
 
@@ -32,7 +32,7 @@ export class ReactBulkhead extends React.Component {
       } = this.props;
       const bulkhead = onCreate({element: this.ref, ...props});
 
-      if (typeof bulkhead !== `object`) {
+      if (typeof bulkhead !== 'object') {
         return;
       }
 

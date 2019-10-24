@@ -22,9 +22,9 @@ export class ReactInterval extends React.Component {
 
   shouldComponentUpdate({timeout, callback, enabled}) {
     return (
-      this.props.timeout !== timeout ||
-      this.props.callback !== callback ||
-      this.props.enabled !== enabled
+      this.props.timeout !== timeout
+      || this.props.callback !== callback
+      || this.props.enabled !== enabled
     );
   }
 

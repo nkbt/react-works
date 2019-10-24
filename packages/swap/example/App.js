@@ -58,7 +58,7 @@ const Deep = () => (
 
 
 const Table = () => (
-  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -83,7 +83,7 @@ const Table = () => (
 
 
 const DeepTableSwap = () => (
-  <table style={{backgroundColor: `rgba(0, 0, 0, 0.05)`}}>
+  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -124,7 +124,7 @@ class WithCallback extends React.Component {
   render() {
     return (
       <div>
-        <h2>With callback (opened: {this.state.opened ? `yes` : `no`})</h2>
+        <h2>With callback (opened: {this.state.opened ? 'yes' : 'no'})</h2>
         <ReactSwap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
           <On data-swap-handler={1}>ON</On>

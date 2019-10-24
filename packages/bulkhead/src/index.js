@@ -1,4 +1,4 @@
-const {ReactBulkhead} = require(`./Component`);
+const {ReactBulkhead} = require('./Component');
 
 ReactBulkhead.ReactBulkhead = ReactBulkhead;
 module.exports = ReactBulkhead;

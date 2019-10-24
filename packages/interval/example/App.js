@@ -56,7 +56,7 @@ export class App extends React.Component {
       <div className="app">
         <h1>react-interval</h1>
 
-        <div style={{background: destroy ? `#f1f2f3` : `#f1fef3`, padding: 10}}>
+        <div style={{background: destroy ? '#f1f2f3' : '#f1fef3', padding: 10}}>
 
           {destroy ? null : <ReactInterval {...{timeout, enabled, callback}} />}
 
@@ -95,7 +95,7 @@ export class App extends React.Component {
         <br />
 
         <button onClick={this.onToggleDestroy}>
-          {destroy ? `Create Interval` : `Destroy Interval`}
+          {destroy ? 'Create Interval' : 'Destroy Interval'}
         </button>
       </div>
     );
