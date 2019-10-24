@@ -18,7 +18,6 @@ jobs:
           paths:
             - ~/.cache/yarn
             - node_modules
-      - run: yarn lerna run prepublish
       - run: yarn lint
       - run: yarn lerna run test --parallel --stream --no-bail
       - run: yarn lerna run lib --parallel --stream --no-bail
