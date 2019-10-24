@@ -28,6 +28,7 @@ export class ReactElementResize extends React.Component {
     children: () => null
   };
 
+
   static propTypes = {
     onResize: PropTypes.func,
     onScroll: PropTypes.func,
@@ -42,6 +43,7 @@ export class ReactElementResize extends React.Component {
     children: PropTypes.func
   };
 
+
   state = {
     width: -1,
     height: -1,
@@ -51,9 +53,11 @@ export class ReactElementResize extends React.Component {
     scrollTop: -1
   };
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillMount() {
-    const {debounceTimeout, debounceOptions, onResize, onScroll} = this.props;
+
+  constructor(props) {
+    super(props);
+
+    const {debounceTimeout, debounceOptions, onResize, onScroll} = props;
 
     if (onResize) {
       this.onResizeDebounced = debounceTimeout > -1
@@ -68,6 +72,7 @@ export class ReactElementResize extends React.Component {
     }
   }
 
+
   componentDidMount() {
     const {onResize, onScroll} = this.props;
 
@@ -81,6 +86,7 @@ export class ReactElementResize extends React.Component {
       this.rafOnScroll = window.requestAnimationFrame(this.onScroll);
     }
   }
+
 
   componentWillUnmount() {
     const {onResize, onScroll} = this.props;
@@ -102,9 +108,11 @@ export class ReactElementResize extends React.Component {
     }
   }
 
+
   onContainerRef = ref => {
     this.container = ref;
   };
+
 
   onResize = () => {
     const {innerWidth: width, innerHeight: height} = this.sensor.contentWindow;
@@ -113,6 +121,7 @@ export class ReactElementResize extends React.Component {
     this.setState({width, height});
   };
 
+
   onScroll = () => {
     const {offsetLeft, offsetTop, scrollLeft, scrollTop} = this.container;
     const {onScroll} = this.props;
@@ -120,9 +129,11 @@ export class ReactElementResize extends React.Component {
     this.setState({offsetLeft, offsetTop, scrollLeft, scrollTop});
   };
 
+
   onSensorRef = ref => {
     this.sensor = ref;
   };
+
 
   render() {
     const {
@@ -141,9 +152,11 @@ export class ReactElementResize extends React.Component {
     return (
       <div ref={this.onContainerRef} style={{position: 'relative', ...style}} {...props}>
         {onResize
-          ? <iframe ref={this.onSensorRef} title="Element resize sensor" style={iframeStyle} /> : null}
+          ? <iframe ref={this.onSensorRef} title="Element resize sensor" style={iframeStyle} />
+          : null}
         {shouldRender
-          ? render({width, height, offsetLeft, offsetTop, scrollLeft, scrollTop}) : null}
+          ? render({width, height, offsetLeft, offsetTop, scrollLeft, scrollTop})
+          : null}
       </div>
     );
   }
