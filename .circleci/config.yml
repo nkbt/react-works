@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:14.15.3
 
     steps:
       - checkout
