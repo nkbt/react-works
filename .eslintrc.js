@@ -5,6 +5,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    'no-multiple-empty-lines': ['error', {max: 2, maxEOF: 0}],
     'arrow-parens': ['error', 'as-needed'],
     'comma-dangle': ['error', 'never'],
     'object-curly-spacing': ['error', 'never'],
