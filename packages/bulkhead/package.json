@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/packages/bulkhead",
   "peerDependencies": {
-    "react": "^15.3.0 || ^16.0.0"
+    "react": "^15.3.0 || ^16.0.0 || ^17.0.0"
   },
   "dependencies": {
     "prop-types": "^15.6.0"
@@ -69,8 +69,8 @@
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-tags-plugin": "^2.0.17",
     "mini-css-extract-plugin": "^0.8.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "style-loader": "^1.0.0",
     "tape": "^4.11.0",
     "webpack": "^4.41.0",
