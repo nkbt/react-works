@@ -1,0 +1,40 @@
+{
+  "name": "@nkbt/react-works--e2e",
+  "private": true,
+  "version": "1.0.0",
+  "description": "E2E testing with Puppeteer",
+  "main": "index.js",
+  "bin": {
+    "react-works-browser": "./browser.js"
+  },
+  "scripts": {
+    "start": "node ./browser.js",
+    "test": "exit 1"
+  },
+  "repository": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
+  "keywords": [
+    "e2e",
+    "end-to-end",
+    "puppeteer"
+  ],
+  "author": "Nik Butenko <nik@butenko.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nkbt/react-works/issues",
+    "email": "nik@butenko.me"
+  },
+  "homepage": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
+  "dependencies": {
+    "puppeteer-core": "^7.1.0"
+  },
+  "devDependencies": {
+  },
+  "files": [
+    "browser.js",
+    "index.js",
+    "watcher.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ]
+}

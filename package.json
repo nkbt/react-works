@@ -22,6 +22,7 @@
   },
   "dependencies": {},
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "tools/*"
   ]
 }
