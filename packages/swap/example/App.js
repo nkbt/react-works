@@ -2,12 +2,12 @@ import React from 'react';
 import {ReactSwap} from '../src/Component';
 
 
-const On = props => <div className="on" {...props} />;
-const Off = props => <div className="off" {...props} />;
+const On = props => <div data-e2e="on" className="on" {...props} />;
+const Off = props => <div data-e2e="off" className="off" {...props} />;
 
 
 const Clickable = () => (
-  <div>
+  <div data-e2e="clickable">
     <h2>Clickable</h2>
     <ReactSwap>
       <Off data-swap-handler={1}>OFF</Off>
@@ -18,7 +18,7 @@ const Clickable = () => (
 
 
 const Hoverable = () => (
-  <div>
+  <div data-e2e="hoverable">
     <h2>Hoverable</h2>
     <ReactSwap isHover>
       <Off data-swap-handler={1}>OFF</Off>
@@ -29,7 +29,7 @@ const Hoverable = () => (
 
 
 const Delayed = () => (
-  <div>
+  <div data-e2e="delayed">
     <h2>Hoverable with delay</h2>
     <ReactSwap delay={200} isHover>
       <Off>OFF</Off>
@@ -40,7 +40,7 @@ const Delayed = () => (
 
 
 const Deep = () => (
-  <div>
+  <div data-e2e="deep">
     <h2>Deep Swap</h2>
     <ReactSwap>
       <div>
@@ -58,7 +58,7 @@ const Deep = () => (
 
 
 const Table = () => (
-  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
+  <table data-e2e="table" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -83,7 +83,7 @@ const Table = () => (
 
 
 const DeepTableSwap = () => (
-  <table style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
+  <table data-e2e="deep-table" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
     <tbody>
       <tr>
         <td>
@@ -124,7 +124,7 @@ class WithCallback extends React.Component {
   render() {
     const {opened} = this.state;
     return (
-      <div>
+      <div data-e2e="with-callback">
         <h2>With callback (opened: {opened ? 'yes' : 'no'})</h2>
         <ReactSwap onSwap={this.onSwap}>
           <Off data-swap-handler={1}>OFF</Off>
@@ -145,7 +145,7 @@ class ToggleFromOutside extends React.Component {
   render() {
     const {opened} = this.state;
     return (
-      <div>
+      <div data-e2e="toggle-from-outside">
         <h2>
           Toggle from outside
           &nbsp;
