@@ -8,7 +8,7 @@ process.on('uncaughtException', logError);
 process.on('unhandledRejection', logError);
 
 let i = 0;
-module.exports = async filepath => {
+const watcher = async filepath => {
   const run = async () => {
     console.clear();
     i += 1;
@@ -18,7 +18,7 @@ module.exports = async filepath => {
         delete require.cache[filepath];
       }
       const newRunner = require(filepath);
-      newRunner();
+      newRunner(require('./assert').assert);
       console.log('[DONE]');
     } catch (err) {
       console.error(err);
@@ -31,4 +31,9 @@ module.exports = async filepath => {
     }
   });
   run().catch(e => console.error(e));
+};
+
+
+module.exports = {
+  watcher
 };

@@ -30,10 +30,9 @@ const devBrowser = async () => {
   }
 };
 
-exports.devBrowser = devBrowser;
 
 let page;
-exports.devPage = async () => {
+const devPage = async () => {
   if (page) {
     return page;
   }
@@ -45,5 +44,11 @@ exports.devPage = async () => {
 
 if (require.main === module) {
   devBrowser()
-    .then(browser => console.log('Browser running and listening on', browser.wsEndpoint()));
+    .then(browser => console.log('Browser running and listening on',
+      browser.wsEndpoint()));
 }
+
+module.exports = {
+  devBrowser,
+  devPage
+};

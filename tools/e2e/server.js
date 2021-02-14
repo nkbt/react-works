@@ -2,17 +2,27 @@
 
 
 const {
-  NODE_HOST = '0.0.0.0',
+  NODE_HOST: host = '0.0.0.0',
   NODE_PORT = 8000
 } = process.env;
 
-module.exports = async dir => {
+
+let devServer;
+
+const server = async dir => {
+  if (devServer) {
+    return devServer;
+  }
   const {getPortPromise} = require('portfinder');
-  const port = await getPortPromise({host: NODE_HOST, port: NODE_PORT});
+  const port = await getPortPromise({host, port: NODE_PORT});
 
   return new Promise((resolve, reject) => {
     const {Server} = require('node-static');
-    const fileserver = new Server(dir);
+    const fileserver = new Server(dir, {
+      cache: false,
+      indexFile: 'index.html',
+      gzip: false
+    });
 
     const onRequest = (req, res) => {
       console.log(`${req.method} ${req.url}`);
@@ -33,25 +43,29 @@ module.exports = async dir => {
       }).resume();
     };
 
-    const server = require('http').createServer(onRequest);
+    devServer = require('http').createServer(onRequest);
 
     const onListen = err => {
       if (err) {
-        console.error(`Could not start app server on http://${NODE_HOST}:${port}`);
+        console.error(`Could not start app server on http://${host}:${port}`);
         console.error(err);
         reject(err);
         return;
       }
-      console.log(`App server is listening on http://${NODE_HOST}:${port}`);
-      resolve(server);
+      console.log(`App server is listening on http://${host}:${port}`);
+      resolve(devServer);
     };
 
-    server.listen(port, NODE_HOST, onListen);
+    devServer.listen(port, host, onListen);
   });
 };
 
 
 if (require.main === module) {
   const [dir] = process.argv.slice(2);
-  module.exports(dir);
+  server(dir);
 }
+
+module.exports = {
+  server
+};
