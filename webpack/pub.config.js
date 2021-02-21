@@ -1,15 +1,5 @@
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {
-  pathTo,
-  plugins,
-  loaders,
-  resolve,
-  stats,
-  externals,
-  INCLUDE_JS
-} = require('./common');
-
+const {pathTo, plugins, loaders, resolve, stats, externals, INCLUDE_JS} = require('./common');
 
 module.exports = {
   mode: 'development',
@@ -32,10 +22,7 @@ module.exports = {
       loaders.babel,
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {loader: 'css-loader'}
-        ]
+        use: [MiniCssExtractPlugin.loader, {loader: 'css-loader'}]
       }
     ]
   },

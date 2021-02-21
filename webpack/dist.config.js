@@ -10,7 +10,6 @@ const {
   plugins
 } = require('./common');
 
-
 module.exports = {
   mode,
   devtool: false,
@@ -24,13 +23,8 @@ module.exports = {
   optimization: {
     minimize: false
   },
-  plugins: [
-    plugins.emptyPropTypes
-  ],
   module: {
-    rules: [
-      loaders.babelProd
-    ]
+    rules: [loaders.babel]
   },
   resolve,
   stats,
