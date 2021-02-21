@@ -95,8 +95,8 @@ const Clickable = React.createClass({
       <div>
         <h2>Clickable</h2>
         <Swap>
-          <Off data-swap-handler>OFF</Off>
-          <On data-swap-handler>ON</On>
+          <Off data-swap-handler />
+          <On data-swap-handler />
         </Swap>
       </div>
     );
@@ -110,8 +110,8 @@ const Hoverable = React.createClass({
       <div>
         <h2>Hoverable</h2>
         <Swap isHover={true}>
-          <Off data-swap-handler>OFF</Off>
-          <On>ON</On>
+          <Off data-swap-handler />
+          <On />
         </Swap>
       </div>
     );
@@ -125,8 +125,8 @@ const Delayed = React.createClass({
       <div>
         <h2>Hoverable with delay</h2>
         <Swap isHover={true} delay={200}>
-          <Off>OFF</Off>
-          <On>ON</On>
+          <Off />
+          <On />
         </Swap>
       </div>
     );

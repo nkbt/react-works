@@ -1,0 +1,47 @@
+{
+  "name": "@nkbt/react-works--e2e",
+  "version": "1.0.0",
+  "description": "E2E testing with Puppeteer",
+  "main": "index.js",
+  "bin": {
+    "react-works--e2e-browser": "./browser.js",
+    "react-works--e2e-server": "./devServer.js",
+    "react-works--e2e-start": "./start.js",
+    "react-works--e2e-validate": "./validate.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "deps": "! depcheck --specials=bin,eslint --ignore-dirs=build,lib,pub | grep --invert-match 'No depcheck issue'"
+  },
+  "repository": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
+  "keywords": [
+    "e2e",
+    "end-to-end",
+    "puppeteer"
+  ],
+  "author": "Nik Butenko <nik@butenko.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nkbt/react-works/issues",
+    "email": "nik@butenko.me"
+  },
+  "homepage": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "node-static": "^0.7.11",
+    "portfinder": "^1.0.28",
+    "puppeteer-core": "^7.1.0"
+  },
+  "devDependencies": {},
+  "files": [
+    "assert.js",
+    "browser.js",
+    "index.js",
+    "start.js",
+    "validate.js",
+    "watcher.js",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}

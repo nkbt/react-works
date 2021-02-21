@@ -6,10 +6,8 @@ const {
   loaders,
   resolve,
   stats,
-  externals,
-  plugins
+  externals
 } = require('./common');
-
 
 module.exports = {
   mode,
@@ -24,13 +22,8 @@ module.exports = {
   optimization: {
     minimize: false
   },
-  plugins: [
-    plugins.emptyPropTypes
-  ],
   module: {
-    rules: [
-      loaders.babelProd
-    ]
+    rules: [loaders.babel]
   },
   resolve,
   stats,

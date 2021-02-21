@@ -1,4 +1,3 @@
-
 const {
   mode,
   pathTo,
@@ -11,7 +10,6 @@ const {
   externals
 } = require('./common');
 
-
 module.exports = {
   mode,
   devtool: false,
@@ -22,14 +20,9 @@ module.exports = {
     library: COMPONENT_NAME,
     libraryTarget: 'umd'
   },
-  plugins: [
-    plugins.emptyPropTypes,
-    plugins.loaderOptions
-  ],
+  plugins: [plugins.emptyPropTypes, plugins.loaderOptions],
   module: {
-    rules: [
-      loaders.babelProd
-    ]
+    rules: [loaders.babelProd]
   },
   resolve,
   stats,

@@ -1,13 +1,19 @@
-version: 2
+version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.1.2
 
 jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/node:14.15.3
+      - image: cimg/node:14.15.5-browsers
 
     steps:
+      - browser-tools/install-chrome:
+          chrome-version: 88.0.4324.150
+      - run: which google-chrome
+      - run: google-chrome --version
       - checkout
       - restore_cache:
           key: deps-{{ checksum "yarn.lock" }}
@@ -23,3 +29,4 @@ jobs:
       - run: yarn lerna run lib --parallel --stream --no-bail
       - run: yarn lerna run dist --parallel --stream --no-bail
       - run: yarn lerna run pub --parallel --stream --no-bail
+      - run: CHROME_PATH=$(which google-chrome) yarn lerna run e2e-validate --parallel --stream --no-bail

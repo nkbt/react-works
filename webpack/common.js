@@ -3,13 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const path = require('path');
 
-
 const {NODE_ENV = 'development'} = process.env;
-
 
 const pathTo = p => path.join(process.cwd(), p);
 exports.pathTo = pathTo;
-
 
 const {
   config: {
@@ -29,22 +26,16 @@ exports.PACKAGE_NAME = PACKAGE_NAME;
 exports.COMPONENT_NAME = COMPONENT_NAME;
 exports.INCLUDE_JS = INCLUDE_JS;
 
-
 if (!COMPONENT_NAME) {
   throw Error('<package.json>.config.component name is required');
 }
 
-
 exports.PACKAGE_NAME = PACKAGE_NAME;
-
 
 exports.loaders = {
   css: {
     test: /\.css$/,
-    use: [
-      require.resolve('style-loader'),
-      require.resolve('css-loader')
-    ],
+    use: [require.resolve('style-loader'), require.resolve('css-loader')],
     include: [pathTo('src'), pathTo('example')]
   },
   babel: {
@@ -54,8 +45,9 @@ exports.loaders = {
     options: {
       babelrc: false,
       presets: [
-        require.resolve('@babel/preset-react'), [
-          require.resolve('@babel/preset-env'), {modules: false}]],
+        require.resolve('@babel/preset-react'),
+        [require.resolve('@babel/preset-env'), {modules: false}]
+      ],
       plugins: [
         require.resolve('@babel/plugin-proposal-object-rest-spread'),
         require.resolve('@babel/plugin-proposal-class-properties')
@@ -69,8 +61,9 @@ exports.loaders = {
     options: {
       babelrc: false,
       presets: [
-        require.resolve('@babel/preset-react'), [
-          require.resolve('@babel/preset-env'), {modules: false}]],
+        require.resolve('@babel/preset-react'),
+        [require.resolve('@babel/preset-env'), {modules: false}]
+      ],
       plugins: [
         require.resolve('@babel/plugin-proposal-object-rest-spread'),
         require.resolve('@babel/plugin-proposal-class-properties'),
@@ -80,29 +73,21 @@ exports.loaders = {
   }
 };
 
-
 exports.plugins = {
   html: new HtmlWebpackPlugin(),
   include: tags => new HtmlWebpackTagsPlugin({tags, append: false}),
   loaderOptions: new webpack.LoaderOptionsPlugin({minimize: true}),
-  emptyPropTypes: new webpack.NormalModuleReplacementPlugin(
-    /prop-types/,
-    resource => {
-      if (!resource.context.includes('node_modules')) {
-        Object.assign(resource, {request: `${__dirname}/emptyPropTypes`});
-      }
+  emptyPropTypes: new webpack.NormalModuleReplacementPlugin(/prop-types/, resource => {
+    if (!resource.context.includes('node_modules')) {
+      Object.assign(resource, {request: `${__dirname}/emptyPropTypes`});
     }
-  )
+  })
 };
-
 
 exports.resolve = {};
 
-
 exports.stats = {colors: true};
 
-
 exports.externals = COMPONENT_EXTERNALS;
-
 
 exports.mode = NODE_ENV;
