@@ -1,6 +1,5 @@
 {
   "name": "@nkbt/react-works--e2e",
-  "private": true,
   "version": "1.0.0",
   "description": "E2E testing with Puppeteer",
   "main": "index.js",
@@ -35,11 +34,14 @@
   },
   "devDependencies": {},
   "files": [
+    "assert.js",
     "browser.js",
     "index.js",
+    "start.js",
+    "validate.js",
     "watcher.js",
-    "LICENSE",
     "package.json",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ]
 }
