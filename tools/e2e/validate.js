@@ -119,5 +119,7 @@ module.exports = validate;
 
 if (require.main === module) {
   const [pattern, dir] = process.argv.slice(2);
-  validate(pattern, dir);
+  validate(pattern, dir)
+    .then(() => process.exit(0))
+    .catch(err => console.error(err) || process.exit(1));
 }
