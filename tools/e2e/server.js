@@ -7,11 +7,11 @@ const {
 } = process.env;
 
 
-let devServer;
+let server;
 
-const server = async dir => {
-  if (devServer) {
-    return devServer;
+const devServer = async dir => {
+  if (server) {
+    return server;
   }
   const {getPortPromise} = require('portfinder');
   const port = await getPortPromise({host, port: NODE_PORT});
@@ -43,7 +43,7 @@ const server = async dir => {
       }).resume();
     };
 
-    devServer = require('http').createServer(onRequest);
+    server = require('http').createServer(onRequest);
 
     const onListen = err => {
       if (err) {
@@ -53,19 +53,19 @@ const server = async dir => {
         return;
       }
       console.log(`App server is listening on http://${host}:${port}`);
-      resolve(devServer);
+      resolve(server);
     };
 
-    devServer.listen(port, host, onListen);
+    server.listen(port, host, onListen);
   });
 };
 
 
 if (require.main === module) {
   const [dir] = process.argv.slice(2);
-  server(dir);
+  devServer(dir);
 }
 
 module.exports = {
-  server
+  devServer
 };

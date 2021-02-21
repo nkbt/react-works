@@ -5,8 +5,9 @@
   "description": "E2E testing with Puppeteer",
   "main": "index.js",
   "bin": {
-    "react-works-browser": "./browser.js",
-    "react-works-server": "./server.js"
+    "react-works--e2e-browser": "./browser.js",
+    "react-works--e2e-server": "./devServer.js",
+    "react-works--e2e-start": "./start.js"
   },
   "scripts": {
     "start": "node ./browser.js",
@@ -29,8 +30,7 @@
     "puppeteer-core": "^7.1.0",
     "node-static": "^0.7.11"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "files": [
     "browser.js",
     "index.js",
