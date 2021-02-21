@@ -23,3 +23,4 @@ jobs:
       - run: yarn lerna run lib --parallel --stream --no-bail
       - run: yarn lerna run dist --parallel --stream --no-bail
       - run: yarn lerna run pub --parallel --stream --no-bail
+      - run: yarn lerna run e2e-validate --parallel --stream --no-bail

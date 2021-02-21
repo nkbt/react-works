@@ -9,7 +9,9 @@
     "pub": "lerna publish",
     "postpub": "git push --follow-tags",
     "pub-dry": "lerna publish --skip-git --skip-npm",
-    "deps": "lerna run deps --parallel --stream --no-bail"
+    "deps": "lerna run deps --parallel --stream --no-bail",
+    "e2e-validate": "lerna run e2e-validate --parallel --stream --no-bail",
+    "ci": "circleci local execute"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
