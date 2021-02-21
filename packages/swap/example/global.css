@@ -1,0 +1,22 @@
+.app {
+  padding: 2em;
+}
+
+.on,
+.off {
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+
+.on {
+  border-radius: 50px;
+  background-color: #c00;
+}
+
+.off {
+  background-color: #06c;
+}

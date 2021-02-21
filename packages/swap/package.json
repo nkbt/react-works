@@ -21,7 +21,9 @@
     "test": "node test/Component-test.js",
     "prepublishOnly": "yarn build",
     "postversion": "git push --follow-tags",
-    "deps": "! depcheck --specials=bin,eslint --ignore-dirs=build,lib,pub | grep --invert-match 'No depcheck issue'"
+    "deps": "! depcheck --specials=bin,eslint --ignore-dirs=build,lib,pub | grep --invert-match 'No depcheck issue'",
+    "e2e": "react-works--e2e-start './example/**/*.e2e.js'",
+    "e2e-browser": "react-works--e2e-browser"
   },
   "repository": "https://github.com/nkbt/react-works/tree/master/packages/swap",
   "keywords": [
@@ -43,10 +45,8 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/packages/swap",
   "peerDependencies": {
-    "react": "^15.3.0 || ^16.0.0 || ^17.0.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.0"
+    "react": "^15.3.0 || ^16.0.0 || ^17.0.0",
+    "prop-types": "^15"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -56,6 +56,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@nkbt/react-works--e2e": "*",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -71,6 +72,7 @@
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-tags-plugin": "^2.0.17",
     "mini-css-extract-plugin": "^0.8.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "style-loader": "^1.0.0",
