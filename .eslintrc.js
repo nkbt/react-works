@@ -15,21 +15,27 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/no-multi-comp': 'off',
-    'react/sort-comp': ['error', {
-      order: [
-        'static-variables',
-        'static-methods',
-        'instance-variables',
-        'lifecycle',
-        'everything-else',
-        'render'
-      ],
-    }],
+    'react/sort-comp': [
+      'error',
+      {
+        order: [
+          'static-variables',
+          'static-methods',
+          'instance-variables',
+          'lifecycle',
+          'everything-else',
+          'render'
+        ]
+      }
+    ],
     'react/jsx-filename-extension': ['error', {extensions: ['.js']}],
-    'react/jsx-closing-bracket-location': ['error', {
-      nonEmpty: 'after-props',
-      selfClosing: 'after-props'
-    }],
+    'react/jsx-closing-bracket-location': [
+      'error',
+      {
+        nonEmpty: 'after-props',
+        selfClosing: 'after-props'
+      }
+    ],
     'jsx-a11y/label-has-for': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
 
@@ -37,14 +43,20 @@ module.exports = {
     'react/static-property-placement': 'off',
     'react/jsx-props-no-spreading': 'off',
 
-    'object-curly-newline': ['error', {
-      multiline: true,
-      consistent: true,
-      minProperties: 0
-    }],
+    'object-curly-newline': [
+      'error',
+      {
+        multiline: true,
+        consistent: true,
+        minProperties: 0
+      }
+    ],
 
     'react/state-in-constructor': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'react/no-array-index-key': 'off'
+    'react/no-array-index-key': 'off',
+
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off'
   }
 };

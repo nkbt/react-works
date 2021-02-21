@@ -23,6 +23,7 @@
     "postversion": "git push --follow-tags",
     "deps": "! depcheck --specials=bin,eslint --ignore-dirs=build,lib,pub | grep --invert-match 'No depcheck issue'",
     "e2e": "react-works--e2e-start './example/**/*.e2e.js'",
+    "e2e-validate": "react-works--e2e-validate './example/**/*.e2e.js' './pub'",
     "e2e-browser": "react-works--e2e-browser"
   },
   "repository": "https://github.com/nkbt/react-works/tree/master/packages/swap",

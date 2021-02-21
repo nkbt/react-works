@@ -7,7 +7,8 @@
   "bin": {
     "react-works--e2e-browser": "./browser.js",
     "react-works--e2e-server": "./devServer.js",
-    "react-works--e2e-start": "./start.js"
+    "react-works--e2e-start": "./start.js",
+    "react-works--e2e-validate": "./validate.js"
   },
   "scripts": {
     "start": "node ./browser.js",
