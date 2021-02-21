@@ -11,8 +11,8 @@
     "react-works--e2e-validate": "./validate.js"
   },
   "scripts": {
-    "start": "node ./browser.js",
-    "test": "exit 1"
+    "lint": "eslint .",
+    "deps": "! depcheck --specials=bin,eslint --ignore-dirs=build,lib,pub | grep --invert-match 'No depcheck issue'"
   },
   "repository": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
   "keywords": [
@@ -28,8 +28,10 @@
   },
   "homepage": "https://github.com/nkbt/react-works/tree/master/tools/e2e",
   "dependencies": {
-    "puppeteer-core": "^7.1.0",
-    "node-static": "^0.7.11"
+    "glob": "^7.1.6",
+    "node-static": "^0.7.11",
+    "portfinder": "^1.0.28",
+    "puppeteer-core": "^7.1.0"
   },
   "devDependencies": {},
   "files": [

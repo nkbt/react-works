@@ -4,7 +4,7 @@ const [glob] = process.argv.slice(2);
 const files = require('glob').sync(glob, {realpath: true});
 
 module.exports = async function watch(assert, {skipReload}) {
-  const {devPage} = require('@nkbt/react-works--e2e');
+  const {devPage} = require('./browser');
 
   const page = await devPage();
 
@@ -23,6 +23,6 @@ module.exports = async function watch(assert, {skipReload}) {
 };
 
 if (require.main === module) {
-  const {watcher} = require('@nkbt/react-works--e2e');
+  const {watcher} = require('./watcher');
   watcher(__filename, files, process.argv.slice(3));
 }
