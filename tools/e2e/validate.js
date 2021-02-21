@@ -26,7 +26,8 @@ async function openBrowser() {
     ],
     defaultViewport: null,
     userDataDir: '/tmp/puppeteer__react-works--e2e',
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    executablePath:
+      process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     //    executablePath: '/Applications/Opera.app/Contents/MacOS/Opera'
   });
 
